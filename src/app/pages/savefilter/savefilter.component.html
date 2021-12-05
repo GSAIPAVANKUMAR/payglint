@@ -1,0 +1,25 @@
+<div style="width: 633px;height:400px">
+  <div class="save">
+    <span class="filter"> Save Filter </span>
+    <span (click)="CloseDialog()" style="margin-left:453px">
+      <img src="../../../assets/images/closeicon.png"></span>
+  </div>
+  <br />
+  <input id="nameicon" type="text" class="nametxt" style="text-indent: 20px;" placeholder="Name" />
+  <div class="viewers">Viewers</div>
+  <div class="nametxt">
+    <mat-form-field class="single-select">
+      <mat-select placeholder="Private" class="select-input" panelClass="selectInputClass">
+        <mat-option value="one">Private</mat-option>
+        <mat-option value="two">Public</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <span style="margin-left:21px">Only you</span>
+    <button class="addbtn">Add</button>
+  </div>
+  <div class="viewers">
+    <img src="../../../assets/images/lock.png" style="padding-bottom: 8px;">
+    <span class="privatetxt">Private</span>
+  </div>
+  <button class="butntxt"><span class="txtsty">Save </span></button>
+</div>

@@ -1,0 +1,108 @@
+.save {
+  background-color: #f6f6f6;
+  height: 61px;
+  padding: 20px;
+}
+.filter {
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #f6f6f6;
+}
+::ng-deep .mat-dialog-container {
+  display: block;
+  padding: 0px;
+  font-family: Lato;
+  font-style: normal;
+  font-size: 15px;
+}
+.nametxt {
+  width: 557px !important;
+  height: 62px;
+  margin-left: 34px;
+  margin-top: 10px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+}
+
+.viewers {
+  margin-left: 34px;
+  margin-top: 10px;
+  background: #ffffff;
+  border-radius: 5px;
+}
+.butntxt {
+  background: rgba(0, 0, 0, 0.69);
+  color: white;
+  margin-top: 10px;
+  margin-left: 240px;
+  width: 173px;
+  height: 50px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+}
+.txtsty {
+  width: 44px;
+  height: 22px;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 137% */
+
+  text-align: center;
+  color: #ffffff;
+}
+// #icon{
+//     background-image:url(../../assets/images/lock.png);
+//     background-repeat: no-repeat;
+//     background-position: 5px 9px;
+//   }
+
+#nameicon {
+  background-image: url(../../../assets/images/username.png);
+  background-repeat: no-repeat;
+  background-position: 5px 16px;
+  padding: 5px;
+}
+.single-select {
+  width: 100%;
+  padding: 0px 8px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #f4f5f7;
+  outline: none;
+  font-weight: 500;
+  color: #9ea5ae !important;
+  height: 40px;
+  width: 164px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.addbtn {
+  color: rgba(0, 0, 0, 0.69);
+  width: 67px;
+  height: 40px;
+  background: #f4f5f7;
+  border-radius: 4px;
+  border-color: white;
+  box-shadow: none;
+  margin-left: 220px;
+  margin-top: 10px;
+}
+.privatetxt {
+  width: 50px;
+  height: 22px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 137% */
+
+  color: #4d556a;
+}

@@ -1,0 +1,121 @@
+<div class="checkdeteails" *ngIf="true">
+    <div class="checkpoint"><span class="checktext">Checkpoint Details</span><span style="padding-left: 90px;"> <img
+                src="../../../assets/images/share 1.png" /></span><span style="padding-left: 20px;" (click)=addNew(dis)>
+            <img src="../../../../assets/images/close.png" /></span>
+    </div>
+    <div>
+        <div class="inlinebtn">
+            <div class="lowbtn"><span class="btns">{{row.Severity}}</span></div>
+            <div class="inptuetag">
+                <mat-form-field class="single-select">
+                    <mat-label>Select Resolution</mat-label>
+                    <mat-select class="select-input" panelClass="selectInputClass">
+                        <mat-option value="one">First option</mat-option>
+                        <mat-option value="two">Second option</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="checkbody">
+            <div class="check-general" (click)="gencollapse()">
+                <span class="checktext">General Information
+                </span>
+                <span class="arrowimg"><img src="../../../assets/images/path9429 (2).png" /></span>
+            </div>
+            <div class="genaralinf" *ngIf="showgeninf">
+                <div class="adressline">
+                    <span class="acordian1">IP</span>
+                    <span class="acordian2">66.102.6.8</span>
+                </div>
+
+                <div class="adressline2">
+                    <span class="acordian1">User ID</span>
+                    <span class="acordian2">text</span>
+                </div>
+                <div class="adressline">
+                    <span class="acordian1">Checkpoint</span>
+                    <span class="acordian2">Login</span>
+                </div>
+                <div class="adressline2">
+                    <span class="acordian1">Risk Score</span>
+                    <span class="acordian2">147</span>
+                </div>
+                <div class="adressline">
+                    <span class="acordian1">Severity</span>
+                    <span class="acordian2">Low</span>
+                </div>
+
+                <div class="adressline2">
+                    <span class="acordian1">Request ID</span>
+                    <span class="acordian2">text</span>
+                </div>
+                <div class="adressline">
+                    <span class="acordian1">Device</span>
+                    <span class="acordian2">66.102.6.8</span>
+                </div>
+                <div class="adressline2">
+                    <span class="acordian1">Session ID</span>
+                    <span class="acordian2">text</span>
+                </div>
+            </div>
+            <div style="margin-top: 10px;">
+                <div class="check-general" (click)="usercollapse()">
+                    <span class="checktext">User Information
+                    </span>
+                    <span class="arrowimginf"><img src="../../../assets/images/path9429 (2).png" /></span>
+                </div>
+                <div class="genaralinf" *ngIf="showuserinf">
+                    <div class="adressline">
+                        <span class="acordian1">Email</span>
+                        <span class="acordian2">example@gmail.com</span>
+                    </div>
+
+                    <div class="adressline2">
+                        <span class="acordian1">Email Verifation</span>
+                        <span class="acordian2">Not Verified</span>
+                    </div>
+                    <div class="adressline">
+                        <span class="acordian1">Phone</span>
+                        <span class="acordian2">+8801740488691</span>
+                    </div>
+                    <div class="adressline2">
+                        <span class="acordian1">Phone Verification</span>
+                        <span class="acordian2">Not Verified</span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;">
+                <div class="check-general" (click)="reasoncollapse()">
+                    <span class="checktext">Reason
+                    </span>
+                    <span class="arrowimguser"><img src="../../../assets/images/path9429 (2).png" /></span>
+                </div>
+                <div class="genaralinf" *ngIf="showreasoninf">
+                    <div class="device">
+                        <span class="devimg"></span>
+                        <span class="devtxt">Device</span>
+                    </div>
+                    <div class="adressline2">
+                        <span class="useimg1"></span>
+                        <span class="usertxt">User is known for this device</span>
+                    </div>
+                    <div class="adressline2">
+                        <span class="useimg"></span>
+                        <span class="usertxt">Location issue</span>
+                    </div>
+                    <div class="deviceuser">
+                        <span class="userimg"></span>
+                        <span class="devtxt">User</span>
+                    </div>
+                    <div class="adressline">
+                        <span class="newuseimg1"></span>
+                        <span class="usertxt">New email Address</span>
+                    </div>
+                    <div class="adressline2">
+                        <span class="transimg"></span>
+                        <span class="usertxt">Transaction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
