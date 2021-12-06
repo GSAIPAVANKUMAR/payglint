@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
     // MatPaginator Inputs
     paginationInfo: any;
   pageSizeOptions: number[] = [5, 10, 25, 100];
+  showexport = true;
   selectedRowIndex :any;
   dispalyRow = false;
   rowData: any;
@@ -178,6 +179,16 @@ export class DashboardComponent implements OnInit {
       document.body.removeChild(link);
       // }
       // }
+    }
+  }
+  onTabChanged($event: any) {
+    debugger;
+    console.log($event);
+    if ($event.index == 1) {
+      this.showexport = false;
+    }
+    else {
+      this.showexport = true;
     }
   }
 }

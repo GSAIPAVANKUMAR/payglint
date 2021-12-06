@@ -258,12 +258,13 @@ button {
 .exporttxt {
   width: 105px;
   height: 36px;
-  left: 1212px;
+  z-index: 999;
+  left: 1200px;
   border: 1px solid #cfd3d2;
   box-sizing: border-box;
   border-radius: 3px;
   position: relative;
-  top: -6%;
+  top: -80%;
   background: none;
 }
 ::ng-deep .mat-tab-label-active .imgicon {
@@ -314,6 +315,6 @@ button {
 ::ng-deep .mat-active {
   color: #86c255 !important;
 }
-::ng-deep .mat-tab-group {
+::ng-deep .mat-tab-header {
   width: 50% !important;
 }
