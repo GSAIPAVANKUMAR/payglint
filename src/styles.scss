@@ -1,4 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//font-weight: 900
+@font-face {
+  font-family: LATO-Black;
+  src: url(assets/fonts/Lato/Lato-Black.ttf) format("opentype");
+}
+@font-face {
+  font-family: LATO-BlackItalic;
+  src: url(assets/fonts/Lato/Lato-BlackItalic.ttf) format("opentype");
+}
+//font-weight: 700
+@font-face {
+  font-family: LATO-Bold;
+  src: url(assets/fonts/Lato/Lato-Bold.ttf) format("opentype");
+}
+@font-face {
+  font-family: LATO-BoldItalic;
+  src: url(assets/fonts/Lato/Lato-BoldItalic.ttf) format("opentype");
+}
+@font-face {
+  font-family: LATO-Italic;
+  src: url(assets/fonts/Lato/Lato-Italic.ttf) format("opentype");
+}
+//font-weight: 300
+@font-face {
+  font-family: LATO-Light;
+  src: url(assets/fonts/Lato/Lato-Light.ttf) format("opentype");
+}
+@font-face {
+  font-family: LATO-LightItalic;
+  src: url(assets/fonts/Lato/Lato-LightItalic.ttf) format("opentype");
+}
+//font-weight: 400
+@font-face {
+  font-family: LATO-Regular;
+  src: url(assets/fonts/Lato/Lato-Regular.ttf) format("opentype");
+}
+//font-weight: 100
+@font-face {
+  font-family: LATO-Thin;
+  src: url(assets/fonts/Lato/Lato-Thin.ttf) format("opentype");
+}
+@font-face {
+  font-family: LATO-ThinItalic;
+  src: url(assets/fonts/Lato/Lato-ThinItalic.ttf) format("opentype");
+}

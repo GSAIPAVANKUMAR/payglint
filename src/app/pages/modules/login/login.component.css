@@ -1,73 +1,68 @@
-.formInput{
-width: 429px;
-height: 50px;
+.formInput {
+  width: 429px;
+  height: 50px;
 
-background: #FFFFFF;
-border: 1px solid #E5E5E5;
-box-sizing: border-box;
-box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
-border-radius: 5px;
-margin-bottom: 20px;
-margin-left: 30px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 30px;
 }
-.matcrs{
+.matcrs {
   width: 490px;
   height: 358px;
-  background: #F5F5F5;
+  background: #f5f5f5;
   border-radius: 5px;
   margin-bottom: 110px;
 }
-.imgsty{
+.imgsty {
   width: 160px;
   margin-left: 150px;
   margin-bottom: 20px;
 }
-.btnsty{
+.btnsty {
   width: 214px;
-height: 50px;
-background: #5D6276;
-box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
-border-radius: 5px;
-margin-left: 140px;
+  height: 50px;
+  background: #5d6276;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+  margin-left: 140px;
 }
-.txtsty{
+.txtsty {
   width: 44px;
   height: 22px;
-  
-  font-family: Lato;
-  font-style: normal;
-  font-weight: bold;
+
+  font-family: LATO-Bold;
   font-size: 16px;
   line-height: 22px;
   /* identical to box height, or 137% */
-  
+
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.textstyone{
+.textstyone {
   width: 196px;
-height: 22px;
-font-family: Lato;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-margin-top: 110px;
-line-height: 22px;
-color: #000000;
-margin-left: 120px;
-opacity: 0.4;
+  height: 22px;
+  font-family: LATO-Regular;
+  font-size: 16px;
+  margin-top: 110px;
+  line-height: 22px;
+  color: #000000;
+  margin-left: 120px;
+  opacity: 0.4;
 }
-#icon{
-  background-image:url(../../../../assets/images/lock.png); 
-  background-repeat: no-repeat; 
+#icon {
+  background-image: url(../../../../assets/images/lock.png);
+  background-repeat: no-repeat;
   background-position: 7px 14px;
 }
-#emailicon{
-  background-image:url(../../../../assets/images/email.png); 
-  background-repeat: no-repeat; 
+#emailicon {
+  background-image: url(../../../../assets/images/email.png);
+  background-repeat: no-repeat;
   background-position: 7px 14px;
 }
-::ng-deep body{
+::ng-deep body {
   overflow: hidden !important;
 }
-
