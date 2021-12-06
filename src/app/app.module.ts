@@ -48,6 +48,8 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { PaginatorDirective } from './pagination.directive';
 import { DashboardComponent } from './pages/modules/dashboard/dashboard.component';
 import { CheckpopupComponent } from './pages/checkpopup/checkpopup.component';
+import { MapComponent } from './pages/map/map.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -58,7 +60,8 @@ import { CheckpopupComponent } from './pages/checkpopup/checkpopup.component';
     PaginatorDirective,
     DashboardComponent,
     CheckpopupComponent,
-    SavefilterComponent
+    SavefilterComponent,
+    MapComponent
 
   ],
   imports: [
@@ -110,6 +113,9 @@ import { CheckpopupComponent } from './pages/checkpopup/checkpopup.component';
     MatTableModule,
     ToastrModule.forRoot({
       preventDuplicates: true
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyAjeJEPREBQFvAIqDSZliF0WjQrCld-Mh0"
     }),
   ],
   entryComponents:[LoginComponent],
