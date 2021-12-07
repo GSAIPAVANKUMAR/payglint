@@ -11,13 +11,13 @@
         <span class="menu-link-label ml-4">Dashboard</span>
       </mat-list-item>
       <mat-list-item (click)="navigate('/dashboard')" [ngClass]="{ 'active-link': activeLink == 'Home' }">
-        <span class="sidenav-icon">
-          <img *ngIf="isExpanded" src="../../../../assets/images/Group 32379.png" />
+        <span class="sidenav-icon" style="margin-left: -8px;">
+          <img *ngIf="isExpanded" src="../../../../assets/images/calgroup.png" />
         </span>
         <br />
         <span class="menu-link-label ml-4" style="margin-left: 10px;">Events</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/profile')" [ngClass]="{ 'active-link': activeLink == 'profile' }">
+      <mat-list-item [ngClass]="{ 'active-link': activeLink == 'profile' }" style="margin-top:35px">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/transaction 3.png" />
         </span>

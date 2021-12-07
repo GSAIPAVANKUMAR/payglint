@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.username,
       password: this.loginForm.value.password,
     };
-    alert();
     this.router.navigate(["/dashboard"]);
   }
 }

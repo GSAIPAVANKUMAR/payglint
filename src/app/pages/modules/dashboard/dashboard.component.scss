@@ -205,9 +205,10 @@ button {
   color: #4d556a;
 }
 .lowbtn {
-  width: 68px;
-  height: 30px;
-  padding-top: 7px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 23px;
+  padding-right: 23px;
   background: #e1eec5;
   border-radius: 100px;
 }
@@ -259,13 +260,16 @@ button {
   width: 105px;
   height: 36px;
   z-index: 999;
-  left: 1200px;
+  left: 92%;
   border: 1px solid #cfd3d2;
   box-sizing: border-box;
   border-radius: 3px;
   position: relative;
   top: -80%;
   background: none;
+}
+.highlighting{
+  top: -85% !important; 
 }
 ::ng-deep .mat-tab-label-active .imgicon {
   background: url("../../../../assets/images/list 1.png") !important;
@@ -318,3 +322,6 @@ button {
 ::ng-deep .mat-tab-header {
   width: 50% !important;
 }
+:host::ng-deep .mat-select-placeholder {
+  color: red;
+} 

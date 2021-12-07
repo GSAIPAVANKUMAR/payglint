@@ -6,7 +6,7 @@
   background: #ffffff;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
-  left: 73%;
+  left: 75%;
 }
 .check-general {
   width: 285px;
@@ -228,6 +228,7 @@
 .checkbody{
   height: 550px;
   overflow: auto;
+  margin-right: 10px;
 }
 .checkbody::-webkit-scrollbar {
   width: 8px;

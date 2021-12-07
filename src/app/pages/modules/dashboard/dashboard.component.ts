@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   selectedRowIndex :any;
   dispalyRow = false;
   rowData: any;
+  nameplaceholder: string = 'name';
     matDialgRef!: MatDialogRef<SavefilterComponent>;
     // Test states
     EmitResult = {
@@ -45,11 +46,19 @@ export class DashboardComponent implements OnInit {
     { Severity: 'Low', Score: 'Hydrogen6', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution: 'value' },
     { Severity: 'Low', Score: 'Hydrogen4', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual',Resolution:'value' },
     { Severity: 'Low', Score: 'Hydrogen5', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution:'value'},
+    { Severity: 'Low', Score: 'Hydrogen6', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution: 'value' },
+    { Severity: 'Low', Score: 'Hydrogen2', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual',Resolution:'value' },
+    { Severity: 'Low', Score: 'Hydrogen3', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution:'value'},
+    { Severity: 'Low', Score: 'Hydrogen4', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual',Resolution:'value' },
+    { Severity: 'Low', Score: 'Hydrogen5', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution:'value'},
+    { Severity: 'Low', Score: 'Hydrogen6', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution: 'value' },
+    { Severity: 'Low', Score: 'Hydrogen4', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual',Resolution:'value' },
+    { Severity: 'Low', Score: 'Hydrogen5', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution:'value'},
     { Severity: 'Low', Score: 'Hydrogen6', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual',Status: 'Casual',Resolution:'value'}
   ];
   tableData: any;
     constructor(private httpClient: HttpClient, private matDialog: MatDialog) {
-      // this.getPageDetails();
+       this.getPageDetails();
       
     }
     setPageSizeOptions = (setPageSizeOptionsInput: string) => {
@@ -80,7 +89,7 @@ export class DashboardComponent implements OnInit {
       // return this.allProjects(pg, lmt).subscribe( res => {
       // this.tableData = [];
       // });
-      const start : number = pg*6;
+      const start : number = pg*9;
       console.log(this.tableData1.slice(start,start+lmt));
       this.tableData = this.tableData1.slice(start,start+lmt);
     }
@@ -189,6 +198,18 @@ export class DashboardComponent implements OnInit {
     }
     else {
       this.showexport = true;
+    }
+  
+  }
+  checkPlaceHolder() {
+    console.log(this.nameplaceholder.length)
+    debugger;
+    if (this.nameplaceholder.length >= 0) {
+      this.nameplaceholder = ''
+      return;
+    } else {
+      this.nameplaceholder = 'name'
+      return
     }
   }
 }
