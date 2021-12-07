@@ -13,8 +13,8 @@ export class DashboardComponent implements OnInit {
   BASE_URL = 'http://localhost:3000';
   mockCsvData!: string;
 
-   mockHeaders = `Severity,Score,Date,Session,UserID,DeviceID,Checkpoint,Amount,Currency,Destination,Status,Resolution
-`
+   mockHeaders = ['Severity','Score','Date','Session','UserID','DeviceID','Checkpoint','Amount','Currency','Destination','Status','Resolution'];
+
     // MatPaginator Inputs
     paginationInfo: any;
   pageSizeOptions: number[] = [5, 10, 25, 100];
@@ -43,9 +43,9 @@ export class DashboardComponent implements OnInit {
     { Severity: 'Low', Score: 'Hydrogen4', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual',Resolution:'value' },
     { Severity: 'Low', Score: 'Hydrogen5', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution:'value'},
     { Severity: 'Low', Score: 'Hydrogen6', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution: 'value' },
-    { Severity: 'Low', Score: 'Hydrogen4', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual',Resolution:'value' },
-    { Severity: 'Low', Score: 'Hydrogen5', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution:'value'},
-    { Severity: 'Low', Score: 'Hydrogen6', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual',Status: 'Casual',Resolution:'value'}
+    { Severity: 'Low', Score: 'Hydrogen7', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual',Resolution:'value' },
+    { Severity: 'Low', Score: 'Hydrogen8', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual', Status: 'Casual', Resolution:'value'},
+    { Severity: 'Low', Score: 'Hydrogen9', Date: 'Casual', Session: 1, UserID: 'Hydrogen', DeviceID: 'Casual', Checkpoint: 'Hydrogen', Amount: 'Casual', Currency: 'Hydrogen', Destination: 'Casual',Status: 'Casual',Resolution:'value'}
   ];
   tableData: any;
     constructor(private httpClient: HttpClient, private matDialog: MatDialog) {

@@ -20,11 +20,11 @@
 .inptuetag {
   margin-left: 10px;
 }
-table {
-  width: 100%;
-  border-radius: 9px 9px 0px 0px;
-  overflow: hidden;
-}
+// table {
+//   width: 100%;
+//   border-radius: 9px 9px 0px 0px;
+//   overflow: hidden;
+// }
 .inputform {
   margin-left: 10px;
   width: 122px;
@@ -158,31 +158,31 @@ input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
   align-items: center;
 }
 
-td,
-th,
-tr,
-h2,
-h1 {
-  text-align: center;
-}
+// td,
+// th,
+// tr,
+// h2,
+// h1 {
+//   text-align: center;
+// }
 button {
   border: none;
   background: none;
   padding: none;
 }
-.mat-header-cell {
-  background: #f6f6f6;
-  height: 63px;
-}
-.mat-header-cell {
-  font-family: LATO-Bold;
-  font-size: 14px;
-  line-height: 17px;
-  color: #4d556a;
-  border-right: 1px solid #e5e5e5;
-  justify-content: center;
-  text-align: center;
-}
+// .mat-header-cell {
+//   background: #f6f6f6;
+//   height: 63px;
+// }
+// .mat-header-cell {
+//   font-family: LATO-Bold;
+//   font-size: 14px;
+//   line-height: 17px;
+//   color: #4d556a;
+//   border-right: 1px solid #e5e5e5;
+//   justify-content: center;
+//   text-align: center;
+// }
 ::ng-deep .custom-paginator-page {
   border: none !important;
   background: none !important;
@@ -197,13 +197,13 @@ button {
 ::ng-deep .mat-paginator-range-label {
   display: none !important;
 }
-.mat-cell {
-  font-family: LATO-Regular;
-  font-size: 12px;
-  line-height: 14px;
+// .mat-cell {
+//   font-family: LATO-Regular;
+//   font-size: 12px;
+//   line-height: 14px;
 
-  color: #4d556a;
-}
+//   color: #4d556a;
+// }
 .lowbtn {
   width: 68px;
   height: 30px;
@@ -242,11 +242,11 @@ button {
 .listtab {
   padding-top: 2px;
 }
-.example-container {
-  border-radius: 9px 9px 0px 0px;
-  border: 1px solid #e5e5e5;
-  width: 100%;
-}
+// .example-container {
+//   border-radius: 9px 9px 0px 0px;
+//   border: 1px solid #e5e5e5;
+//   width: 100%;
+// }
 .highlight {
   background: #f6f6f6;
 }
@@ -318,3 +318,45 @@ button {
 ::ng-deep .mat-tab-header {
   width: 50% !important;
 }
+
+.tableFixHead {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+}
+.tableFixHead tbody {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 40vh;
+}
+.tableFixHead thead tr {
+  display: block;
+}
+.tableFixHead th,
+.tableFixHead td {
+  padding: 20px 20px;
+  width: 200px;
+}
+th {
+  background: #f7f7f7;
+  font-family: LATO-Bold;
+  font-size: 14px;
+  color: #4d556a;
+}
+
+
+tr,th {
+  border: 1px solid #e5e5e5;
+  border-radius: 9px 9px 0px 0px;
+}
+
+td {
+  font-family: LATO-Regular;
+  font-size: 12px;
+  color: #4d556a;
+  background: #ffffff;
+}
+
+
