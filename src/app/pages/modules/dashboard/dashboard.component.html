@@ -1,6 +1,6 @@
 <div>
-  <div class="eventtxt">Events</div>
-  <div class="row" style="margin-top: 18px;">
+  <div class="event-txt">Events</div>
+  <div class="filter-row">
     <div> <span class="filtertxt">Filters</span>
       <mat-form-field class="single-select-view">
         <mat-select placeholder="View All Filters" class="select-input" panelClass="selectInputClass">
@@ -9,8 +9,10 @@
         </mat-select>
       </mat-form-field>
       <button mat-raised-button class="cyan-text" (click)="openModal()">save as</button>
-      <div class="rowsty" style="margin-top: 18px;">
-        <div class="inptuetag" style="margin-left: 20px;">
+      </div>
+      </div>
+      <div class="filter-menu-row">
+        <div class="mat-input-tag">
           <mat-form-field class="single-select">
             <mat-label>{{nameplaceholder}}</mat-label>
             <mat-select class="select-input" panelClass="selectInputClass" (focus)="checkPlaceHolder()" (blur)="checkPlaceHolder()">
@@ -30,7 +32,7 @@
             class="form-control formInput" />
         </div>
         <div class="single-select" style="margin-left:10px; width: 162px;">
-          <mat-form-field class="select-input-taga">
+          <mat-form-field class="select-input-tag">
             <mat-label>Start Date to Date End</mat-label>
             <input matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matPrefix [for]="picker">
@@ -45,7 +47,7 @@
           <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Session Id"
             class="form-control formInput" />
         </div>
-        <div class="inptuetag">
+        <div class="mat-input-tag">
           <mat-form-field class="single-select">
             <mat-select placeholder="View All Filters" class="select-input" panelClass="selectInputClass">
               <mat-option value="one">First option</mat-option>
@@ -57,7 +59,7 @@
           <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Request Id"
             class="form-control formInput" />
         </div>
-        <div class="inptuetag">
+        <div class="mat-input-tag">
           <mat-form-field class="single-select">
             <mat-select placeholder="View All Filters" class="select-input" panelClass="selectInputClass">
               <mat-option value="one">First option</mat-option>
@@ -65,17 +67,18 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <button class="buttontxt" style="margin-left: 10px;"><img
+          <button class="button-txt" style="margin-left: 10px;"><img
             src="../../../../assets/images/right.png">Apply</button>
         <span style="margin-left: 10px;"><img src="../../../../assets/images/Group 32567.png"></span>
       </div>
-      <mat-tab-group class="remove-border-bottom" style="margin-top: 20px; margin-left: 22px;"
-        (selectedTabChange)="onTabChanged($event);">
+      <button class="export-txt" (click)="download()" *ngIf="showexport"><img
+          src="../../../../assets/images/export 1.png"><span style="padding-left: 5px;">Export</span></button>
+      <mat-tab-group class="remove-border-bottom" (selectedTabChange)="onTabChanged($event);">
         <mat-tab>
           <ng-template mat-tab-label>
-            <span class="imgicon"></span><span class="listtab">List View </span>
+            <span class="list-img-icon"></span><span class="list-tab">List View </span>
           </ng-template>
-          <div style="margin-left: 5px; margin-bottom: 20px; margin-top: 20px;">
+          <div class="list-tab-body">
             <div class="example-container">
               <table mat-table [dataSource]=" tableData">
                 <ng-container matColumnDef="Severity">
@@ -149,15 +152,14 @@
         </mat-tab>
         <mat-tab>
           <ng-template mat-tab-label>
-            <span class="imgicon1"></span><span class="listtab">Map View </span>
+            <span class="imgicon1"></span><span class="list-tab">Map View </span>
           </ng-template>
           <div style="margin-top: 20px;">
             <app-map></app-map>
           </div>
         </mat-tab>
         </mat-tab-group>
-        <button class="exporttxt" (click)="download()" *ngIf="showexport" [ngClass]="{'highlighting':dispalyRow== true}"><img
-            src="../../../../assets/images/export 1.png"><span style="padding-left: 5px;">Export</span></button>
+
         <!-- <mat-paginator style-paginator showFirstLastButtons [length]="7130" [pageSize]="10"
                                       [pageSizeOptions]="[5, 10, 25, 100]">
                                     </mat-paginator> -->

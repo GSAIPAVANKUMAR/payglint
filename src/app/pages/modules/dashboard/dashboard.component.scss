@@ -14,10 +14,15 @@
 //   .mat-form-field-appearance-legacy .mat-form-field-infix {
 //     padding: .4375em 0;
 // }
-.rowsty {
-  display: flex;
+.filter-row{
+  margin-top: 18px;
 }
-.inptuetag {
+.filter-menu-row {
+  display: flex;
+  margin-top: 18px;
+  margin-left: 20px;
+}
+.mat-input-tag {
   margin-left: 10px;
 }
 table {
@@ -56,6 +61,11 @@ table {
   font-size: 12px;
   line-height: 14px;
 }
+.list-tab-body{
+  margin-left: 20px !important; 
+  margin-bottom: 20px; 
+  margin-top: 20px
+}
 .select-input {
   font-size: 14px;
   font-family: THICCCBOI;
@@ -67,7 +77,7 @@ table {
 input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
   display: none !important;
 }
-.eventtxt {
+.event-txt {
   font-family: LATO-Bold;
   width: 76px;
   height: 22px;
@@ -119,7 +129,7 @@ input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
   border-radius: 3px;
   box-shadow: none;
 }
-.buttontxt {
+.button-txt {
   width: 161px;
   height: 36px;
   background: #86c255;
@@ -130,6 +140,8 @@ input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
 }
 .remove-border-bottom ::ng-deep .mat-tab-header {
   border-bottom: none;
+  margin-top: 20px;
+   margin-left: 22px;
 }
 // :ng-deep .mat-tab-group.mat-primary mat-tab-label-active{
 //   background:black !important;
@@ -227,7 +239,7 @@ button {
   line-height: 14px;
   color: #9d9ea8;
 }
-::ng-deep .mat-tab-label-active .listtab {
+::ng-deep .mat-tab-label-active .list-tab {
   padding-left: 5px;
   width: 58px;
   height: 17px;
@@ -236,11 +248,11 @@ button {
   line-height: 17px;
   /* identical to box height */
 
-  text-align: listtab;
+  // text-align: listtab;
 
   color: #ffffff;
 }
-.listtab {
+.list-tab {
   padding-top: 2px;
 }
 .example-container {
@@ -256,7 +268,7 @@ button {
 //   overflow: auto;
 //   height: 200px !important;
 // }
-.exporttxt {
+.export-txt {
   width: 105px;
   height: 36px;
   z-index: 999;
@@ -264,14 +276,15 @@ button {
   border: 1px solid #cfd3d2;
   box-sizing: border-box;
   border-radius: 3px;
-  position: relative;
-  top: -80%;
+  // position: relative;
+  margin-top: 25px;
+  position: absolute;
   background: none;
 }
 .highlighting{
   top: -85% !important; 
 }
-::ng-deep .mat-tab-label-active .imgicon {
+::ng-deep .mat-tab-label-active .list-img-icon {
   background: url("../../../../assets/images/list 1.png") !important;
   // background: url("Images/logo.png");
   height: 12px;
@@ -279,7 +292,7 @@ button {
   display: block;
   margin-right: 0px !important;
 }
-.imgicon {
+.list-img-icon {
   background: url("../../../../assets/images/listview.png");
   // background: url("Images/logo.png");
   height: 12px;
