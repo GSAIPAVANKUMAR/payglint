@@ -3,68 +3,65 @@
     <div class="sidebarsty"> <img src="../../../../assets/images/Paygilant logo reversed.png " class="imgsty" />
     </div>
     <!-- <mat-divider _ngcontent-pub-c105="" role="separator" class="mat-divider mat-divider-horizontal"></mat-divider> -->
-    <mat-nav-list class="nav-list-wrapper" style="margin-top: 20px;">
-      <mat-list-item>
+    <mat-nav-list class="nav-list-wrapper" style="margin-top: 20px; padding-left: 17px;">
+      <mat-list-item class="mat-list-value">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/Group 32376.png" />
         </span>
+        <br />
         <span class="menu-link-label ml-4">Dashboard</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/dashboard')" [ngClass]="{ 'active-link': activeLink == 'Home' }">
-        <span class="sidenav-icon" style="margin-left: -8px;">
+      <mat-list-item (click)="navigate('/dashboard')" [ngClass]="{ 'active-link': activeLink == 'Home' }"
+        class="mat-list-value">
+        <span class="sidenav-icon" *ngIf="activeLink == 'Home'">
           <img *ngIf="isExpanded" src="../../../../assets/images/calgroup.png" />
         </span>
+        <span class="sidenav-icon" *ngIf="activeLink != 'Home'">
+          <img *ngIf="isExpanded" src="../../../../assets/images/calgroupname.png" />
+        </span>
         <br />
-        <span class="menu-link-label ml-4" style="margin-left: 10px;">Events</span>
+        <span class="menu-link-label ml-4" style="padding-left: 12px;">Events</span>
       </mat-list-item>
-      <mat-list-item [ngClass]="{ 'active-link': activeLink == 'profile' }" style="margin-top:35px">
-        <span class="sidenav-icon">
+      <mat-list-item (click)="navigate('/profile')" [ngClass]="{ 'active-link': activeLink == 'profile' }"
+        class="mat-list-value">
+        <span class="sidenav-icon" *ngIf="activeLink == 'profile'">
+          <img *ngIf="isExpanded" src="../../../../assets/images/screenevents.png" />
+        </span>
+        <span class="sidenav-icon" *ngIf="activeLink != 'profile'">
           <img *ngIf="isExpanded" src="../../../../assets/images/transaction 3.png" />
         </span>
         <br />
         <span class="menu-link-label ml-4">Screen Events</span>
       </mat-list-item>
-      <mat-list-item style="display: table-caption;">
+      <mat-list-item style="display: table-caption;" class="mat-list-value">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/statistics 1.svg" />
         </span>
         <span class="menu-link-label ml-4" style="padding-left: 8px;">Reports</span>
       </mat-list-item>
-      <mat-list-item style="display: table-caption;">
+      <mat-list-item style="display: table-caption;" class="mat-list-value">
         <span class=" sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/analytics 1.png" />
         </span>
         <span class="menu-link-label ml-4" style="padding-left: 5px;">Analytics</span>
       </mat-list-item>
-      <mat-list-item data-toggle="collapse">
+      <mat-list-item data-toggle="collapse" class="mat-list-value">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/file 1.png" />
         </span>
         <br />
         <span class="menu-link-label ml-4">Audit Trials</span>
       </mat-list-item>
-      <mat-list-item data-toggle="collapse" data-target="#settings" class="collapsed">
+      <mat-list-item class="mat-list-value">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/profile 1.png" />
         </span>
         <br />
         <span class="menu-link-label ml-4" style="padding-left: 8px;">Profiles</span>
       </mat-list-item>
-      <div class="mat-list-sub-menu collapse" *ngIf="!(isProfileLoaded || !isExpanded)" id="settings">
-        <mat-list-item>
-          <span class="menu-link-label" *ngIf="isExpanded">Log out</span>
-        </mat-list-item>
-      </div>
     </mat-nav-list>
-    <div class="text-right toggle-icon-wrappper logoutbtn">
-
+    <div class="text-right logoutbtn">
       <img draggable="false" *ngIf="isExpanded" src="../../../../assets/images/11 Starv.png" alt="collapsed_icon" />
-      <img draggable="false" *ngIf="!isExpanded" src="../../../../assets/images/11 Starv.png" alt="expand_icon" />
-
-    </div>
-    <div class="logo-wrapper">
-      <!-- <img draggable="false" *ngIf="isExpanded" src="../../../assets/images/AxiomIO-logo.svg" alt="Skillfully" /> -->
-      <img height="80" draggable="false" *ngIf="!isExpanded" src="../../../assets/images/axiomio.jpg" />
     </div>
   </mat-drawer>
   <div>
