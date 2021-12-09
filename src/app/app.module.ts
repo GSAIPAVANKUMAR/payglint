@@ -1,3 +1,4 @@
+import { ProfilescreenComponent } from './pages/modules/profilescreen/profilescreen.component';
 import { SavefilterComponent } from './pages/savefilter/savefilter.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -50,6 +51,7 @@ import { DashboardComponent } from './pages/modules/dashboard/dashboard.componen
 import { CheckpopupComponent } from './pages/checkpopup/checkpopup.component';
 import { MapComponent } from './pages/map/map.component';
 import { AgmCoreModule } from '@agm/core';
+import { AddmodelComponent } from './pages/component/addmodel/addmodel.component';
 
 
 
@@ -61,7 +63,9 @@ import { AgmCoreModule } from '@agm/core';
     DashboardComponent,
     CheckpopupComponent,
     SavefilterComponent,
-    MapComponent
+    MapComponent,
+    ProfilescreenComponent,
+    AddmodelComponent
 
   ],
   imports: [

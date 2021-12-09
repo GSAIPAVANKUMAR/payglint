@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from '../../shared/service/material/material.module';
 import { MatTableModule } from '@angular/material/table';
 import { PaginatorDirective } from 'src/app/pagination.directive';
+// import { ProfilescreenComponent } from '../profilescreen/profilescreen.component';
 
 
 
@@ -16,6 +17,7 @@ import { PaginatorDirective } from 'src/app/pagination.directive';
   declarations: [
     ProfileComponent,
     HomeComponent,
+    // ProfilescreenComponent
   ],
   imports: [  
     CommonModule,
@@ -28,7 +30,8 @@ import { PaginatorDirective } from 'src/app/pagination.directive';
   ],  
   exports: [
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    // ProfilescreenComponent
   ],
 })
 export class HomeModule { }

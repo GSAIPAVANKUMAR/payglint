@@ -22,12 +22,12 @@
         <br />
         <span class="menu-link-label ml-4" style="padding-left: 12px;">Events</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/profile')" [ngClass]="{ 'active-link': activeLink == 'profile' }"
+      <mat-list-item (click)="navigate('/screenevents')" [ngClass]="{ 'active-link': activeLink == 'screenevents' }"
         class="mat-list-value">
-        <span class="sidenav-icon" *ngIf="activeLink == 'profile'">
+        <span class="sidenav-icon" *ngIf="activeLink == 'screenevents'">
           <img *ngIf="isExpanded" src="../../../../assets/images/screenevents.png" />
         </span>
-        <span class="sidenav-icon" *ngIf="activeLink != 'profile'">
+        <span class="sidenav-icon" *ngIf="activeLink != 'screenevents'">
           <img *ngIf="isExpanded" src="../../../../assets/images/transaction 3.png" />
         </span>
         <br />
@@ -52,7 +52,8 @@
         <br />
         <span class="menu-link-label ml-4">Audit Trials</span>
       </mat-list-item>
-      <mat-list-item class="mat-list-value">
+      <mat-list-item (click)="navigate('/profilescreen')" class="mat-list-value"
+        [ngClass]="{ 'active-link': activeLink == 'profilesceen' }">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/profile 1.png" />
         </span>

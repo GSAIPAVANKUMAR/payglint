@@ -9,6 +9,7 @@
   <div class="viewers">Viewers</div>
   <div class="nametxt">
     <mat-form-field class="single-select">
+      <mat-label>{{selectplaceholder}}</mat-label>
       <mat-select placeholder="Private" class="select-input"
       [(value)]="selectedOption"
     (selectionChange)="selectedValue($event.value)" panelClass="selectInputClass">
@@ -20,8 +21,8 @@
     <button class="addbtn">Add</button>
   </div>
   <div class="viewers">
-    <img src="../../../assets/images/lock.png" style="padding-bottom: 8px;" *ngIf="show">
-    <img src="../../../assets/images/lock.png" style="padding-bottom: 8px;" *ngIf="!show">
+    <img src="../../../assets/images/lock.png" style="padding-bottom: 5px;" *ngIf="show">
+    <img src="../../../assets/images/lock.png" style="padding-bottom: 5px;" *ngIf="!show">
     <span class="privatetxt">{{access}}</span>
   </div>
   <button class="butntxt"><span class="txtsty">Save </span></button>
