@@ -52,6 +52,7 @@ import { CheckpopupComponent } from './pages/checkpopup/checkpopup.component';
 import { MapComponent } from './pages/map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import { AddmodelComponent } from './pages/component/addmodel/addmodel.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 
 
@@ -65,7 +66,8 @@ import { AddmodelComponent } from './pages/component/addmodel/addmodel.component
     SavefilterComponent,
     MapComponent,
     ProfilescreenComponent,
-    AddmodelComponent
+    AddmodelComponent,
+    EdituserComponent
 
   ],
   imports: [

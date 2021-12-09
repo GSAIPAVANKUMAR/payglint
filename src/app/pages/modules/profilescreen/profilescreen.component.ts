@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { EdituserComponent } from 'src/app/edituser/edituser.component';
 import { SavefilterComponent } from '../../savefilter/savefilter.component';
 
 @Component({
@@ -23,13 +24,17 @@ export class ProfilescreenComponent implements OnInit {
     pageIndex: 1
   };
   tableData1 = [{ Name: 'Low', Email: 'Email', Role: 'Role', Created: 'Created ', Updated: 'Updated' },
-    { Name: 'Low', Email: 'Email', Role: 'Role', Created: 'Created ', Updated: 'Updated' },
-    { Name: 'Low', Email: 'Email', Role: 'Role', Created: 'Created ', Updated: 'Updated' },
-    { Name: 'Low', Email: 'Email', Role: 'Role', Created: 'Created ', Updated: 'Updated' },
-    { Name: 'Low', Email: 'Email', Role: 'Role', Created: 'Created ', Updated: 'Updated'}
+    { Name: 'Low', Email: 'Email1', Role: 'Role', Created: 'Created ', Updated: 'Updated' },
+    { Name: 'Low', Email: 'Email2', Role: 'Role', Created: 'Created ', Updated: 'Updated' },
+    { Name: 'Low', Email: 'Email3', Role: 'Role', Created: 'Created ', Updated: 'Updated' },
+    { Name: 'Low', Email: 'Email4', Role: 'Role', Created: 'Created ', Updated: 'Updated'}
 
   ];
   tableData: any;
+  matDialgeditRef!: MatDialogRef<EdituserComponent>;
+  rowData: any;
+  
+
   constructor(private httpClient: HttpClient, private matDialog: MatDialog) {
     this.getPageDetails();
    
@@ -80,5 +85,13 @@ export class ProfilescreenComponent implements OnInit {
       disableClose: true
     })
 
+  }
+
+  editModal(row: any) {
+    this.rowData = row;
+    this.matDialgeditRef = this.matDialog.open(EdituserComponent, {data: {row:this.rowData},
+      disableClose: true
+    })
+    
   }
 }
