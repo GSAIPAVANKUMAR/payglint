@@ -12,8 +12,8 @@
     <div style="margin-left: 37px;">Role*</div>
     <div style="margin-left: 38px;">
       <mat-form-field class="single-select">
-        <mat-select class="select-input" panelClass="selectInputClass">
-          <mat-option value="One">First</mat-option>
+        <mat-select class="select-input" [(value)]="rolename" panelClass="selectInputClass">
+          <mat-option value="Role">role</mat-option>
           <mat-option value="Two">Second Option</mat-option>
         </mat-select>
       </mat-form-field>

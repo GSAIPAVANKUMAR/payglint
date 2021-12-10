@@ -10,16 +10,15 @@ export class EdituserComponent implements OnInit {
   rowdata: any;
   name:any;
   email:any;
-  role:any;
+  rolename:any;
   constructor(private _mdr: MatDialogRef<EdituserComponent>,@Inject(MAT_DIALOG_DATA) private data: any) {
     this.rowdata =  data;
     this.name = this.rowdata.row.Name;
     this.email = this.rowdata.row.Email;
-    this.role = this.rowdata.row.Role;
+    this.rolename = this.rowdata.row.Role;
    }
   
   ngOnInit(): void {
-    
   }
 
   CloseDialog() {
