@@ -52,9 +52,13 @@ export class HomeComponent implements OnInit {
         let activePath = router.url;
         if (activePath.includes("/dashboard")) {
           this.activeLink = "Home";
-        } else if (activePath.includes("/profile")) {
-          this.activeLink = "profile";
-        } 
+        } else if (activePath.includes("/screenevents")) {
+          this.activeLink = "screenevents";
+        }
+        else if (activePath.includes("/profilescreen")) {
+          console.log(activePath)
+          this.activeLink = "profilescreen";
+        }
       }
 
       if (router.url == "/home/dashboard" || router.url == "/home") {

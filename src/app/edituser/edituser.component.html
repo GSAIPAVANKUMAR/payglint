@@ -1,0 +1,33 @@
+<div style="width: 663px;height:454px">
+    <div class="save">
+      <span class="filter"> Edit User </span>
+      <span (click)="CloseDialog()" style="margin-left:480px;padding-top: -20px;">
+        <img src="../../../assets/images/closeicon.png"></span>
+    </div>
+    <br />
+    <div style="margin-left: 37px;">Name*</div>
+    <input id="nameicon" type="text" [defaultValue]="name" class="nametxt" style="text-indent: 20px;" />
+    <div style="margin-left: 37px;">Email*</div>
+    <input id="nameicon" type="text" [defaultValue]="email" class="nametxt" style="text-indent: 20px;" />
+    <div style="margin-left: 37px;">Role*</div>
+    <div style="margin-left: 38px;">
+      <mat-form-field class="single-select">
+        <mat-select class="select-input" panelClass="selectInputClass">
+          <mat-option value="One">First</mat-option>
+          <mat-option value="Two">Second Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <br/>
+    <br/>
+    <span style="margin-left: 37px;">
+      <img src="../../../assets/images/deleteicon.png">
+    </span>
+    <span style="margin-left: 200px;">
+      <img src="../../../assets/images/reset.png">
+    </span>
+    <span style="margin-left: 12px;">
+      <img src="../../../assets/images/reset.png">
+    </span>
+</div>
+

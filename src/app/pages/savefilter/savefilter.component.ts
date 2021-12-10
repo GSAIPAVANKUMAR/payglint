@@ -10,6 +10,7 @@ export class SavefilterComponent implements OnInit {
   access:any = "private";
   show:boolean = true;
   selectedOption:any;
+  selectplaceholder = "private"
   constructor(private _mdr: MatDialogRef<SavefilterComponent>) { }
 
   ngOnInit(): void {
@@ -20,5 +21,6 @@ export class SavefilterComponent implements OnInit {
   selectedValue(val:any) {
     this.show = !this.show;
     this.access = val;
+    this.selectplaceholder=""
   }
 }
