@@ -1,48 +1,173 @@
-import { AfterViewInit, Component, OnInit} from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from "@angular/core";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { SavefilterComponent } from "../../savefilter/savefilter.component";
 
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
   styleUrls: ["./profile.component.scss"],
 })
-export class ProfileComponent implements OnInit, AfterViewInit {
-  constructor() {}
+export class ProfileComponent implements OnInit {
+  BASE_URL = "http://localhost:3000";
+  mockCsvData!: string;
 
-  ngOnInit(): void {}
+  mockHeaders = `Date,ScreenListenerType,Action,ScreenID,UserID,SessionID,DeviceID,Version
+`;
+  // MatPaginator Inputs
+  paginationInfo: any;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+  showexport = true;
+  selectedRowIndex: any;
+  dispalyRow = false;
+  rowData: any;
+  nameplaceholder: string = "name";
+  matDialgRef!: MatDialogRef<SavefilterComponent>;
+  // Test states
+  EmitResult = {
+    pageNumber: "",
+    pageSize: "",
+  };
 
-  displayedColumns = ["position", "name", "weight", "symbol"];
-  dataSource = ELEMENT_DATA;
+  testPaginator = {
+    length: 1000,
+    pageSize: 10,
+    pageIndex: 1,
+  };
 
-  ngAfterViewInit() {
-    console.log('Hi')
-    const headerRow = document.querySelector("mat-header-row");
-    console.log(headerRow)
-    const matTable = document.querySelector("mat-table");
-    console.log(matTable)
-    const tableContainer = document.querySelector(".example-container");
-    console.log(tableContainer)
-    if (tableContainer && headerRow && matTable) {
-      tableContainer.insertBefore(headerRow, matTable);
+  // states
+  tableData1 = [
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo1', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo2', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo3', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo4', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo5', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo6', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo7', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo8', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo9', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo0', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo1', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo2', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo3', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo4', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo5', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo6', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo7', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo8', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo9', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo0', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+    { date: '23/11/2021 10:01', screenListenerType: 'PAYMENT_SCREEN', action: 'END', screenId: '2', userId: 'edo1', sessionId: '7762a0f7a124dfec_13565478995632', deviceId:'26f8d599-0b8d-4538-8ee7-d79c870d9e0b', version:'2.2.23'},
+  ];
+  tableData: any;
+  constructor(private httpClient: HttpClient, private matDialog: MatDialog) {
+    this.getPageDetails();
+  }
+  setPageSizeOptions = (setPageSizeOptionsInput: string) => {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput
+        .split(",")
+        .map((str) => +str);
+    }
+  };
+
+  ngOnInit(): void {
+    // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    // Add 'implements OnInit' to the class.
+    this.getPageDetails();
+    // this.getPageDetails();
+  }
+
+  onPageEvent = ($event: { pageIndex: any; pageSize: any }) => {
+    this.getData($event.pageIndex, $event.pageSize);
+  };
+
+  showTestEmit = ($event: { pageIndex: any; pageSize: any }) => {
+    this.EmitResult = {
+      pageNumber: $event.pageIndex,
+      pageSize: $event.pageSize,
+    };
+  };
+
+  getData = (pg: number, lmt: any) => {
+    // return this.allProjects(pg, lmt).subscribe( res => {
+    // this.tableData = [];
+    // });
+    const start: number = pg * 9;
+    console.log(this.tableData1.slice(start, start + lmt));
+    this.tableData = this.tableData1.slice(start, start + lmt);
+  };
+  getPageDetails = () => {
+    // this.getPageSize().subscribe( res => {
+    // this.paginationInfo = this.tableData1;
+    // this.getData(0, this.paginationInfo.pageSize);
+    // });
+    this.paginationInfo = this.tableData1;
+    this.getData(0, 9);
+  };
+
+  // getData = (pg: number, lmt: any) => {
+  //   return this.allProjects(pg, lmt).subscribe( res => {
+  //     this.tableData = [];
+  //   });
+  // }
+
+  allProjects = (page: number, limit: any) => {
+    return this.httpClient.get(
+      `${this.BASE_URL}/posts?_page=${page + 1}&_limit=${limit}`
+    );
+  };
+
+  getPageSize = () => {
+    return this.httpClient.get(`${this.BASE_URL}/pageSize`);
+  };
+  hideRow(value: boolean) {
+    this.dispalyRow = value;
+    this.selectedRowIndex = "fsd";
+  }
+  display(row: any) {
+    this.dispalyRow = true;
+    this.selectedRowIndex = row;
+    this.rowData = row;
+  }
+  openModal() {
+    this.matDialgRef = this.matDialog.open(SavefilterComponent, {
+      disableClose: true,
+    });
+  }
+  convertToCSV(objArray: string) {
+    var array = typeof objArray != "object" ? JSON.parse(objArray) : objArray;
+    var str = "";
+
+    for (var i = 0; i < array.length; i++) {
+      var line = "";
+      for (var index in array[i]) {
+        if (line != "") line += ",";
+        line += array[i][index];
+      }
+      str += line + "\r\n";
+    }
+    return str;
+  }
+
+  onTabChanged($event: any) {
+    debugger;
+    console.log($event);
+    if ($event.index == 1) {
+      this.showexport = false;
+    } else {
+      this.showexport = true;
+    }
+  }
+  checkPlaceHolder() {
+    console.log(this.nameplaceholder.length);
+    debugger;
+    if (this.nameplaceholder.length >= 0) {
+      this.nameplaceholder = "";
+      return;
+    } else {
+      this.nameplaceholder = "name";
+      return;
     }
   }
 }
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: "Hydrogen", weight: 1.0079, symbol: "H" },
-  { position: 2, name: "Helium", weight: 4.0026, symbol: "He" },
-  { position: 3, name: "Lithium", weight: 6.941, symbol: "Li" },
-  { position: 4, name: "Beryllium", weight: 9.0122, symbol: "Be" },
-  { position: 5, name: "Boron", weight: 10.811, symbol: "B" },
-  { position: 6, name: "Carbon", weight: 12.0107, symbol: "C" },
-  { position: 7, name: "Nitrogen", weight: 14.0067, symbol: "N" },
-  { position: 8, name: "Oxygen", weight: 15.9994, symbol: "O" },
-  { position: 9, name: "Fluorine", weight: 18.9984, symbol: "F" },
-  { position: 10, name: "Neon", weight: 20.1797, symbol: "Ne" },
-];
