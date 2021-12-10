@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
       { path: "dashboard", component: DashboardComponent },
-      { path: "profile", component: ProfileComponent },
+      { path: "screenevents", component: ProfileComponent },
       { path: "screenevents", component: MapComponent },
       { path: "profilescreen", component: ProfilescreenComponent },
     ],
