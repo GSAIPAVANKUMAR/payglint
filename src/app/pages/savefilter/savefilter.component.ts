@@ -18,7 +18,8 @@ export class SavefilterComponent implements OnInit {
   CloseDialog() {
     this._mdr.close(false);
   }
-  selectedValue(val:any) {
+  selectedValue(val: any) {
+    console.log(this.selectedOption);
     this.show = !this.show;
     this.access = val;
     this.selectplaceholder=""

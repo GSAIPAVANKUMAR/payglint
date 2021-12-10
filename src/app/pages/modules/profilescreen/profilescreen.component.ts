@@ -1,3 +1,4 @@
+import { AddmodelComponent } from './../../component/addmodel/addmodel.component';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -14,6 +15,7 @@ export class ProfilescreenComponent implements OnInit {
   paginationInfo: any;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   matDialgRef!: MatDialogRef<SavefilterComponent>;
+  matDialgRefmodel!: MatDialogRef<AddmodelComponent>;
   EmitResult = {
     pageNumber: '',
     pageSize: ''
@@ -84,7 +86,11 @@ export class ProfilescreenComponent implements OnInit {
     this.matDialgRef = this.matDialog.open(SavefilterComponent, {
       disableClose: true
     })
-
+  }
+  openaddModal() {
+    this.matDialgRefmodel = this.matDialog.open(AddmodelComponent, {
+      disableClose: true
+    })
   }
 
   editModal(row: any) {

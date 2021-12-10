@@ -9,18 +9,16 @@
     font-size: 20px;
     background-color: #f6f6f6;
 }
-::ng-deep .mat-dialog-container {
+::ng-deep .edit-user .mat-dialog-container {
     display: block;
     padding: 0px;
     font-family: LATO-Regular;
     font-size: 15px;
 }
-::ng-deep .mat-select-arrow {
-    margin-left:50px;
+::ng-deep .edit-user .mat-select-arrow {
     border-width: 0px;
     border-style: solid;
     border-color: black;
-    width:120px;
     border-left: 12px solid transparent !important;
     border-right: none !important;
     border-top: 7px solid transparent !important;

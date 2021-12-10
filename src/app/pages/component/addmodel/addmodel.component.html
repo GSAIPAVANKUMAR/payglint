@@ -1,1 +1,27 @@
-<p>addmodel works!</p>
+<div style="width: 663px;height:454px" class="edit-user">
+    <div class="save">
+        <span class="filter"> Create New User </span>
+        <span (click)="CloseDialog()" style="margin-left:420px;">
+            <img src="../../../assets/images/closeicon.png"></span>
+    </div>
+    <br />
+    <div style="margin-left: 37px;">Name*</div>
+    <input id="nameicon" type="text" class="nametxt" style="text-indent: 20px;" />
+    <div style="margin-left: 37px;">Email*</div>
+    <input id="nameicon" type="text" class="nametxt" style="text-indent: 20px;" />
+    <div style="margin-left: 37px;">Role*</div>
+    <div style="margin-left: 38px;">
+        <mat-form-field class="single-select">
+            <mat-select class="select-input" panelClass="selectInputClass">
+                <mat-option value="One">First</mat-option>
+                <mat-option value="Two">Second Option</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <br />
+    <br />
+    <span style="margin-left: 200px;">
+        <img src="../.././../../assets/images/createbtn.png">
+    </span>
+</div>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-addmodel',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddmodelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _mdr: MatDialogRef<AddmodelComponent>) { }
 
   ngOnInit(): void {
   }
-
+  CloseDialog() {
+    this._mdr.close(false);
+  }
 }
