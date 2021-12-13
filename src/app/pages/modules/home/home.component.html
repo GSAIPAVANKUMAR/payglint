@@ -37,6 +37,9 @@
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/statistics 1.svg" />
         </span>
+        <!-- <span class="sidenav-icon" *ngIf="activeLink != 'reports'">
+                  <img *ngIf="isExpanded" src="../../../../assets/images/repo.png" />
+                </span> -->
         <span class="menu-link-label ml-4" style="padding-left: 8px;">Reports</span>
       </mat-list-item>
       <mat-list-item (click)="navigate('/analytics')" style="display: table-caption;" class="mat-list-value">
@@ -54,8 +57,11 @@
       </mat-list-item>
       <mat-list-item (click)="navigate('/profilescreen')" class="mat-list-value"
         [ngClass]="{ 'active-link': activeLink == 'profilesceen' }">
-        <span class="sidenav-icon">
+        <span class="sidenav-icon" *ngIf="activeLink != 'profilescreen'">
           <img *ngIf="isExpanded" src="../../../../assets/images/profile 1.png" />
+        </span>
+        <span class="sidenav-icon" *ngIf="activeLink == 'profilescreen'">
+          <img *ngIf="isExpanded" src="../../../../assets/images/profile.png" />
         </span>
         <br />
         <span class="menu-link-label ml-4" style="padding-left: 8px;">Profiles</span>

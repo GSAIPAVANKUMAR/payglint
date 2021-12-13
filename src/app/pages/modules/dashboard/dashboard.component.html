@@ -8,7 +8,7 @@
           <mat-option value="two">Second option</mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-raised-button class="cyan-text" (click)="openModal()">save as</button>
+      <button mat-raised-button class="cyan-text" (click)="openModal()">Save as</button>
     </div>
     </div>
     <div class="filter-menu-row">
@@ -25,11 +25,11 @@
         </mat-form-field>
         </div>
         <div class="form-group inputform">
-          <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="User Id"
+          <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="User ID"
             class="form-control formInput" />
         </div>
         <div class="form-group inputform">
-          <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Device Id"
+          <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Device ID"
             class="form-control formInput" />
         </div>
         <div class="single-select" style="margin-left:10px; width: 162px;">
@@ -45,24 +45,26 @@
           </mat-form-field>
         </div>
         <div class="form-group inputform">
-          <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Session Id"
+          <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Session ID"
             class="form-control formInput" />
         </div>
         <div class="mat-input-tag">
           <mat-form-field class="single-select">
-            <mat-select placeholder="View All Filters" class="select-input" panelClass="selectInputClass">
+            <mat-label>Checkpoint (0)</mat-label>
+            <mat-select class="select-input" panelClass="selectInputClass">
               <mat-option value="one">First option</mat-option>
               <mat-option value="two">Second option</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div class="form-group inputform">
-          <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Request Id"
+          <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Request ID"
             class="form-control formInput" />
         </div>
         <div class="mat-input-tag">
           <mat-form-field class="single-select">
-            <mat-select placeholder="View All Filters" class="select-input" panelClass="selectInputClass">
+            <mat-label>Status (0)</mat-label>
+            <mat-select class="select-input" panelClass="selectInputClass">
               <mat-option value="one">First option</mat-option>
               <mat-option value="two">Second option</mat-option>
             </mat-select>
@@ -100,11 +102,11 @@
                 <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
               </ng-container>
               <ng-container matColumnDef="UserID">
-                <th mat-header-cell *matHeaderCellDef> UserID </th>
+                <th mat-header-cell *matHeaderCellDef> User ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.UserID}} </td>
               </ng-container>
               <ng-container matColumnDef="DeviceID">
-                <th mat-header-cell *matHeaderCellDef> DeviceID </th>
+                <th mat-header-cell *matHeaderCellDef> Device ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.DeviceID}} </td>
               </ng-container>
               <ng-container matColumnDef="Checkpoint">

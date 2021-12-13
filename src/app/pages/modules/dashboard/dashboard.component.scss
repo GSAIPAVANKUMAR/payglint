@@ -13,13 +13,16 @@
 //   .mat-form-field-appearance-legacy .mat-form-field-infix {
 //     padding: .4375em 0;
 // }
+.dashboard{
+  width: 1300px;
+}
 .filter-row{
   margin-top: 18px;
 }
 .filter-menu-row {
   display: flex;
   margin-top: 18px;
-  margin-left: 20px;
+  margin-left: 17px;
 }
 .mat-input-tag {
   margin-left: 10px;
@@ -252,7 +255,7 @@ button {
   color: #ffffff;
 }
 .list-tab {
-  padding-top: 2px;
+  padding-top: 0px;
 }
 .example-container {
   border-radius: 9px 9px 0px 0px;
@@ -271,7 +274,7 @@ button {
   width: 105px;
   height: 36px;
   z-index: 999;
-  left: 92%;
+  left: 1195px;
   border: 1px solid #cfd3d2;
   box-sizing: border-box;
   border-radius: 3px;
