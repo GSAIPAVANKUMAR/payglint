@@ -46,6 +46,13 @@ export class AnalyticsComponent implements OnInit {
             display: false,
           },
         },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
       },
     });
 
@@ -76,6 +83,13 @@ export class AnalyticsComponent implements OnInit {
         plugins: {
           legend: {
             display: false,
+          },
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
           },
         },
       },
@@ -110,6 +124,13 @@ export class AnalyticsComponent implements OnInit {
             display: false,
           },
         },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
       },
     });
 
@@ -140,6 +161,13 @@ export class AnalyticsComponent implements OnInit {
         plugins: {
           legend: {
             display: false,
+          },
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
           },
         },
       },
@@ -174,6 +202,13 @@ export class AnalyticsComponent implements OnInit {
             display: false,
           },
         },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
       },
     });
 
@@ -204,6 +239,13 @@ export class AnalyticsComponent implements OnInit {
         plugins: {
           legend: {
             display: false,
+          },
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
           },
         },
       },
