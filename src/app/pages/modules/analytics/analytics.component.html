@@ -1,0 +1,63 @@
+<div class="analytics-page">
+    <div class="row">
+        <div class="col-6">
+            <h5 class="is-page-header">Analytics</h5>
+        </div>
+        <div class="col-6"></div>
+    </div>
+    <div class="row">
+        <div class="col-4 p-3">
+            <div class="is-daily-record-chart-section">
+                <div class="text-center">
+                    <span class="is-chart-header">Daily Approved Transactions</span>
+                </div>
+                <canvas #approvedTransactionChart id="approvedTransactionChart"
+                    style="width:100%; height: 300px;"></canvas>
+            </div>
+        </div>
+        <div class="col-4 p-3">
+            <div class="is-daily-record-chart-section">
+                <div class="text-center">
+                    <span class="is-chart-header">Daily Approved Transactions - $ Amount</span>
+                </div>
+                <canvas #approvedTransactionAmountChart id="approvedTransactionAmountChart"
+                    style="width:100%; height: 300px;"></canvas>
+            </div>
+        </div>
+        <div class="col-4 p-3">
+            <div class="is-daily-record-chart-section">
+                <div class="text-center">
+                    <span class="is-chart-header">Daily Transactions</span>
+                </div>
+                <canvas #transactionChart id="transactionChart" style="width:100%; height: 300px;"></canvas>
+            </div>
+        </div>
+        <div class="col-4 p-3">
+            <div class="is-daily-record-chart-section">
+                <div class="text-center">
+                    <span class="is-chart-header">Daily High Risk Transactions</span>
+                </div>
+                <canvas #highRiskTransactionChart id="highRiskTransactionChart"
+                    style="width:100%; height: 300px;"></canvas>
+            </div>
+        </div>
+        <div class="col-4 p-3">
+            <div class="is-daily-record-chart-section">
+                <div class="text-center">
+                    <span class="is-chart-header">Top 5 Users - High Risk Transactions</span>
+                </div>
+                <canvas #highRiskTransactionTopUsersChart id="highRiskTransactionTopUsersChart"
+                    style="width:100%; height: 300px;"></canvas>
+            </div>
+        </div>
+        <div class="col-4 p-3">
+            <div class="is-daily-record-chart-section">
+                <div class="text-center">
+                    <span class="is-chart-header">Daily Approved Transactions For Same Day</span>
+                </div>
+                <canvas #approvedTransactionSameDayChart id="approvedTransactionSameDayChart"
+                    style="width:100%; height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

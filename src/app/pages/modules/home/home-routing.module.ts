@@ -1,9 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { MapComponent } from "../../map/map.component";
+import { AnalyticsComponent } from "../analytics/analytics.component";
 import { DashboardComponent } from "../dashboard/dashboard.component";
 import { ProfileComponent } from "../profile/profile.component";
 import { ProfilescreenComponent } from "../profilescreen/profilescreen.component";
+import { ReportsComponent } from "../reports/reports.component";
 import { HomeComponent } from "./home.component";
 
 
@@ -16,6 +18,8 @@ const routes: Routes = [
       { path: "dashboard", component: DashboardComponent },
       { path: "screenevents", component: ProfileComponent },
       { path: "screenevents", component: MapComponent },
+      { path: "reports", component: ReportsComponent },
+      { path: "analytics", component: AnalyticsComponent },
       { path: "profilescreen", component: ProfilescreenComponent },
     ],
   },

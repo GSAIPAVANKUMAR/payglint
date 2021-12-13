@@ -33,13 +33,13 @@
         <br />
         <span class="menu-link-label ml-4">Screen Events</span>
       </mat-list-item>
-      <mat-list-item style="display: table-caption;" class="mat-list-value">
+      <mat-list-item (click)="navigate('/reports')"  style="display: table-caption;" class="mat-list-value">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/statistics 1.svg" />
         </span>
         <span class="menu-link-label ml-4" style="padding-left: 8px;">Reports</span>
       </mat-list-item>
-      <mat-list-item style="display: table-caption;" class="mat-list-value">
+      <mat-list-item (click)="navigate('/analytics')" style="display: table-caption;" class="mat-list-value">
         <span class=" sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/analytics 1.png" />
         </span>

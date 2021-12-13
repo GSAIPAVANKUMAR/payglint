@@ -1,0 +1,109 @@
+<div class="reports-page">
+  <div class="row">
+    <div class="col-6">
+      <h5 class="is-page-header">Reports</h5>
+    </div>
+    <div class="col-6"></div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <span class="is-page-label">Filters</span>
+      <select class="is-filter-select-option">
+        <option value="" hidden selected disabled>View all filters</option>
+        <option *ngFor="let filter of filtersArray">
+          {{filter}}
+        </option>
+      </select>
+      <button type="button" class="btn btn-light is-save-button ml-1">Save As</button>
+    </div>
+    <div class="col-12">
+      <mat-form-field class="is-datepicker" appearance="fill">
+        <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <select class="is-checkpoint-select-option">
+        <option value="" hidden selected disabled>Checkpoint(0)</option>
+        <option *ngFor="let checkpoint of checkpointsArray">
+          {{checkpoint}}
+        </option>
+      </select>
+      <input class="is-input-field" type="text" placeholder="Min Amount">
+      <input class="is-input-field" type="text" placeholder="Max Amount">
+      <input class="is-input-field" type="text" placeholder="Currency">
+      <select class="is-status-select-option">
+        <option value="" hidden selected disabled>Status(0)</option>
+        <option *ngFor="let status of statusArray">
+          {{status}}
+        </option>
+      </select>
+      <button class="button-txt">
+        <img src="../../../../assets/images/right.png" />Apply
+      </button>
+      <span style="margin-left: 0.5rem"><img src="../../../../assets/images/Group 32567.png" /></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="is-warning-label">
+        <span class="is-warning-label-text">Suspicious Activity Report</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7" style="border: solid 1px #E5E5E5;">
+      <div class="row">
+        <div class="col-5">
+          <mat-card class="is-suspicious-user-card">
+            <mat-card-header>
+              <div mat-card-avatar><img src="../../../../assets/images/suspicious-user.svg" /></div>
+              <mat-card-title>115</mat-card-title>
+              <mat-card-subtitle>Suspicious Users</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </div>
+        <div class="col-5">
+          <mat-card class="is-active-user-card">
+            <mat-card-header>
+              <div mat-card-avatar><img src="../../../../assets/images/verified-user-1.svg" /></div>
+              <mat-card-title>27.12% of user</mat-card-title>
+              <mat-card-subtitle>Current active user 424</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </div>
+        <div class="col-12 mt-3">
+          <h5 class="is-bar-chart-header">Requests</h5>
+          <canvas #userChart id="userChart" style="width:100%; height: 400px;"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="row p-2" style="height: 300px; border: solid 1px #E5E5E5;">
+        <div class="col-6" style="padding-top: 72px;">
+          <h5 class="is-donut-chart-text">High Risks(Transaction)</h5>
+          <h5 class="is-donut-chart-percentage">34.88%</h5>
+          <h5 class="is-donut-chart-label">1453 out of</h5>
+          <h5 class="is-donut-chart-label">4,166 transactions</h5>
+        </div>
+        <div class="col-6 my-auto">
+          <canvas #transactionChart id="transactionChart" style="width:100%; height: 180px;"></canvas>
+        </div>
+      </div>
+      <div class="row p-2" style="height: 300px; border: solid 1px #E5E5E5;">
+        <div class="col-6" style="padding-top: 72px;">
+          <h5 class="is-donut-chart-text">High Risks(USD $)</h5>
+          <h5 class="is-donut-chart-percentage">12.55%</h5>
+          <h5 class="is-donut-chart-label">$19,770,338,223 out of</h5>
+          <h5 class="is-donut-chart-label">$157,520,871,321</h5>
+        </div>
+        <div class="col-6 my-auto">
+          <canvas #amountChart id="amountChart" style="width:100%; height: 180px;"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

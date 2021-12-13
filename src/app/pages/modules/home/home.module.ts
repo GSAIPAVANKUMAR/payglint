@@ -12,6 +12,8 @@ import { PaginatorDirective } from 'src/app/pagination.directive';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ReportsComponent } from '../reports/reports.component';
+import { AnalyticsComponent } from '../analytics/analytics.component';
 // import { ProfilescreenComponent } from '../profilescreen/profilescreen.component';
 
 
@@ -20,6 +22,8 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [
     ProfileComponent,
     HomeComponent,
+    ReportsComponent,
+    AnalyticsComponent,
     // ProfilescreenComponent
   ],
   imports: [  
