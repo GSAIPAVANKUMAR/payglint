@@ -4,9 +4,9 @@
       <h5 class="is-page-header">Reports</h5>
     </div>
     <div class="col-6 justify-content-end d-flex">
-      <img src="../../../../assets/images/user_img.png"/>
+      <img src="../../../../assets/images/user_img.png" />
       <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
-      <img src="../../../../assets/images/user_down_arrow.svg"/>
+      <img src="../../../../assets/images/user_down_arrow.svg" />
     </div>
   </div>
   <div class="row">
@@ -20,7 +20,7 @@
       </select>
       <button type="button" class="btn btn-light is-save-button ml-1">Save As</button>
     </div>
-    <div class="col-12">
+    <div class="col-2">
       <mat-form-field class="is-datepicker" appearance="fill">
         <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
         <mat-date-range-input [rangePicker]="picker">
@@ -30,6 +30,8 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
+    </div>
+    <div class="col-8">
       <select class="is-checkpoint-select-option">
         <option value="" hidden selected disabled>Checkpoint(0)</option>
         <option *ngFor="let checkpoint of checkpointsArray">
@@ -45,6 +47,8 @@
           {{status}}
         </option>
       </select>
+    </div>
+    <div class="col-2">
       <button class="button-txt">
         <img src="../../../../assets/images/right.png" />Apply
       </button>
@@ -74,7 +78,8 @@
           <mat-card class="is-active-user-card">
             <mat-card-header>
               <div mat-card-avatar><img src="../../../../assets/images/verified-user-1.svg" /></div>
-              <mat-card-title class="is-user-label"><span class="is-percentage-active-user">27.12%</span> of user</mat-card-title>
+              <mat-card-title class="is-user-label"><span class="is-percentage-active-user">27.12%</span> of user
+              </mat-card-title>
               <mat-card-subtitle>Current active user 424</mat-card-subtitle>
             </mat-card-header>
           </mat-card>
