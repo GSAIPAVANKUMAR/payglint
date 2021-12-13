@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   selectedRowIndex :any;
   dispalyRow = false;
   rowData: any;
-  nameplaceholder: string = 'name';
+  nameplaceholder: string = 'Name(0)';
     matDialgRef!: MatDialogRef<SavefilterComponent>;
     // Test states
     EmitResult = {

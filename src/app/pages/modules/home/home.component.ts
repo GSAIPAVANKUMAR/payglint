@@ -56,8 +56,10 @@ export class HomeComponent implements OnInit {
           this.activeLink = "screenevents";
         }
         else if (activePath.includes("/profilescreen")) {
-          console.log(activePath)
           this.activeLink = "profilescreen";
+        }
+        else if (activePath.includes("/audittrails")) {
+          this.activeLink = "audittrails";
         }
       }
 

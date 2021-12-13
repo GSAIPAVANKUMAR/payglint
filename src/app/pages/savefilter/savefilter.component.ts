@@ -7,10 +7,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
   styleUrls: ['./savefilter.component.scss']
 })
 export class SavefilterComponent implements OnInit {
-  access:any = "private";
+  access:any = "Private";
   show:boolean = true;
   selectedOption:any;
-  selectplaceholder = "private"
+  selectplaceholder = "Private"
   constructor(private _mdr: MatDialogRef<SavefilterComponent>) { }
 
   ngOnInit(): void {

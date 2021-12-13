@@ -6,7 +6,7 @@
   margin-bottom: 10px !important;
 }
 .logoutbtn{
-  margin-top: 120px;
+  margin-top: 130px;
   margin-left: 38px;
 }
 .matdrawerside{
@@ -73,7 +73,7 @@ box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06);
   overflow: hidden !important;
 }
 ::ng-deep  .mat-drawer-inner-container {
-overflow: hidden;
+overflow: hidden !important;
 }
 ::ng-deep body{
   overflow: hidden !important;
