@@ -1,5 +1,5 @@
 .analytics-page {
-    width: 100%;
+    width: 1200px;
     height: auto;
     margin-top: 1.5rem;
     margin-left: 1rem;
@@ -14,6 +14,15 @@
     font-weight: bold;
     font-style: normal;
     font-family: Lato;
+}
+
+.is-user-name-text {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #4D556A;
 }
 
 .is-daily-record-chart-section {
