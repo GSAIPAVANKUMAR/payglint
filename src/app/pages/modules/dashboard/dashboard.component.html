@@ -1,9 +1,19 @@
 <div class="dashboard">
-  <div class="event-txt">Events</div>
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-6">
+      <h5 class="is-page-header">Events</h5>
+    </div>
+    <div class="col-6 justify-content-end d-flex">
+      <img src="../../../../assets/images/user_img.png" />
+      <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
+      <img src="../../../../assets/images/user_down_arrow.svg" />
+    </div>
+  </div>
   <div class="filter-row">
     <div> <span class="filtertxt">Filters</span>
       <mat-form-field class="single-select-view">
-        <mat-select placeholder="View All Filters" class="select-input" panelClass="selectInputClass">
+        <mat-label>{{viewfileter}}</mat-label>
+        <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="selectedView($event.value)">
           <mat-option value="one">First option</mat-option>
           <mat-option value="two">Second option</mat-option>
         </mat-select>
@@ -15,8 +25,7 @@
       <div class="mat-input-tag">
         <mat-form-field class="single-select">
           <mat-label>{{nameplaceholder}}</mat-label>
-          <mat-select class="select-input" panelClass="selectInputClass" (focus)="checkPlaceHolder()"
-            (blur)="checkPlaceHolder()">
+          <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="selectedValue($event.value)">
             <mat-option value="one">First option</mat-option>
             <mat-option value="two">Second option</mat-option>
             <mat-option value="two">Second option</mat-option>
@@ -34,7 +43,7 @@
         </div>
         <div class="single-select" style="margin-left:10px; width: 162px;">
           <mat-form-field class="select-input-tag">
-            <mat-label>Start Date to Date End</mat-label>
+            <mat-label>{{startdate}}</mat-label>
             <input matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matPrefix [for]="picker">
               <mat-icon matDatepickerToggleIcon>
@@ -50,8 +59,8 @@
         </div>
         <div class="mat-input-tag">
           <mat-form-field class="single-select">
-            <mat-label>Checkpoint (0)</mat-label>
-            <mat-select class="select-input" panelClass="selectInputClass">
+            <mat-label>{{checkvalue}}</mat-label>
+            <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="selectedcheckValue($event.value)">
               <mat-option value="one">First option</mat-option>
               <mat-option value="two">Second option</mat-option>
             </mat-select>
@@ -63,8 +72,8 @@
         </div>
         <div class="mat-input-tag">
           <mat-form-field class="single-select">
-            <mat-label>Status (0)</mat-label>
-            <mat-select class="select-input" panelClass="selectInputClass">
+            <mat-label>{{status}}</mat-label>
+            <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="selectedstatusValue($event.value)">
               <mat-option value="one">First option</mat-option>
               <mat-option value="two">Second option</mat-option>
             </mat-select>

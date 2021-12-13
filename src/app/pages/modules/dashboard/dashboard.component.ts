@@ -23,6 +23,10 @@ export class DashboardComponent implements OnInit {
   dispalyRow = false;
   rowData: any;
   nameplaceholder: string = 'Name(0)';
+  viewfileter: string = 'View all filters'
+  checkvalue: string = "Checkpoint (0)"
+  status: string = "Status (0)"
+  startdate = "Start Date to Date End"
     matDialgRef!: MatDialogRef<SavefilterComponent>;
     // Test states
     EmitResult = {
@@ -201,15 +205,30 @@ export class DashboardComponent implements OnInit {
     }
   
   }
-  checkPlaceHolder() {
-    console.log(this.nameplaceholder.length)
-    debugger;
-    if (this.nameplaceholder.length >= 0) {
-      this.nameplaceholder = ''
-      return;
-    } else {
-      this.nameplaceholder = 'name'
-      return
-    }
+  // checkPlaceHolder() {
+  //   console.log(this.nameplaceholder.length)
+  //   debugger;
+  //   if (this.nameplaceholder.length >= 0) {
+  //     this.nameplaceholder = ''
+  //     return;
+  //   } else {
+  //     this.nameplaceholder = 'name'
+  //     return
+  //   }
+  // }
+  selectedValue(val: any) {
+    this.nameplaceholder=""
+  }
+  selectedView(val: any) {
+    this.viewfileter = ""
+  }
+  selectedcheckValue(val: any) {
+    this.checkvalue = ""
+  }
+  selectedstatusValue(val: any) {
+    this.status = ""
+  }
+  selecteddateValue(val: any) {
+    this.startdate= ""
   }
 }
