@@ -39,8 +39,21 @@ export class ReportsComponent implements OnInit {
         },
         scales: {
           y: {
+            grid: {
+              display: true,
+            },
             beginAtZero: true,
-          }
+            max: 4000,
+            min: 0,
+            ticks: {
+              maxTicksLimit: 9,
+            },
+          },
+          x: {
+            grid: {
+              display: false,
+            },
+          },
         }
       }
     });
