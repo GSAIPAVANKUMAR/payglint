@@ -5,15 +5,17 @@
         <img src="../../../assets/images/closeicon.png"></span>
     </div>
     <br />
-    <div style="margin-left: 37px;">Name*</div>
-    <input id="nameicon" type="text" [defaultValue]="name" class="nametxt" style="text-indent: 20px;" />
+    <div style="margin-left: 37px; ">Name*</div>
+    <input id="nameicon" type="text" [defaultValue]="name" class="nametxt"
+      style="text-indent: 20px; margin-bottom: 20px; padding-top: 11px" />
     <div style="margin-left: 37px;">Email*</div>
-    <input id="nameicon" type="text" [defaultValue]="email" class="nametxt" style="text-indent: 20px;" />
+    <input id="nameicon" type="text" [defaultValue]="email" class="nametxt"
+      style="text-indent: 23px;margin-bottom: 20px;" />
     <div style="margin-left: 37px;">Role*</div>
     <div style="margin-left: 38px;">
       <mat-form-field class="single-select">
-        <mat-select class="select-input" panelClass="selectInputClass">
-          <mat-option value="One">First</mat-option>
+        <mat-select class="select-input" [(value)]="rolename" panelClass="selectInputClass">
+          <mat-option value="Role">role</mat-option>
           <mat-option value="Two">Second Option</mat-option>
         </mat-select>
       </mat-form-field>
@@ -23,9 +25,7 @@
     <span style="margin-left: 37px;">
       <img src="../../../assets/images/deleteicon.png">
     </span>
-    <span style="margin-left: 200px;">
-      <img src="../../../assets/images/reset.png">
-    </span>
+      <button class="btn butntxt"><span class="txtsty">Update </span></button>
     <span style="margin-left: 12px;">
       <img src="../../../assets/images/reset.png">
     </span>

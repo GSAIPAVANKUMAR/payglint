@@ -1,4 +1,4 @@
-import { ProfileComponent } from './../profile/profile.component';
+// import { ProfileComponent } from './../profile/profile.component';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,6 @@ import { AnalyticsComponent } from '../analytics/analytics.component';
 
 @NgModule({
   declarations: [
-    ProfileComponent,
     HomeComponent,
     ReportsComponent,
     AnalyticsComponent,
@@ -40,7 +39,7 @@ import { AnalyticsComponent } from '../analytics/analytics.component';
   ],  
   exports: [
     HomeComponent,
-    ProfileComponent,
+    // ProfileComponent,
     // ProfilescreenComponent
   ],
 })

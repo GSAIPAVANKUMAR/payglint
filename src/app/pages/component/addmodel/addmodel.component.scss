@@ -10,7 +10,19 @@
   font-size: 20px;
   background-color: #f6f6f6;
 }
-::ng-deep .edit-user .mat-dialog-container {
+#nameicon {
+  background-image: url(../../../../assets/images/username.png);
+  background-repeat: no-repeat;
+  background-position: 5px 16px;
+  padding: 5px;
+}
+#emailicon{
+  background-image: url(../../../../assets/images/emailicon.png);
+  background-repeat: no-repeat;
+  background-position: 5px 16px;
+  padding: 5px;
+}
+::ng-deep .mat-dialog-container {
   display: block;
   padding: 0px;
   font-family: LATO-Regular;
@@ -35,6 +47,7 @@
   box-sizing: border-box;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
   border-radius: 5px;
+  font-family: LATO;
 }
 .single-select {
   // padding: 0px 10px;

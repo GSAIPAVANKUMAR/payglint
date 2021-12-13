@@ -78,12 +78,12 @@ input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
 }
 .event-txt {
   font-family: LATO-Bold;
-  width: 76px;
   height: 22px;
   margin-top: 26px;
   margin-left: 22px;
   font-size: 25px;
   line-height: 22px;
+  display: flex;
   color: #4d556a;
 }
 .filtertxt {

@@ -1,3 +1,4 @@
+import { AudittrialsComponent } from './../audittrials/audittrials.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { MapComponent } from "../../map/map.component";
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: "reports", component: ReportsComponent },
       { path: "analytics", component: AnalyticsComponent },
       { path: "profilescreen", component: ProfilescreenComponent },
+      { path: "audittrails", component: AudittrialsComponent },
     ],
   },
 ];

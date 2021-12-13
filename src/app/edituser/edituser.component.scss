@@ -1,59 +1,74 @@
 .save {
-    background-color: #f6f6f6;
-    height: 61px;
-    padding-left: 32px;
-    padding-top: 20px;
+	background-color: #f6f6f6;
+	height: 61px;
+	padding-left: 32px;
+	padding-top: 20px;
 }
 .filter {
-    font-weight: bold;
-    font-size: 20px;
-    background-color: #f6f6f6;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: #f6f6f6;
 }
 ::ng-deep .edit-user .mat-dialog-container {
-    display: block;
-    padding: 0px;
-    font-family: LATO-Regular;
-    font-size: 15px;
+	display: block;
+	padding: 0px;
+	font-family: LATO-Regular;
+	font-size: 15px;
 }
 ::ng-deep .edit-user .mat-select-arrow {
-    border-width: 0px;
-    border-style: solid;
-    border-color: black;
-    border-left: 12px solid transparent !important;
-    border-right: none !important;
-    border-top: 7px solid transparent !important;
-    border-image-source: url("../../assets/images/arrow.png") !important;
-    }
+	border-width: 0px;
+	border-style: solid;
+	border-color: black;
+	border-left: 12px solid transparent !important;
+	border-right: none !important;
+	border-top: 7px solid transparent !important;
+	border-image-source: url("../../assets/images/arrow.png") !important;
+}
 .nametxt {
-    width: 595px !important;
-    height: 50px;
-    margin-left: 34px;
-    margin-top: 10px;
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    box-sizing: border-box;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
-    border-radius: 5px;
-  }
-  .single-select {
-    // padding: 0px 10px;
-    padding-top: 5px;
-    padding-left:8px;
-    border: 1px solid #9D9EA8;
-    box-sizing: border-box;
-    border-radius: 3px;
-    // background-color: white;
-    outline: none;
-    color: #9D9EA8 !important;
-    height: 50px;
-    width: 595px;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-  }
-  .select-input {
-    font-size: 14px;
-    font-family: THICCCBOI;
-  }
+	width: 595px !important;
+	height: 50px;
+	margin-left: 34px;
+	margin-top: 10px;
+	background: #ffffff;
+	border: 1px solid #e5e5e5;
+	box-sizing: border-box;
+	box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+	border-radius: 5px;
+	font-family: Lato;
+	font-style: normal;
+	font-weight: normal;
+  color: #7D8488;
+  font-size: 16px;
+}
+.single-select {
+	// padding: 0px 10px;
+	padding-top: 5px;
+	padding-left: 8px;
+	border: 1px solid #9d9ea8;
+	box-sizing: border-box;
+	border-radius: 3px;
+	// background-color: white;
+	outline: none;
+	color: #9d9ea8 !important;
+	height: 50px;
+	width: 595px;
+	font-family: Lato;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+}
+.select-input {
+	font-size: 18px;
+	font-family: Lato;
+	font-style: normal;
+	font-weight: normal;
+}
+.butntxt {
+  background:#4D556A;
+  color: white;
+  margin-left: 215px;
+  width: 126px;
+  height: 50px;
+  border-radius: 3 px;
+}
