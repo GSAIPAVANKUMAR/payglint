@@ -45,7 +45,7 @@
         </span>
         <span class="menu-link-label ml-4" style="padding-left: 5px;">Analytics</span>
       </mat-list-item>
-      <mat-list-item data-toggle="collapse" class="mat-list-value">
+      <mat-list-item data-toggle="collapse" (click)="navigate('/audittrails')" class="mat-list-value">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/file 1.png" />
         </span>

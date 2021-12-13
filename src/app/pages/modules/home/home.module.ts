@@ -1,4 +1,4 @@
-import { ProfileComponent } from './../profile/profile.component';
+// import { ProfileComponent } from './../profile/profile.component';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,6 @@ import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    ProfileComponent,
     HomeComponent,
     // ProfilescreenComponent
   ],
@@ -36,7 +35,7 @@ import { MatInputModule } from '@angular/material/input';
   ],  
   exports: [
     HomeComponent,
-    ProfileComponent,
+    // ProfileComponent,
     // ProfilescreenComponent
   ],
 })

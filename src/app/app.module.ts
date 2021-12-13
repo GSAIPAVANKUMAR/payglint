@@ -1,3 +1,4 @@
+import { ProfileComponent } from './pages/modules/profile/profile.component';
 import { ProfilescreenComponent } from './pages/modules/profilescreen/profilescreen.component';
 import { SavefilterComponent } from './pages/savefilter/savefilter.component';
 import { NgModule } from '@angular/core';
@@ -53,6 +54,7 @@ import { MapComponent } from './pages/map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import { AddmodelComponent } from './pages/component/addmodel/addmodel.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { AudittrialsComponent } from './pages/modules/audittrials/audittrials.component';
 
 
 
@@ -67,7 +69,9 @@ import { EdituserComponent } from './edituser/edituser.component';
     MapComponent,
     ProfilescreenComponent,
     AddmodelComponent,
-    EdituserComponent
+    EdituserComponent,
+    AudittrialsComponent,
+    ProfileComponent
 
   ],
   imports: [
