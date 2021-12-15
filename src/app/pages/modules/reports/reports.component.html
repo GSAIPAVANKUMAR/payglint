@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 mb-2">
       <span class="is-page-label">Filters</span>
       <select class="is-filter-select-option">
         <option value="" hidden selected disabled>View all filters</option>
@@ -62,55 +62,68 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-7" style="border: solid 1px #E5E5E5;">
-      <div class="row m-2">
-        <div class="col-6 px-2">
-          <mat-card class="is-suspicious-user-card">
-            <mat-card-header>
-              <div mat-card-avatar><img src="../../../../assets/images/suspicious-user.svg" /></div>
-              <mat-card-title class="is-number-active-user">115</mat-card-title>
-              <mat-card-subtitle>Suspicious Users</mat-card-subtitle>
-            </mat-card-header>
-          </mat-card>
+  <div class="row is-third-section">
+    <div class="col-7 is-border-right">
+      <div class="row mx-auto">
+        <div class="col-6">
+          <div class="is-suspicious-user-card">
+            <div class="row">
+              <div class="col-3 justify-content-end d-flex">
+                <img class="is-report-icons" src="../../../../assets/images/suspicious-user.svg" />
+              </div>
+              <div class="col-9">
+                <h3 class="my-auto is-number-active-user">115</h3>
+                <h5 class="is-number-active-user-label">Suspicious Users</h5>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-6 px-2">
-          <mat-card class="is-active-user-card">
-            <mat-card-header>
-              <div mat-card-avatar><img src="../../../../assets/images/verified-user-1.svg" /></div>
-              <mat-card-title class="is-user-label"><span class="is-percentage-active-user">27.12%</span> of user
-              </mat-card-title>
-              <mat-card-subtitle>Current active user 424</mat-card-subtitle>
-            </mat-card-header>
-          </mat-card>
+        <div class="col-6">
+          <div class="is-active-user-card">
+            <div class="row">
+              <div class="col-3 justify-content-end d-flex">
+                <img class="is-report-icons" src="../../../../assets/images/verified-user-1.svg" />
+              </div>
+              <div class="col-9">
+                <h3 class="my-auto is-user-label"><span class="is-percentage-active-user">27.12%</span> of user</h3>
+                <h5 class="is-number-active-user-label">Current active user 424</h5>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="row is-border-top">
         <div class="col-12 mt-3">
           <h5 class="is-bar-chart-header">Requests</h5>
-          <canvas #userChart id="userChart" style="width:100%; height: 400px;"></canvas>
+          <canvas #userChart id="userChart" style="width:100%; height: 350px;"></canvas>
         </div>
       </div>
     </div>
     <div class="col-5">
-      <div class="row p-2" style="height: 300px; border: solid 1px #E5E5E5;">
-        <div class="col-6" style="padding-top: 72px;">
-          <h5 class="is-donut-chart-text">High Risks(Transaction)</h5>
-          <h5 class="is-donut-chart-percentage">34.88%</h5>
-          <h5 class="is-donut-chart-label">1453 out of</h5>
-          <h5 class="is-donut-chart-label">4,166 transactions</h5>
-        </div>
-        <div class="col-6 my-auto">
-          <canvas #transactionChart id="transactionChart" style="width:100%; height: 180px;"></canvas>
-        </div>
-      </div>
-      <div class="row p-2" style="height: 300px; border: solid 1px #E5E5E5;">
-        <div class="col-6" style="padding-top: 72px;">
-          <h5 class="is-donut-chart-text">High Risks(USD $)</h5>
-          <h5 class="is-donut-chart-percentage">12.55%</h5>
-          <h5 class="is-donut-chart-label">$19,770,338,223 out of</h5>
-          <h5 class="is-donut-chart-label">$157,520,871,321</h5>
-        </div>
-        <div class="col-6 my-auto">
-          <canvas #amountChart id="amountChart" style="width:100%; height: 180px;"></canvas>
+      <div class="row">
+        <div class="col-12">
+          <div class="row is-donut-chart-layout">
+            <div class="col-6" style="padding-top: 72px;">
+              <h5 class="is-donut-chart-text">High Risks(Transaction)</h5>
+              <h5 class="is-donut-chart-percentage">34.88%</h5>
+              <h5 class="is-donut-chart-label">1453 out of</h5>
+              <h5 class="is-donut-chart-label">4,166 transactions</h5>
+            </div>
+            <div class="col-6 my-auto">
+              <canvas #transactionChart id="transactionChart" style="width:100%; height: 150px;"></canvas>
+            </div>
+          </div>
+          <div class="row is-donut-chart-layout">
+            <div class="col-6" style="padding-top: 72px;">
+              <h5 class="is-donut-chart-text">High Risks(USD $)</h5>
+              <h5 class="is-donut-chart-percentage">12.55%</h5>
+              <h5 class="is-donut-chart-label">$19,770,338,223 out of</h5>
+              <h5 class="is-donut-chart-label">$157,520,871,321</h5>
+            </div>
+            <div class="col-6 my-auto">
+              <canvas #amountChart id="amountChart" style="width:100%; height: 150px;"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </div>

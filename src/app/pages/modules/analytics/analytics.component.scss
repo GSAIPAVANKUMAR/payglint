@@ -29,6 +29,7 @@
     height: 350px;
     padding: 1rem;
     border: solid 1px #E5E5E5;
+    border-radius: 5px;
 }
 
 .is-chart-header {
@@ -40,3 +41,9 @@
     text-align: center;
     color: #4D556A;
 }
+
+// #approvedTransactionSameDayChart {
+//     width: 90% !important;
+//     height: 300px !important;
+//     display: block;
+// }
