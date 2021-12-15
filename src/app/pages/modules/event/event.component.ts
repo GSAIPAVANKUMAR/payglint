@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { SavefilterComponent } from '../../savefilter/savefilter.component';
+import { SavefilterComponent } from '../../component/savefilter/savefilter.component';
 
 @Component({
   selector: 'app-event',

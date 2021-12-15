@@ -2,7 +2,6 @@ import { EventComponent } from './../event/event.component';
 import { AudittrialsComponent } from './../audittrials/audittrials.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { MapComponent } from "../../map/map.component";
 import { AnalyticsComponent } from "../analytics/analytics.component";
 import { DashboardComponent } from "../dashboard/dashboard.component";
 import { ProfileComponent } from "../profile/profile.component";
