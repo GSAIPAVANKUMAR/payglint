@@ -1,3 +1,4 @@
+import { EventComponent } from './../event/event.component';
 import { AudittrialsComponent } from './../audittrials/audittrials.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -15,10 +16,8 @@ const routes: Routes = [
     path: "",
     component: HomeComponent,
     children: [
-      { path: "", redirectTo: "dashboard", pathMatch: "full" },
-      { path: "dashboard", component: DashboardComponent },
+      { path: "events", component: EventComponent },
       { path: "screenevents", component: ProfileComponent },
-      { path: "screenevents", component: MapComponent },
       { path: "reports", component: ReportsComponent },
       { path: "analytics", component: AnalyticsComponent },
       { path: "profilescreen", component: ProfilescreenComponent },

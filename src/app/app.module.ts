@@ -55,6 +55,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AddmodelComponent } from './pages/component/addmodel/addmodel.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { AudittrialsComponent } from './pages/modules/audittrials/audittrials.component';
+import { EventComponent } from './pages/modules/event/event.component';
 
 
 
@@ -71,7 +72,8 @@ import { AudittrialsComponent } from './pages/modules/audittrials/audittrials.co
     AddmodelComponent,
     EdituserComponent,
     AudittrialsComponent,
-    ProfileComponent
+    ProfileComponent,
+    EventComponent
 
   ],
   imports: [

@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.router.events.subscribe((router: any) => {
       if (router.url) {
         let activePath = router.url;
-        if (activePath.includes("/dashboard")) {
+        if (activePath.includes("/events")) {
           this.activeLink = "Home";
         } else if (activePath.includes("/screenevents")) {
           this.activeLink = "screenevents";
@@ -69,11 +69,11 @@ export class HomeComponent implements OnInit {
         }
       }
 
-      if (router.url == "/home/dashboard" || router.url == "/home") {
-        this.router.navigate(["/dashboard"]);
-        return;
-      }
-      routerUrl = router.urlAfterRedirects;
+      // if (router.url == "/home/dashboard" || router.url == "/home") {
+      //   this.router.navigate(["/dashboard"]);
+      //   return;
+      // }
+      // routerUrl = router.urlAfterRedirects;
     });
   }
 }

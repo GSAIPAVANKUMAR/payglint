@@ -7,10 +7,11 @@ import { HomeComponent } from '././pages/modules/home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  {
-    path: "home",
-    loadChildren: "../app/pages/modules/home/home.module#HomeModule",
-  },
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  // {
+  //   path: "home",
+  //   loadChildren: "../app/pages/modules/home/home.module#HomeModule",
+  // },
   // {
   //   path: 'profile',
   //   component: ProfileComponent

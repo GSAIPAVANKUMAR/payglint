@@ -11,7 +11,7 @@
         <br />
         <span class="menu-link-label ml-4">Dashboard</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/dashboard')" [ngClass]="{ 'active-link': activeLink == 'Home' }"
+      <mat-list-item (click)="navigate('/events')" [ngClass]="{ 'active-link': activeLink == 'Home' }"
         class="mat-list-value">
         <span class="sidenav-icon" *ngIf="activeLink == 'Home'" style="margin-left: -8px;">
           <img *ngIf="isExpanded" src="../../../../assets/images/calgroup.png" />

@@ -26,9 +26,9 @@
     margin-top: 10px;
     margin-left: 20px;
   }
-  .filter-row{
-    margin-top: 18px;
-  }
+  // .filter-row{
+  //   margin-top: 18px;
+  // }
   .filter-menu-row {
     display: flex;
     margin-top: 18px;
@@ -56,6 +56,17 @@
     line-height: 14px;
     color: #9d9ea8;
   }
+  .text-input{
+    height: 34px;
+    background: transparent;
+    border: none;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  
+  }
   .single-select {
     // padding: 0px 10px;
     padding-top: 5px;
@@ -72,6 +83,7 @@
     font-family: LATO-Regular;
     font-size: 12px;
     line-height: 14px;
+    padding-right: 8px;
   }
   .list-tab-body{
     margin-left: 20px !important; 
