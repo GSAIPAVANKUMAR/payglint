@@ -21,6 +21,8 @@ export class AnalyticsComponent implements OnInit {
       x: {
         grid: {
           display: false,
+          drawBorder: false,
+          drawTicks: false,
         },
         display: false,
       },
@@ -29,6 +31,7 @@ export class AnalyticsComponent implements OnInit {
         min: 0,
         max: 1,
         ticks: {
+          color: '#4D556A',
           maxTicksLimit: 11,
           count: 11,
         },
@@ -51,18 +54,21 @@ export class AnalyticsComponent implements OnInit {
             label: "f(x) = x",
             data: ['.34', '.56', '.89'],
             borderColor: '#FF6464',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
             fill: false,
           },
           {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           }
         ],
       },
@@ -77,17 +83,20 @@ export class AnalyticsComponent implements OnInit {
           {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           }
         ],
       },
@@ -102,17 +111,20 @@ export class AnalyticsComponent implements OnInit {
           {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           }
         ],
       },
@@ -127,17 +139,20 @@ export class AnalyticsComponent implements OnInit {
           {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           }
         ],
       },
@@ -152,17 +167,20 @@ export class AnalyticsComponent implements OnInit {
           {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           }
         ],
       },
@@ -177,17 +195,20 @@ export class AnalyticsComponent implements OnInit {
           {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           },
           {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
-            pointStyle: 'cross',
+            borderWidth: 2,
+            pointStyle: 'line',
           }
         ],
       },
@@ -203,6 +224,8 @@ export class AnalyticsComponent implements OnInit {
           x: {
             grid: {
               display: false,
+              drawBorder: false,
+              drawTicks: false,
             },
             display: false,
           },
@@ -211,6 +234,7 @@ export class AnalyticsComponent implements OnInit {
             min: 0,
             max: 1,
             ticks: {
+              color: '#4D556A',
               maxTicksLimit: 11,
               count: 11,
             },
