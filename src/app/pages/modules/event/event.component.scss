@@ -87,10 +87,10 @@ line-height: 14px;
 ::ng-deep .mat-form-field-label-wrapper {
   margin-left: 6px;
 }
-.mat-form-field.mat-focused .mat-form-field-label,
-input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
-  display: none !important;
-}
+// .mat-form-field.mat-focused .mat-form-field-label,
+// input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
+//   display: none !important;
+// }
 .event-txt {
   font-family: LATO-Bold;
   width: 76px;
@@ -353,7 +353,7 @@ button {
 }
 ::ng-deep .selectInputClass {
   min-width: 122px !important;
-  margin-top: 40px;
+  margin-top: 24px;
   margin-left: 8px;
   background: #ffffff;
   position: fixed;

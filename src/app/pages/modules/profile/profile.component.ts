@@ -16,6 +16,8 @@ export class ProfileComponent implements OnInit {
 `;
   // MatPaginator Inputs
   paginationInfo: any;
+  viewfileter: string = 'View all filters'
+  screentypes: string = 'Screen Type(0)'
   pageSizeOptions: number[] = [5, 10, 25, 100];
   showexport = true;
   selectedRowIndex: any;
@@ -169,5 +171,11 @@ export class ProfileComponent implements OnInit {
       this.nameplaceholder = "name";
       return;
     }
+  }
+  selectedView(val: any) {
+    this.viewfileter = ""
+  }
+  selectedscreenView(val: any) {
+    this.screentypes = ""
   }
 }
