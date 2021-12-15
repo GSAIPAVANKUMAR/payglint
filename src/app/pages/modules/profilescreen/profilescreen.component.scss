@@ -96,10 +96,10 @@ line-height: 14px;
 ::ng-deep .mat-form-field-label-wrapper {
   margin-left: 8px;
 }
-.mat-form-field.mat-focused .mat-form-field-label,
-input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
-  display: none !important;
-}
+// .mat-form-field.mat-focused .mat-form-field-label,
+// input.ng-valid + span.mat-form-field-label-wrapper .mat-form-field-label {
+//   display: none !important;
+// }
 .event-txt {
   font-family: LATO-Bold;
   height: 22px;
@@ -340,11 +340,17 @@ button {
   margin-right: 0px !important;
 }
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  display: none !important;
+  margin-top: 15px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4D556A;
 }
 ::ng-deep .selectInputClass {
   min-width: 122px !important;
-  margin-top: 40px;
+  margin-top: 24px;
   margin-left: 8px;
   background: #ffffff;
   position: fixed;
