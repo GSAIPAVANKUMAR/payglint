@@ -23,6 +23,7 @@ import { AnalyticsComponent } from '../analytics/analytics.component';
     HomeComponent,
     ReportsComponent,
     AnalyticsComponent,
+    DashboardComponent,
     // ProfilescreenComponent
   ],
   imports: [  

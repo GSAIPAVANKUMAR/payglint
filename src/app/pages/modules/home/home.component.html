@@ -4,14 +4,14 @@
     </div>
     <!-- <mat-divider _ngcontent-pub-c105="" role="separator" class="mat-divider mat-divider-horizontal"></mat-divider> -->
     <mat-nav-list class="nav-list-wrapper" style="margin-top: 20px; padding-left: 17px;">
-      <mat-list-item class="mat-list-value">
+      <mat-list-item (click)="navigate('/dashboard')" class="mat-list-value">
         <span class="sidenav-icon">
           <img *ngIf="isExpanded" src="../../../../assets/images/Group 32376.png" />
         </span>
         <br />
         <span class="menu-link-label ml-4">Dashboard</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/events')" [ngClass]="{ 'active-link': activeLink == 'Home' }"
+      <mat-list-item (click)="navigate('/events')" [ngClass]="{ 'active-link': activeLink == 'events' }"
         class="mat-list-value">
         <span class="sidenav-icon" *ngIf="activeLink == 'Home'" style="margin-left: -8px;">
           <img *ngIf="isExpanded" src="../../../../assets/images/calgroup.png" />

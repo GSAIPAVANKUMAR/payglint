@@ -1,0 +1,59 @@
+<div class="dashboard-wrapper">
+    <div class="container-fluid">
+        <!-- Header section -->
+        <div class="row dashboard-header">
+            <div class="col-md-6 page-header">Dashboard</div>
+            <div class="col-md-6 user-profile">User Profile</div>
+        </div>
+        <!-- Dashboard body section -->
+        <div class="row dashboard-body">
+            <div class="col-md-7 col-7 dashboard-left">
+                <div class="row options-wrapper">
+                    Options section
+                </div>
+                <div class="row box-wrapper">
+                    <div class="each-box">
+                        box-01
+                    </div>
+                    <div class="each-box">
+                        box-01
+                    </div>
+                    <div class="each-box">
+                        box-01
+                    </div>
+                    <div class="each-box">
+                        box-01
+                    </div>
+                </div>
+                <div class="row high-risk-checkpoint-chart-section">
+                    <div class="col-12">
+                        <div class="m-3">
+                            <span class="high-risk-checkpoint-chart-section-header">High Risk Check Points</span>
+                        </div>
+                        <canvas #highRiskCheckPointChart id="highRiskCheckPointChart" height="500px"
+                            width="700px"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-7 dashboard-right">
+                <div class="row risk-overview-wrapper">
+                    <div class="title">24 hours Risks Overview</div>
+                    <div class="risk-overview-box">
+                        <div class="each-box"></div>
+                        <div class="each-box"></div>
+                        <div class="each-box"></div>
+                    </div>
+                </div>
+                <div class="row risk-transaction-chart">
+                    <div class="col-12">
+                        <canvas #riskTransactionsBySeverityChart id="riskTransactionsBySeverityChart" width="180px" height="180px"></canvas>
+                    </div>
+                </div>
+                <div class="row distribution-risk-map">
+                    <!-- <h1>distribution-risk-map</h1> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

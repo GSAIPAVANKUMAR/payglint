@@ -67,6 +67,9 @@ export class HomeComponent implements OnInit {
         else if (activePath.includes("/analytics")) {
           this.activeLink = "analytics";
         }
+        if (activePath.includes("/dashboard")) {
+          this.activeLink = "dashboard";
+        }
       }
 
       // if (router.url == "/home/dashboard" || router.url == "/home") {

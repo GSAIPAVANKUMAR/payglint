@@ -15,6 +15,7 @@ const routes: Routes = [
     path: "",
     component: HomeComponent,
     children: [
+      { path: "dashboard", component: DashboardComponent },
       { path: "events", component: EventComponent },
       { path: "screenevents", component: ProfileComponent },
       { path: "reports", component: ReportsComponent },
