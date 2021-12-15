@@ -1,6 +1,5 @@
 import { ProfileComponent } from './pages/modules/profile/profile.component';
 import { ProfilescreenComponent } from './pages/modules/profilescreen/profilescreen.component';
-import { SavefilterComponent } from './pages/savefilter/savefilter.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -48,14 +47,16 @@ import { MaterialModule } from "../app/pages/shared/service/material/material.mo
 import { ApplicationService } from './pages/application.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { PaginatorDirective } from './pagination.directive';
-import { DashboardComponent } from './pages/modules/dashboard/dashboard.component';
-import { CheckpopupComponent } from './pages/checkpopup/checkpopup.component';
-import { MapComponent } from './pages/map/map.component';
+// import { DashboardComponent } from './pages/modules/dashboard/dashboard.component';
 import { AgmCoreModule } from '@agm/core';
 import { AddmodelComponent } from './pages/component/addmodel/addmodel.component';
-import { EdituserComponent } from './edituser/edituser.component';
 import { AudittrialsComponent } from './pages/modules/audittrials/audittrials.component';
 import { EventComponent } from './pages/modules/event/event.component';
+import { EdituserComponent } from './pages/component/edituser/edituser.component';
+import { CheckpopupComponent } from './pages/component/checkpopup/checkpopup.component';
+import { MapComponent } from './pages/component/map/map.component';
+// import { DashboardComponent } from './pages/modules/dashboard/dashboard.component';
+import { SavefilterComponent } from './pages/component/savefilter/savefilter.component';
 
 
 
@@ -64,7 +65,7 @@ import { EventComponent } from './pages/modules/event/event.component';
     AppComponent,
     LoginComponent,
     PaginatorDirective,
-    DashboardComponent,
+    // DashboardComponent,
     CheckpopupComponent,
     SavefilterComponent,
     MapComponent,
