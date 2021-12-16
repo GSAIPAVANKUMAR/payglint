@@ -1,9 +1,9 @@
-import { AddmodelComponent } from './../../component/addmodel/addmodel.component';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { EdituserComponent } from '../../component/edituser/edituser.component';
-import { SavefilterComponent } from '../../component/savefilter/savefilter.component';
+import { AddmodelComponent } from '../../shared/component/addmodel/addmodel.component';
+import { EdituserComponent } from '../../shared/component/edituser/edituser.component';
+import { SavefilterComponent } from '../../shared/component/savefilter/savefilter.component';
 
 @Component({
   selector: 'app-audittrials',

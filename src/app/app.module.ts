@@ -49,14 +49,14 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { PaginatorDirective } from './pagination.directive';
 // import { DashboardComponent } from './pages/modules/dashboard/dashboard.component';
 import { AgmCoreModule } from '@agm/core';
-import { AddmodelComponent } from './pages/component/addmodel/addmodel.component';
 import { AudittrialsComponent } from './pages/modules/audittrials/audittrials.component';
 import { EventComponent } from './pages/modules/event/event.component';
-import { EdituserComponent } from './pages/component/edituser/edituser.component';
-import { CheckpopupComponent } from './pages/component/checkpopup/checkpopup.component';
-import { MapComponent } from './pages/component/map/map.component';
+import { CheckpopupComponent } from './pages/shared/component/checkpopup/checkpopup.component';
+import { SavefilterComponent } from './pages/shared/component/savefilter/savefilter.component';
+import { MapComponent } from './pages/shared/component/map/map.component';
+import { EdituserComponent } from './pages/shared/component/edituser/edituser.component';
+import { AddmodelComponent } from './pages/shared/component/addmodel/addmodel.component';
 // import { DashboardComponent } from './pages/modules/dashboard/dashboard.component';
-import { SavefilterComponent } from './pages/component/savefilter/savefilter.component';
 
 
 
