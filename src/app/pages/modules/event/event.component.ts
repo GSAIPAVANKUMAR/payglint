@@ -44,25 +44,34 @@ export class EventComponent implements OnInit {
 
 
   // states
-  tableData1 = [{ Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  ];
+  // tableData1 = [{ Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
+  // ];
+
+
+
+
+
+
   tableData: any;
+
+  // Number of data per page.
+  tableDataPerPage: number = 10;
 
   constructor(
     private httpClient: HttpClient,
@@ -72,21 +81,20 @@ export class EventComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    // Add 'implements OnInit' to the class.
-    this.getPageDetails();
+    this.getEventTableData(1, this.tableDataPerPage);
     // this.getPageDetails();
+  }
 
-    // this.api.getEventTable({"currentPage": 1, "perPage": 10})
-    // .subscribe(
-    //   data => {
-    //     console.log(JSON.stringify(data));
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // );
-    
+  getEventTableData(currentPage: number, perPage: number) {
+    this.api.getEventTable({ "currentPage": 1, "perPage": 10 })
+      .subscribe(
+        data => {
+          this.tableData = data;
+        },
+        error => {
+          this.notify.error(error);
+        }
+      );
   }
 
   setPageSizeOptions = (setPageSizeOptionsInput: string) => {
@@ -96,7 +104,7 @@ export class EventComponent implements OnInit {
   }
 
   onPageEvent = ($event: { pageIndex: any; pageSize: any; }) => {
-    this.getData($event.pageIndex, $event.pageSize);
+    // this.getData($event.pageIndex, $event.pageSize);
   }
 
   showTestEmit = ($event: { pageIndex: any; pageSize: any; }) => {
@@ -110,24 +118,18 @@ export class EventComponent implements OnInit {
     // return this.allProjects(pg, lmt).subscribe( res => {
     // this.tableData = [];
     // });
-    const start: number = pg * 9;
-    console.log(this.tableData1.slice(start, start + lmt));
-    this.tableData = this.tableData1.slice(start, start + lmt);
+    // const start: number = pg * 9;
+    // console.log(this.tableData1.slice(start, start + lmt));
+    // this.tableData = this.tableData1.slice(start, start + lmt);
   }
   getPageDetails = () => {
     // this.getPageSize().subscribe( res => {
     // this.paginationInfo = this.tableData1;
     // this.getData(0, this.paginationInfo.pageSize);
     // });
-    this.paginationInfo = this.tableData1;
-    this.getData(0, 9);
+    // this.paginationInfo = this.tableData1;
+    // this.getData(0, 9);
   }
-
-  // getData = (pg: number, lmt: any) => {
-  //   return this.allProjects(pg, lmt).subscribe( res => {
-  //     this.tableData = [];
-  //   });
-  // }
 
   allProjects = (page: number, limit: any) => {
     return this.httpClient.get(`${this.BASE_URL}/posts?_page=${page + 1}&_limit=${limit}`);
@@ -167,50 +169,50 @@ export class EventComponent implements OnInit {
   }
 
   formatToCsvData() {
-    let itemsFormatted: any[] = [];
-    this.tableData1.forEach((item) => {
-      itemsFormatted.push({
-        Severity: item.Severity.replace(/,/g, ''),
-        Score: item.Score,
-        Date: item.Date,
-        Session: item.Session,
-        UserID: item.UserID,
-        DeviceID: item.DeviceID,
-        Checkpoint: item.Checkpoint,
-        Amount: item.Amount,
-        Currency: item.Currency,
-        Destination: item.Destination,
-        Status: item.Status,
-        Resolution: item.Resolution
-      });
-    });
-    const jsonObject = JSON.stringify(itemsFormatted);
-    const csv = this.convertToCSV(jsonObject);
-    this.mockCsvData = this.mockHeaders + csv;
+    // let itemsFormatted: any[] = [];
+    // this.tableData1.forEach((item) => {
+    //   itemsFormatted.push({
+    //     Severity: item.Severity.replace(/,/g, ''),
+    //     Score: item.Score,
+    //     Date: item.Date,
+    //     Session: item.Session,
+    //     UserID: item.UserID,
+    //     DeviceID: item.DeviceID,
+    //     Checkpoint: item.Checkpoint,
+    //     Amount: item.Amount,
+    //     Currency: item.Currency,
+    //     Destination: item.Destination,
+    //     Status: item.Status,
+    //     Resolution: item.Resolution
+    //   });
+    // });
+    // const jsonObject = JSON.stringify(itemsFormatted);
+    // const csv = this.convertToCSV(jsonObject);
+    // this.mockCsvData = this.mockHeaders + csv;
   }
-  download() {
-    this.formatToCsvData()
-    console.log('hi');
-    const exportedFilenmae = 'export' + '.csv';
 
-    const blob = new Blob([this.mockCsvData], { type: 'text/csv;charset=utf-8;' });
+  download() {
+    // this.formatToCsvData()
+    // console.log('hi');
+    // const exportedFilenmae = 'export' + '.csv';
+
+    // const blob = new Blob([this.mockCsvData], { type: 'text/csv;charset=utf-8;' });
     // if (navigator.msSaveBlob) {
     // // IE 10+
     // navigator.msSaveBlob(blob, exportedFilenmae);
     // } else {
-    const link = document.createElement('a');
-    if (link.download !== undefined) {
-      const url = URL.createObjectURL(blob);
-      link.setAttribute('href', url);
-      link.setAttribute('download', exportedFilenmae);
-      link.style.visibility = 'hidden';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      // }
-      // }
-    }
+    // const link = document.createElement('a');
+    // if (link.download !== undefined) {
+    //   const url = URL.createObjectURL(blob);
+    //   link.setAttribute('href', url);
+    //   link.setAttribute('download', exportedFilenmae);
+    //   link.style.visibility = 'hidden';
+    //   document.body.appendChild(link);
+    //   link.click();
+    //   document.body.removeChild(link);
+    // }
   }
+
   onTabChanged($event: any) {
     debugger;
     console.log($event);
