@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url : 'http://localhost:4000/api'
+  url : 'https://poc-eu1.paygilant.com/axiom-test/dashboard'
 };
 
 /*
