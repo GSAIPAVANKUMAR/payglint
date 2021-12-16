@@ -14,6 +14,11 @@ export class AnalyticsComponent implements OnInit {
 
   Options = {
     responsive: true,
+    elements: {
+      point: {
+        radius: 0,
+      },
+    },
     plugins: {
       legend: {
         display: false,
@@ -56,7 +61,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.34', '.56', '.89'],
             borderColor: '#FF6464',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -64,7 +69,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -72,7 +77,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           }
@@ -81,6 +86,11 @@ export class AnalyticsComponent implements OnInit {
       // options: this.Options,
       options: {
         responsive: true,
+        elements: {
+          point: {
+            radius: 0,
+          },
+        },
         plugins: {
           legend: {
             display: false,
@@ -118,7 +128,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -126,7 +136,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -134,7 +144,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           }
@@ -152,7 +162,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -160,7 +170,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -168,7 +178,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           }
@@ -186,7 +196,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -194,7 +204,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -202,7 +212,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           }
@@ -220,7 +230,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -228,7 +238,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -236,7 +246,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           }
@@ -254,7 +264,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.75', '.20', '.5'],
             borderColor: '#FF6464',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -262,7 +272,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.22', '.45', '.67'],
             borderColor: '#FFA217',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           },
@@ -270,7 +280,7 @@ export class AnalyticsComponent implements OnInit {
             data: ['.54', '.76', '.12'],
             borderColor: '#8DC63F',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: this.graphLineTension,
           }

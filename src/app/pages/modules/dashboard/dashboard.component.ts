@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
             data: ['55', '117', '234', '33', '111', '34', '234', '34', '109', '43', '243', '99'],
             borderColor: '#6778AE',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: 0.3,
           },
@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
             data: ['77', '178', '267', '22', '145', '23', '209', '54', '154', '56', '234', '123'],
             borderColor: '#F2A628',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: 0.3,
           },
@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
             data: ['33', '123', '289', '11', '132', '45', '298', '12', '132', '89', '123', '321'],
             borderColor: '#658C3D',
             borderWidth: 2,
-            pointStyle: 'line',
+            pointStyle: 'circle',
             fill: false,
             tension: 0.3,
           }
@@ -51,6 +51,11 @@ export class DashboardComponent implements OnInit {
       // options: this.Options,
       options: {
         responsive: true,
+        elements: {
+          point: {
+            radius: 0,
+          },
+        },
         plugins: {
           legend: {
             display: true,
