@@ -3,57 +3,132 @@
         <!-- Header section -->
         <div class="row dashboard-header">
             <div class="col-md-6 page-header">Dashboard</div>
-            <div class="col-md-6 user-profile">User Profile</div>
+            <div class="col-md-6 user-profile">
+                <img src="../../../../assets/images/user_img.png" />
+                <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
+                <img src="../../../../assets/images/user_down_arrow.svg" />
+            </div>
         </div>
         <!-- Dashboard body section -->
         <div class="row dashboard-body">
             <div class="col-md-7 col-7 dashboard-left">
                 <div class="row options-wrapper">
-                    Options section
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+                            checked />
+                        <label class="btn btn-outline-option" for="btnradio1">7d</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" />
+                        <label class="btn btn-outline-option" for="btnradio2">1M</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" />
+                        <label class="btn btn-outline-option" for="btnradio3">1Y</label>
+                    </div>
                 </div>
                 <div class="row box-wrapper">
-                    <div class="each-box">
-                        box-01
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../../../../assets/icon/Total_Amount_Icon.svg" alt="Icon" draggable="false" />
+                            </div>
+                            <div class="big-title">$10M</div>
+                            <div class="small-title">Total Amount</div>
+                        </div>
                     </div>
-                    <div class="each-box">
-                        box-01
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../../../../assets/icon/Total_High_Risk_Icon.svg" alt="Icon"
+                                    draggable="false" />
+                            </div>
+                            <div class="big-title">$16K</div>
+                            <div class="small-title">Total High Risk</div>
+                        </div>
                     </div>
-                    <div class="each-box">
-                        box-01
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../../../../assets/icon/Transactions_Icon.svg" alt="Icon" draggable="false" />
+                            </div>
+                            <div class="big-title">250</div>
+                            <div class="small-title">No. of Transactions</div>
+                        </div>
                     </div>
-                    <div class="each-box">
-                        box-01
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../../../../assets/icon/Users_Icon.svg" alt="Icon" draggable="false" />
+                            </div>
+                            <div class="big-title">110</div>
+                            <div class="small-title">No. of Users</div>
+                        </div>
                     </div>
                 </div>
                 <div class="row high-risk-checkpoint-chart-section">
-                    <div class="col-12">
-                        <div class="m-3">
-                            <span class="high-risk-checkpoint-chart-section-header">High Risk Check Points</span>
-                        </div>
+                    <div class="card">
+                        <div class="header">High Risk Check Points</div>
                         <canvas #highRiskCheckPointChart id="highRiskCheckPointChart" height="500px"
                             width="700px"></canvas>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-5 col-7 dashboard-right">
                 <div class="row risk-overview-wrapper">
                     <div class="title">24 hours Risks Overview</div>
-                    <div class="risk-overview-box">
-                        <div class="each-box"></div>
-                        <div class="each-box"></div>
-                        <div class="each-box"></div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../../../../assets/icon/Total_High_Risk_Icon.svg" alt="Icon"
+                                    draggable="false" />
+                            </div>
+                            <div class="big-title">$20K</div>
+                            <div class="small-title">Total High Risk</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../../../../assets/icon/High_Risk_Transaction_red_Icon.svg" alt="Icon"
+                                    draggable="false" />
+                            </div>
+                            <div class="big-title">50</div>
+                            <div class="small-title">High Risk Trans.</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../../../../assets/icon/User_Effected_Icon.svg" alt="Icon"
+                                    draggable="false" />
+                            </div>
+                            <div class="big-title">20</div>
+                            <div class="small-title">Users Affected</div>
+                        </div>
                     </div>
                 </div>
                 <div class="row risk-transaction-chart">
-                    <div class="col-12">
-                        <canvas #riskTransactionsBySeverityChart id="riskTransactionsBySeverityChart" width="180px" height="180px"></canvas>
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <span class="chart-header">
+                                    Risk Transactions By Severity
+                                </span>
+                            </div>
+                            <div class="col-sm-7">
+                                <canvas #riskTransactionsBySeverityChart id="riskTransactionsBySeverityChart"
+                                    width="20%" height="20%"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row distribution-risk-map">
-                    <!-- <h1>distribution-risk-map</h1> -->
+                    <div class="card">
+                        <span class="title">Distribution of Risk</span>
+                        <img src="../../../../assets/icon/Distribution_map.svg" alt="Map" draggable="false">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

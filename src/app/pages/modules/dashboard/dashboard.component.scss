@@ -1,53 +1,82 @@
 .dashboard-wrapper {
-    .dashboard-header {
-      min-height: 86px;
-      border-bottom: 1px solid #e5e5e5;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      .page-header {
-        font-family: Lato;
-        font-weight: bold;
-        font-size: 25px;
-        line-height: 22px;
-        color: #4d556a;
-        text-align: left;
-      }
-      .user-profile {
-        text-align: right;
-      }
+  .dashboard-header {
+    min-height: 86px;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .page-header {
+      font-family: Lato;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 22px;
+      color: #4d556a;
+      text-align: left;
     }
-    .dashboard-body {
-      min-height: 800px;
-      .dashboard-left {
-        border-right: 1px solid #e5e5e5;
-        padding: 20px;
-        .box-wrapper {
-          margin-top: 20px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          width: 100%;
-          max-width: 100%;
-          .each-box {
-            width: 172px;
-            height: 171px;
-            background: #ffffff;
-            border: 1px solid #e5e5e5;
-            box-sizing: border-box;
-            border-radius: 5px;
-            margin-left: 10px;
-          }
-        }
-        .high-risk-checkpoint-chart-section {
-          margin-top: 20px;
-          width: 755px;
-          height: 594px;
+    .user-profile {
+      text-align: right;
+    }
+  }
+  .dashboard-body {
+    min-height: 800px;
+    .dashboard-left {
+      border-right: 1px solid #e5e5e5;
+      padding: 20px;
+      .options-wrapper {
+        width: 20%;
+      }
+      .box-wrapper {
+        margin-top: 20px;
+        .card {
+          min-height: 171px;
+          height: 23vh;
           background: #ffffff;
           border: 1px solid #e5e5e5;
           box-sizing: border-box;
           border-radius: 5px;
-          .high-risk-checkpoint-chart-section-header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .card-image {
+            img {
+              width: 100%;
+            }
+          }
+          .big-title {
+            margin-top: 20px;
+            font-family: Lato;
+            font-weight: bold;
+            font-size: 32px;
+            line-height: 38px;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: #4d556a;
+          }
+          .small-title {
+            margin-top: 7px;
+            font-family: Lato;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: 0.01em;
+            color: #5d6276;
+          }
+        }
+      }
+      .high-risk-checkpoint-chart-section {
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        .card {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          box-sizing: border-box;
+          border-radius: 5px;
+          padding-bottom: 30px;
+          padding-top: 10px;
+          .header {
+            margin-top: 20px;
+            margin-left: 20px;
             font-family: Lato;
             font-style: normal;
             font-weight: bold;
@@ -56,54 +85,144 @@
             display: flex;
             align-items: center;
             letter-spacing: 0.5px;
-            color: #4D556A;
+            color: #4d556a;
           }
         }
       }
-      .dashboard-right {
-        padding: 20px;
-        .risk-overview-wrapper{
-            .title{
+    }
+    .dashboard-right {
+      padding: 20px;
+      .risk-overview-wrapper {
+        margin-top: 10px;
+        .title {
+          font-family: Lato;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 28px;
+          color: #4d556a;
+          margin-bottom: 20px;
+        }
+        .card {
+          min-height: 171px;
+          height: 23vh;
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          box-sizing: border-box;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .card-image {
+            img {
+              width: 100%;
+            }
+          }
+          .big-title {
+            margin-top: 20px;
+            font-family: Lato;
+            font-weight: bold;
+            font-size: 32px;
+            line-height: 38px;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: #4d556a;
+          }
+          .small-title {
+            margin-top: 7px;
+            font-family: Lato;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: 0.01em;
+            color: #5d6276;
+          }
+        }
+        .risk-overview-box {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: row;
+          .each-box {
+            width: 152px;
+            height: 171px;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            box-sizing: border-box;
+            border-radius: 5px;
+          }
+        }
+      }
+      .risk-transaction-chart {
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        .card {
+          padding-left: 20px;
+          padding-right: 20px;
+          min-height: 240px;
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          box-sizing: border-box;
+          border-radius: 5px;
+          .col-sm-5 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+            .chart-header {
               font-family: Lato;
+              font-style: normal;
               font-weight: bold;
-              font-size: 24px;
+              font-size: 20px;
               line-height: 28px;
-              color: #4D556A;
+              color: #4d556a;
             }
-            .risk-overview-box{
-                margin-top: 20px;
-                display: flex;
-                flex-direction: row;
-                .each-box{
-                  width: 152px;
-                  height: 171px;
-                  background: #FFFFFF;
-                  border: 1px solid #E5E5E5;
-                  box-sizing: border-box;
-                  border-radius: 5px;
-                }
-            }
-           
+          }
         }
-        .risk-transaction-chart{
-          margin-top: 20px;  
-          width: 500px;
-          height: 240px;
-          background: #FFFFFF;
-          border: 1px solid #E5E5E5;
-          box-sizing: border-box;
-          border-radius: 5px;
-        }
-        .distribution-risk-map{
-          margin-top: 20px;  
-          width: 500px;
+      }
+      .distribution-risk-map {
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        .card {
+          padding: 30px;
           height: 329px;
-          background: #FFFFFF;
-          border: 1px solid #E5E5E5;
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
           box-sizing: border-box;
           border-radius: 5px;
+          .title {
+            font-family: Lato;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 28px;
+            color: #4d556a;
+          }
         }
       }
     }
   }
-  
+}
+
+.btn-check:checked + .btn-outline-option {
+  color: #fff;
+  background-color: #86c255 !important;
+  border: none !important;
+  border-radius: 3px;
+}
+.btn-outline-option {
+  background: #f5f5f5;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #4d556a;
+  border: none;
+  &:hover {
+    background: #f5f5f5;
+    color: #86c255;
+  }
+}
