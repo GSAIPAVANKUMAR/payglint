@@ -2,9 +2,9 @@
     <div>
         <img src="../../../../assets/images/Paygilant logo reversed 2 1.png" class="payglint-img" />
         <div class="matcrs">
-            <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
                 <div class="form-group" class="email-input">
-                    <input id="emailicon" type="text" formControlName="username" placeholder="Email"
+                    <input id="emailicon" type="text" formControlName="email" placeholder="Email"
                         class="form-control formInput email-text-input" />
                 </div>
                 <div class="form-group">
@@ -15,7 +15,7 @@
                     <input formControlName="token" placeholder="Token" class="form-control formInput token-input" />
                 </div>
                 <div class="form-group">
-                    <button type="submit" (click)="login()" class="btn login-button">
+                    <button type="submit" class="btn login-button">
                         <span class="txtsty">Login </span>
                     </button>
                 </div>

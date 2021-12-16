@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { from } from "rxjs";
+import { BackendApiService } from "../../services/backend-api.service";
+import { NotificationService } from "../../services/notification.service";
 
 @Component({
   selector: "app-login",
@@ -12,18 +14,21 @@ import { from } from "rxjs";
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  response: any = [];
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
     private _activatedRoute: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private service: BackendApiService,
+    private notification: NotificationService
   ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
       token: ['', Validators.required]
   });
@@ -35,11 +40,16 @@ export class LoginComponent implements OnInit {
   get formValue() {
     return this.loginForm.controls;
   }
-  login() {
-    let formData = {
-      email: this.loginForm.value.username,
-      password: this.loginForm.value.password,
-    };
-    this.router.navigate(["/dashboard"]);
-  }
+  onSubmit (user: any): void  {
+    this.service.login(user).subscribe(res=>{
+      this.response = res;
+      if(this.response.message!=null){
+        this.notification.error(this.response.message);  
+      }else{
+        this.service.token = this.response.token;
+        console.log(this.service.token);
+        this.router.navigate(["/dashboard"]);
+      }
+    });
+  } 
 }
