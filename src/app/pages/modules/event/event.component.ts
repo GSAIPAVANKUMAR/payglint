@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SavefilterComponent } from '../../shared/component/savefilter/savefilter.component';
+import { NotificationService } from '../../services/notification.service';
+import { BackendApiService } from '../../services/backend-api.service';
 
 @Component({
   selector: 'app-event',
@@ -61,21 +63,36 @@ export class EventComponent implements OnInit {
   { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
   ];
   tableData: any;
-  constructor(private httpClient: HttpClient, private matDialog: MatDialog) {
-    this.getPageDetails();
 
-  }
-  setPageSizeOptions = (setPageSizeOptionsInput: string) => {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
-  }
+  constructor(
+    private httpClient: HttpClient,
+    private matDialog: MatDialog,
+    private notify: NotificationService,
+    private api: BackendApiService,
+  ) { }
 
   ngOnInit(): void {
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     // Add 'implements OnInit' to the class.
     this.getPageDetails();
     // this.getPageDetails();
+
+    // this.api.getEventTable({"currentPage": 1, "perPage": 10})
+    // .subscribe(
+    //   data => {
+    //     console.log(JSON.stringify(data));
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }
+    // );
+    
+  }
+
+  setPageSizeOptions = (setPageSizeOptionsInput: string) => {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
   }
 
   onPageEvent = ($event: { pageIndex: any; pageSize: any; }) => {
