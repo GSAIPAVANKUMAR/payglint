@@ -150,6 +150,7 @@ line-height: 14px;
   box-shadow: none;
 }
 .button-txt {
+  margin-left: 10px;
   width: 161px;
   height: 36px;
   background: #86c255;
@@ -157,6 +158,10 @@ line-height: 14px;
   box-sizing: border-box;
   border-radius: 3px;
   color: white;
+}
+.is-delete-button {
+  cursor: pointer;
+  margin-left: 10px;
 }
 .remove-border-bottom ::ng-deep .mat-tab-header {
   border-bottom: none;

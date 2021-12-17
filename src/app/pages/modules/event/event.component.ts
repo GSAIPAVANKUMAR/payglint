@@ -5,6 +5,40 @@ import { SavefilterComponent } from '../../shared/component/savefilter/savefilte
 import { NotificationService } from '../../services/notification.service';
 import { BackendApiService } from '../../services/backend-api.service';
 
+interface filterPayload {
+  severity?: { values: string[] };
+  userId?: { values: string[] };
+  deviceId?: { values: string[] };
+  sessionId?: { values: string[] };
+  checkpoint?: { values: string[] };
+  requestId?: { values: string[] };
+  status?: { values: string[] };
+  amount?: { values: string[] };
+  currency?: { values: string[] };
+  destination?: { values: string[] };
+  score?: { values: string[] };
+};
+
+interface rangePayload {
+  bigEquals?: Date;
+  smallEquals?: Date;
+}
+
+interface sortPayload {
+  fieldName?: string;
+  order?: string;
+}
+
+interface tableFilterPayload {
+  currentPage?: number;
+  perPage?: number;
+  filters?: filterPayload;
+  ranges?: rangePayload;
+  sort?: sortPayload;
+}
+
+
+
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
@@ -66,9 +100,12 @@ export class EventComponent implements OnInit {
 
 
 
-
-
   tableData: any;
+  tableFilters: tableFilterPayload = {};
+
+  checkpointSelected: any;
+  severitySelected: any;
+  statusSelected: any;
 
   // Number of data per page.
   tableDataPerPage: number = 10;
@@ -81,12 +118,16 @@ export class EventComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getEventTableData(1, this.tableDataPerPage);
+    this.tableFilters = {
+      currentPage: 1,
+      perPage: this.tableDataPerPage
+    };
+    this.getEventTableData(this.tableFilters);
     // this.getPageDetails();
   }
 
-  getEventTableData(currentPage: number, perPage: number) {
-    this.api.getEventTable({ "currentPage": 1, "perPage": 10 })
+  getEventTableData(tableFilters: tableFilterPayload) {
+    this.api.getEventTable(tableFilters)
       .subscribe(
         data => {
           this.tableData = data;
@@ -95,6 +136,51 @@ export class EventComponent implements OnInit {
           this.notify.error(error);
         }
       );
+  }
+
+  applyFiltersEvent() {
+    this.updateTableFiltersForm();
+    this.getEventTableData(this.tableFilters);
+  }
+
+  updateTableFiltersForm() {
+    const userid = (<HTMLInputElement>document.getElementById("userid"))?.value;
+    const deviceid = (<HTMLInputElement>document.getElementById("deviceid"))?.value;
+    const sessionid = (<HTMLInputElement>document.getElementById("sessionid"))?.value;
+    const requestid = (<HTMLInputElement>document.getElementById("requestid"))?.value;
+    this.tableFilters = {
+      currentPage: 1,
+      perPage: this.tableDataPerPage,
+      filters: {
+        userId: userid ? { values: [userid] } : undefined,
+        deviceId: deviceid ? { values: [deviceid] } : undefined,
+        sessionId: sessionid ? { values: [sessionid] } : undefined,
+        requestId: requestid ? { values: [requestid] } : undefined,
+        severity: this.severitySelected ? { values: [this.severitySelected] } : undefined,
+        checkpoint: this.checkpointSelected ? { values: [this.checkpointSelected] } : undefined,
+        status: this.statusSelected ? { values: [this.statusSelected] } : undefined,
+      }
+    }
+  }
+
+  resetFiltersEvent() {
+    this.resetTableFiltersForm();
+    this.getEventTableData(this.tableFilters);
+  }
+
+  resetTableFiltersForm() {
+    if ((<HTMLInputElement>document.getElementById("userid"))) {
+      (<HTMLInputElement>document.getElementById("userid")).value = '';
+    }
+    if ((<HTMLInputElement>document.getElementById("deviceid"))) {
+      (<HTMLInputElement>document.getElementById("deviceid")).value = '';
+    }
+    if ((<HTMLInputElement>document.getElementById("sessionid"))) {
+      (<HTMLInputElement>document.getElementById("sessionid")).value = '';
+    }
+    if ((<HTMLInputElement>document.getElementById("requestid"))) {
+      (<HTMLInputElement>document.getElementById("requestid")).value = '';
+    }
   }
 
   setPageSizeOptions = (setPageSizeOptionsInput: string) => {
@@ -235,18 +321,17 @@ export class EventComponent implements OnInit {
   //     return
   //   }
   // }
-  selectedValue(val: any) {
-    debugger;
-    this.nameplaceholder = ""
+  selectedCheckpoint(val: any) {
+    this.checkpointSelected = val;
   }
   selectedView(val: any) {
     this.viewfileter = ""
   }
-  selectedcheckValue(val: any) {
-    this.checkvalue = ""
+  selectedSeverity(val: any) {
+    this.severitySelected = val;
   }
-  selectedstatusValue(val: any) {
-    this.status = ""
+  selectedStatus(val: any) {
+    this.statusSelected = val;
   }
   selecteddateValue(val: any) {
     this.startdate = ""
