@@ -1,78 +1,168 @@
-<mat-drawer-container class="example-matcontainer">
-  <mat-drawer #drawer mode="side" disableClose="true" opened="true" class="matdrawerside">
-    <div class="sidebarsty"> <img src="../../../../assets/images/Paygilant logo reversed.png " class="imgsty" />
+<mat-drawer-container class="pagilant-sidebar-wrapper">
+  <mat-drawer
+    #drawer
+    mode="side"
+    disableClose="true"
+    opened="true"
+    class="matdrawerside"
+  >
+    <!-- side bar app logo -->
+    <div class="sidebar-logo">
+      <img
+        src="../../../../assets/images/Pagilant_logo.svg"
+        alt="LOGO"
+        draggable="false"
+      />
     </div>
-    <!-- <mat-divider _ngcontent-pub-c105="" role="separator" class="mat-divider mat-divider-horizontal"></mat-divider> -->
-    <mat-nav-list class="nav-list-wrapper" style="margin-top: 20px; padding-left: 17px;">
-      <mat-list-item (click)="navigate('/dashboard')" class="mat-list-value">
-        <span class="sidenav-icon">
-          <img *ngIf="isExpanded" src="../../../../assets/images/Group 32376.png" />
+
+    <!-- side bar nav list section -->
+    <mat-nav-list class="nav-list-wrapper">
+      <!-- dashboard menu -->
+      <mat-list-item
+        (click)="navigate('/dashboard')"
+        class="mat-list-value"
+        [ngClass]="{ 'active-link': activeLink == 'dashboard' }"
+        [disableRipple]="true"
+      >
+        <span class="sidenav-icon" *ngIf="activeLink != 'dashboard'">
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/dashboard_icon.svg"
+          />
         </span>
-        <br />
-        <span class="menu-link-label ml-4">Dashboard</span>
+        <span class="sidenav-icon" *ngIf="activeLink == 'dashboard'">
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/dashboard_active_icon.svg"
+          />
+        </span>
+        <span class="menu-link-label">Dashboard</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/events')" [ngClass]="{ 'active-link': activeLink == 'events' }"
-        class="mat-list-value">
-        <span class="sidenav-icon" *ngIf="activeLink == 'Home'" style="margin-left: -8px;">
-          <img *ngIf="isExpanded" src="../../../../assets/images/calgroup.png" />
+
+      <!-- events menu -->
+      <mat-list-item
+        (click)="navigate('/events')"
+        [ngClass]="{ 'active-link': activeLink == 'events' }"
+        class="mat-list-value"
+      >
+        <span class="sidenav-icon" *ngIf="activeLink != 'events'">
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/event_icon.svg"
+          />
         </span>
-        <span class="sidenav-icon" *ngIf="activeLink != 'Home'">
-          <img *ngIf="isExpanded" src="../../../../assets/images/calgroupname.png" />
+        <span class="sidenav-icon" *ngIf="activeLink == 'events'">
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/event_active_icon.svg"
+          />
         </span>
-        <br />
-        <span class="menu-link-label ml-4" style="padding-left: 12px;">Events</span>
+        <span class="menu-link-label">Events</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/screenevents')" [ngClass]="{ 'active-link': activeLink == 'screenevents' }"
-        class="mat-list-value">
-        <span class="sidenav-icon" *ngIf="activeLink == 'screenevents'" style="margin-left: -8px;">
-          <img *ngIf="isExpanded" src="../../../../assets/images/screenevents.png" />
-        </span>
+      <!-- Screen events menu -->
+      <mat-list-item
+        (click)="navigate('/screenevents')"
+        [ngClass]="{ 'active-link': activeLink == 'screenevents' }"
+        class="mat-list-value"
+      >
         <span class="sidenav-icon" *ngIf="activeLink != 'screenevents'">
-          <img *ngIf="isExpanded" src="../../../../assets/images/transaction 3.png" />
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/screen_events_icon.svg"
+          />
         </span>
-        <br />
-        <span class="menu-link-label ml-4">Screen Events</span>
+        <span class="sidenav-icon" *ngIf="activeLink == 'screenevents'">
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/screen_events_active_icon.svg"
+          />
+        </span>
+        <span class="menu-link-label">Screen Events</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/reports')"  style="display: table-caption;" class="mat-list-value">
+      <!-- reports menu -->
+      <mat-list-item
+        (click)="navigate('/reports')"
+        class="mat-list-value"
+        [ngClass]="{ 'active-link': activeLink == 'reports' }"
+      >
         <span class="sidenav-icon" *ngIf="activeLink != 'reports'">
-          <img *ngIf="isExpanded" src="../../../../assets/images/statistics 1.svg" />
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/reports_icon.svg"
+          />
         </span>
-        <span class="sidenav-icon" *ngIf="activeLink == 'reports'" style="margin-left: -8px;">
-                  <img *ngIf="isExpanded" src="../../../../assets/images/repo.png" />
-                </span>
-        <span class="menu-link-label ml-4" style="padding-left: 8px;">Reports</span>
+
+        <span class="sidenav-icon" *ngIf="activeLink == 'reports'">
+          <img *ngIf="isExpanded" src="../../../../assets/images/reports_active_icon.svg" />
+        </span>
+        <span class="menu-link-label">Reports</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/analytics')" style="display: table-caption;" class="mat-list-value">
-        <span class=" sidenav-icon" *ngIf="activeLink != 'analytics'">
-          <img *ngIf="isExpanded" src="../../../../assets/images/analytics 1.png" />
+      <!-- analytics menu -->
+      <mat-list-item
+        (click)="navigate('/analytics')"
+        class="mat-list-value"
+        [ngClass]="{ 'active-link': activeLink == 'analytics' }"
+      >
+        <span class="sidenav-icon" *ngIf="activeLink != 'analytics'">
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/analytics_icon.svg"
+          />
         </span>
-        <span class=" sidenav-icon" *ngIf="activeLink == 'analytics'" style="margin-left: -8px;">
-          <img *ngIf="isExpanded" src="../../../../assets/images/analytic.png" />
+
+        <span class="sidenav-icon" *ngIf="activeLink == 'analytics'">
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/analytics_active_icon.svg"
+          />
         </span>
-        <span class="menu-link-label ml-4" style="padding-left: 5px;">Analytics</span>
+        <span class="menu-link-label">Analytics</span>
       </mat-list-item>
-      <mat-list-item data-toggle="collapse" (click)="navigate('/audittrails')" class="mat-list-value">
-        <span class="sidenav-icon">
-          <img *ngIf="isExpanded" src="../../../../assets/images/file 1.png" />
+      <!-- audit trails menu -->
+      <mat-list-item
+        data-toggle="collapse"
+        (click)="navigate('/audittrails')"
+        class="mat-list-value"
+        [ngClass]="{ 'active-link': activeLink == 'audittrails' }"
+      >
+        <span class="sidenav-icon" *ngIf="activeLink != 'audittrails'">
+          <img *ngIf="isExpanded" src="../../../../assets/images/audit_trails_icon.svg" />
         </span>
-        <br />
-        <span class="menu-link-label ml-4">Audit Trials</span>
+        <span class="sidenav-icon" *ngIf="activeLink == 'audittrails'">
+          <img *ngIf="isExpanded" src="../../../../assets/images/audit_trails_active_icon.svg" />
+        </span>
+        <span class="menu-link-label">Audit Trials</span>
       </mat-list-item>
-      <mat-list-item (click)="navigate('/profilescreen')" class="mat-list-value"
-        [ngClass]="{ 'active-link': activeLink == 'profilesceen' }">
+      <!-- Profile menu -->
+      <mat-list-item
+        (click)="navigate('/profilescreen')"
+        class="mat-list-value"
+        [ngClass]="{ 'active-link': activeLink == 'profilesceen' }"
+      >
         <span class="sidenav-icon" *ngIf="activeLink != 'profilescreen'">
-          <img *ngIf="isExpanded" src="../../../../assets/images/profile 1.png" />
+          <img
+            *ngIf="isExpanded"
+            src="../../../../assets/images/profile_icon.svg"
+          />
         </span>
-        <span class="sidenav-icon" *ngIf="activeLink == 'profilescreen'" style="margin-left: -8px;">
-          <img *ngIf="isExpanded" src="../../../../assets/images/profile.png" />
+        <span class="sidenav-icon" *ngIf="activeLink == 'profilescreen'">
+          <img *ngIf="isExpanded" src="../../../../assets/images/profile_active_icon.svg" />
         </span>
-        <br />
-        <span class="menu-link-label ml-4" style="padding-left: 8px;">Profiles</span>
+        <span class="menu-link-label">Profiles</span>
       </mat-list-item>
     </mat-nav-list>
-    <div class="text-right logoutbtn">
-      <img draggable="false" *ngIf="isExpanded" src="../../../../assets/images/11 Starv.png" alt="collapsed_icon" />
+    <!-- end of mat list navigation -->
+
+    <!-- nav footer section -->
+    <div class="logout-section">
+      <img
+        draggable="false"
+        *ngIf="isExpanded"
+        src="../../../../assets/images/11 Starv.png"
+        alt="collapsed_icon"
+      />
     </div>
+    <!-- end of nav footer section -->
   </mat-drawer>
   <div>
     <router-outlet></router-outlet>
