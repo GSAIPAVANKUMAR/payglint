@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SavefilterComponent } from '../../shared/component/savefilter/savefilter.component';
 import { NotificationService } from '../../services/notification.service';
 import { BackendApiService } from '../../services/backend-api.service';
+import { Router } from '@angular/router';
 
 interface filterPayload {
   severity?: { values: string[] };
@@ -113,6 +114,7 @@ export class EventComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private matDialog: MatDialog,
+    private router: Router,
     private notify: NotificationService,
     private api: BackendApiService,
   ) { }
@@ -169,17 +171,18 @@ export class EventComponent implements OnInit {
   }
 
   resetTableFiltersForm() {
-    if ((<HTMLInputElement>document.getElementById("userid"))) {
-      (<HTMLInputElement>document.getElementById("userid")).value = '';
-    }
-    if ((<HTMLInputElement>document.getElementById("deviceid"))) {
-      (<HTMLInputElement>document.getElementById("deviceid")).value = '';
-    }
-    if ((<HTMLInputElement>document.getElementById("sessionid"))) {
-      (<HTMLInputElement>document.getElementById("sessionid")).value = '';
-    }
-    if ((<HTMLInputElement>document.getElementById("requestid"))) {
-      (<HTMLInputElement>document.getElementById("requestid")).value = '';
+    this.tableFilters = {
+      currentPage: 1,
+      perPage: this.tableDataPerPage,
+      filters: {
+        userId: undefined,
+        deviceId: undefined,
+        sessionId: undefined,
+        requestId: undefined,
+        severity: undefined,
+        checkpoint: undefined,
+        status: undefined,
+      }
     }
   }
 
