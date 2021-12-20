@@ -8,6 +8,7 @@ import { ProfileComponent } from "../profile/profile.component";
 import { ProfilescreenComponent } from "../profilescreen/profilescreen.component";
 import { ReportsComponent } from "../reports/reports.component";
 import { HomeComponent } from "./home.component";
+import { ScreenEventComponent } from '../screen-event/screen-event.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
     children: [
       { path: "dashboard", component: DashboardComponent },
       { path: "events", component: EventComponent },
-      { path: "screenevents", component: ProfileComponent },
+      { path: "screenevents", component: ScreenEventComponent },
       { path: "reports", component: ReportsComponent },
       { path: "analytics", component: AnalyticsComponent },
       { path: "profilescreen", component: ProfilescreenComponent },
@@ -30,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomeRoutingModule {}
+export class HomeRoutingModule { }

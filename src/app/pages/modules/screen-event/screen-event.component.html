@@ -1,0 +1,108 @@
+<div class="screen-event-wrapper">
+  <div class="container-fluid">
+    <!-- Screen Event Header section -->
+    <div class="row screen-event-header">
+      <div class="col-md-6 page-header">Screen Event</div>
+      <div class="col-md-6 user-profile">
+        <img src="../../../../assets/images/user_img.png" />
+        <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
+        <img src="../../../../assets/images/user_down_arrow.svg" />
+      </div>
+    </div>
+    <div class="row screen-event-save-as-section">
+      <div class="col-12">
+        <span class="is-page-label">Filters</span>
+        <select class="is-filter-select-option">
+          <option value="" hidden selected disabled>View all filters</option>
+          <option *ngFor="let filter of filtersArray">
+            {{filter}}
+          </option>
+        </select>
+        <button type="button" class="btn btn-light is-save-button ml-1">Save As</button>
+      </div>
+    </div>
+    <!-- Screen Event filter section -->
+    <div class="row screen-event-filter-section">
+      <form #screenEventFilterForm="ngForm" (ngSubmit)="onscreenEventFilterSubmit(screenEventFilterForm)"
+        class="form-inline">
+        <div class="form-group mr-1">
+          <select class="is-form-select-option-multiselect">
+            <option *ngFor="let screenType of screenTypeArray" [value]="screenType">{{screenType}}</option>
+          </select>
+        </div>
+        <div class="form-group mx-1">
+          <select class="is-form-select-option-multiselect">
+            <option *ngFor="let action of actionArray" [value]="action">{{action}}</option>
+          </select>
+        </div>
+        <div class="form-group mx-1">
+          <mat-form-field class="is-form-date-range-picker" appearance="fill">
+            <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date">
+              <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+        <div class="form-group mx-1">
+          <input type="text" class="is-from-input-text-field" id="screenid" name="screenid" placeholder="Screenid"
+            ngModel />
+        </div>
+        <div class="form-group mx-1">
+          <input type="text" class="is-from-input-text-field" id="sessionid" name="sessionid" placeholder="Sessionid"
+            ngModel />
+        </div>
+        <div class="form-group mx-1">
+          <input type="text" class="is-from-input-text-field" id="deviceid" name="deviceid" placeholder="Deviceid"
+            ngModel />
+        </div>
+        <div class="form-group ml-1">
+          <input type="text" class="is-from-input-text-field" id="userid" name="userid" placeholder="Userid" ngModel />
+        </div>
+        <div class="is-form-button-section">
+          <button type="submit" class="btn is-form-submit-button"><img class="mr-1"
+              src="../../../../assets/images/right.png">Apply</button>
+          <button type="button" class="btn is-form-reset-button" (click)="onScreenEventFilterReset()"><img
+              class="is-delete-icon" src="../../../../assets/images/delete_icon_button.svg"></button>
+        </div>
+      </form>
+    </div>
+    <div class="row screen-event-Table-Section">
+      <div class="col-12">
+        <table class="table table-borderless is-screen-event-table">
+          <thead class="is-screen-event-table-header">
+            <tr>
+              <th class="is-screen-event-table-headers-text border-radius-top-left">Date</th>
+              <th class="is-screen-event-table-headers-text">Screen Listener Type</th>
+              <th class="is-screen-event-table-headers-text">Action</th>
+              <th class="is-screen-event-table-headers-text">Screenid</th>
+              <th class="is-screen-event-table-headers-text">Userid</th>
+              <th class="is-screen-event-table-headers-text">Sessionid</th>
+              <th class="is-screen-event-table-headers-text">Deviceid</th>
+              <th class="is-screen-event-table-headers-text border-radius-top-right">Version</th>
+            </tr>
+          </thead>
+          <tbody class="is-screen-event-table-body">
+            <tr *ngFor="let tableItem of tableData" class="is-screen-event-table-body-row">
+              <td class="is-screen-event-table-body-text">{{ tableItem.timestamp }}</td>
+              <td class="is-screen-event-table-body-text">{{ tableItem.screenListenerType }}</td>
+              <td class="is-screen-event-table-body-text">{{ tableItem.action }}</td>
+              <td class="is-screen-event-table-body-text">{{ tableItem.screenId }}</td>
+              <td class="is-screen-event-table-body-text">{{ tableItem.userId }}</td>
+              <td class="is-screen-event-table-body-text">{{ tableItem.sessionId }}</td>
+              <td class="is-screen-event-table-body-text">{{ tableItem.deviceId }}</td>
+              <td class="is-screen-event-table-body-text">{{ tableItem.version }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="screen-event-pagination-section">
+      <mat-paginator appPagination [length]=50 [pageSize]=10 [hidePageSize]="true"
+        (page)="onPageEvent($event)">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

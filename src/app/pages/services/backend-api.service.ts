@@ -10,17 +10,22 @@ interface tableFilterPayload {
   currentPage?: number;
   perPage?: number;
   filters?: {
-    severity?: { values: string[] };
-    userId?: { values: string[] };
-    deviceId?: { values: string[] };
-    sessionId?: { values: string[] };
-    checkpoint?: { values: string[] };
-    requestId?: { values: string[] };
-    status?: { values: string[] };
+    action?: { values: string[] };
     amount?: { values: string[] };
+    checkpoint?: { values: string[] };
     currency?: { values: string[] };
     destination?: { values: string[] };
+    deviceId?: { values: string[] };
+    id?: { values: string[] };
+    requestId?: { values: string[] };
     score?: { values: string[] };
+    screenId?: { values: string[] };
+    screenListenerType?: { values: string[] };
+    sessionId?: { values: string[] };
+    severity?: { values: string[] };
+    status?: { values: string[] };
+    userId?: { values: string[] };
+    version?: { values: string[] };
   };
   ranges?: {
     bigEquals?: Date;
@@ -47,7 +52,6 @@ export class BackendApiService {
 
   // Get Event page Table data as required.
   getEventTable(data: tableFilterPayload) {
-    console.log(this.token);
     const header = new HttpHeaders()
       .set('accept', '*/*')
       .set('x-access-token', this.token)
@@ -60,11 +64,27 @@ export class BackendApiService {
         })
       );
   }
+
+  getScreenEventTable(data: tableFilterPayload) {
+    const header = new HttpHeaders()
+      .set('accept', '*/*')
+      .set('x-access-token', this.token)
+      .set('Content-Type', 'application/json');
+    return this.http
+      .post<any>(API_URL + '/api/screen/screen-listeners-events', data, { headers: header })
+      .pipe(
+        map((response) => {
+          return response;
+        })
+      );
+  }
+
   login(data: any) {
     return this.http
       .post<any>(API_URL + '/api/auth/login', data, this.httpOptions)
       .pipe(
         map((response) => {
+          this.token = response.token;
           return response;
         })
       );

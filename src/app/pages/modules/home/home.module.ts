@@ -9,11 +9,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from '../../shared/service/material/material.module';
 import { MatTableModule } from '@angular/material/table';
 import { PaginatorDirective } from 'src/app/pagination.directive';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReportsComponent } from '../reports/reports.component';
 import { AnalyticsComponent } from '../analytics/analytics.component';
+import { ScreenEventComponent } from '../screen-event/screen-event.component';
+import { MatMenuModule } from '@angular/material/menu';
 // import { ProfilescreenComponent } from '../profilescreen/profilescreen.component';
 
 
@@ -24,9 +26,10 @@ import { AnalyticsComponent } from '../analytics/analytics.component';
     ReportsComponent,
     AnalyticsComponent,
     DashboardComponent,
+    ScreenEventComponent,
     // ProfilescreenComponent
   ],
-  imports: [  
+  imports: [
     CommonModule,
     HomeRoutingModule,
     MaterialModule,
@@ -37,7 +40,8 @@ import { AnalyticsComponent } from '../analytics/analytics.component';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
-  ],  
+    MatMenuModule,
+  ],
   exports: [
     HomeComponent,
     // ProfileComponent,
