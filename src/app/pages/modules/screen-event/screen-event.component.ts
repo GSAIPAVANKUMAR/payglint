@@ -1,9 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { screenEventTableFilterPayload } from "../../models/tables-filters.model";
-import { BackendApiService } from "../../services/backend-api.service";
-import { NotificationService } from "../../services/notification.service";
+import { screenEventTableFilterPayload } from "../../../models/tables-filters.model";
+import { BackendApiService } from "../../../services/backend-api.service";
+import { NotificationService } from "../../../services/notification.service";
 
 @Component({
   selector: "app-screen-event",

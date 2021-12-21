@@ -1,6 +1,5 @@
-import { User } from './../../../models/user';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BackendApiService } from 'src/app/pages/services/backend-api.service';
+import { BackendApiService } from 'src/app/services/backend-api.service';
 
 @Component({
   selector: 'app-checkpopup',
@@ -23,14 +22,14 @@ export class CheckpopupComponent implements OnInit {
   email: any;
   emailVerification: any;
   phone: any;
-  phoneVerification : any;
+  phoneVerification: any;
   @Input() row: any;
   @Output() newEvent = new EventEmitter<boolean>();
   response: any;
   notification: any;
   router: any;
-  constructor(private service: BackendApiService ) {
-   }
+  constructor(private service: BackendApiService) {
+  }
 
   ngOnInit(): void {
     console.log(this.row);
@@ -38,7 +37,7 @@ export class CheckpopupComponent implements OnInit {
   }
 
   getRequestRowData(requestid: any) {
-    this.service.getRequestData(requestid).subscribe((res: any)=>{
+    this.service.getRequestData(requestid).subscribe((res: any) => {
       this.response = res;
       console.log(this.response)
       this.ip = this.response.ip;
@@ -53,9 +52,9 @@ export class CheckpopupComponent implements OnInit {
       this.emailVerification = this.response.user.isEmailVerified;
       this.phone = this.response.user.phoneUser;
       this.phoneVerification = this.response.user.isPhoneUserVerified;
-      })
+    })
   }
-  addNew(value:boolean){
+  addNew(value: boolean) {
     this.newEvent.emit(this.dis);
   }
   gencollapse() {
@@ -73,12 +72,12 @@ export class CheckpopupComponent implements OnInit {
       return;
     }
     this.showuserinf = true;
-  } 
+  }
   reasoncollapse() {
     if (this.showreasoninf == true) {
       this.showreasoninf = false;
       return;
     }
     this.showreasoninf = true;
-  } 
+  }
 }

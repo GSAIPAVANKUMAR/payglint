@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { from } from "rxjs";
-import { BackendApiService } from "../../services/backend-api.service";
-import { NotificationService } from "../../services/notification.service";
+import { BackendApiService } from "../../../services/backend-api.service";
+import { NotificationService } from "../../../services/notification.service";
 
 @Component({
   selector: "app-login",

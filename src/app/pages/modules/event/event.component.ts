@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SavefilterComponent } from '../../shared/component/savefilter/savefilter.component';
-import { NotificationService } from '../../services/notification.service';
-import { BackendApiService } from '../../services/backend-api.service';
+import { NotificationService } from '../../../services/notification.service';
+import { BackendApiService } from '../../../services/backend-api.service';
 import { Router } from '@angular/router';
-import { eventTableFilterPayload } from '../../models/tables-filters.model';
+import { eventTableFilterPayload } from '../../../models/tables-filters.model';
 
 @Component({
   selector: 'app-event',
@@ -299,7 +299,7 @@ export class EventComponent implements OnInit {
   }
   selectedSeverity(val: any) {
     this.severitySelected = val;
-    this.nameplaceholder =""
+    this.nameplaceholder = ""
   }
   selectedStatus(val: any) {
     this.statusSelected = val;
