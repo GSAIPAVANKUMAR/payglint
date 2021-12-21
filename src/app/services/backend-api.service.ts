@@ -16,20 +16,13 @@ const X_ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjpcImRlYTU
   providedIn: 'root'
 })
 export class BackendApiService {
-  token: any;
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'accept': '*/*'
-    })
-  }
   constructor(private http: HttpClient) { }
 
   // Get Event page Table data as required.
-  getEventTable(data: eventTableFilterPayload) {
+  getEventTable(data: eventTableFilterPayload, token: any) {
     const header = new HttpHeaders()
       .set('accept', '*/*')
-      .set('x-access-token', X_ACCESS_TOKEN)
+      .set('x-access-token', token)
       .set('Content-Type', 'application/json');
     return this.http
       .post<any>(API_URL + '/api/risk-events', data, { headers: header })
@@ -40,10 +33,10 @@ export class BackendApiService {
       );
   }
 
-  getScreenEventTable(data: screenEventTableFilterPayload) {
+  getScreenEventTable(data: screenEventTableFilterPayload, token: any) {
     const header = new HttpHeaders()
       .set('accept', '*/*')
-      .set('x-access-token', this.token)
+      .set('x-access-token', token)
       .set('Content-Type', 'application/json');
     return this.http
       .post<any>(API_URL + '/api/screen/screen-listeners-events', data, { headers: header })
@@ -54,16 +47,6 @@ export class BackendApiService {
       );
   }
 
-  login(data: any) {
-    return this.http
-      .post<any>(API_URL + '/api/auth/login', data, this.httpOptions)
-      .pipe(
-        map((response) => {
-          this.token = response.token;
-          return response;
-        })
-      );
-  }
   getRequestData(data: any) {
     const header = new HttpHeaders()
       .set('accept', 'application/json')

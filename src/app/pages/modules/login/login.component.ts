@@ -1,11 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { first } from "rxjs/operators";
-import { HttpClient } from "@angular/common/http";
-import { from } from "rxjs";
-import { BackendApiService } from "../../../services/backend-api.service";
 import { NotificationService } from "../../../services/notification.service";
+import { AuthenticationService } from "src/app/services/authentication.service";
 
 @Component({
   selector: "app-login",
@@ -17,21 +14,17 @@ export class LoginComponent implements OnInit {
   response: any = [];
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private http: HttpClient,
-    private _activatedRoute: ActivatedRoute,
-    private _router: Router,
-    private service: BackendApiService,
+    private authenticationService: AuthenticationService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
       token: ['', Validators.required]
-  });
+    });
     // get return url from route parameters or default to '/'
     // this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/home";
   }
@@ -40,16 +33,15 @@ export class LoginComponent implements OnInit {
   get formValue() {
     return this.loginForm.controls;
   }
-  onSubmit (user: any): void  {
-    this.service.login(user).subscribe(res=>{
+  onSubmit(user: any): void {
+    this.authenticationService.login(user).subscribe(res => {
       this.response = res;
-      if(this.response.message!=null){
-        this.notification.error(this.response.message);  
-      }else{
-        this.service.token = this.response.token;
-        console.log(this.service.token);
+      if (this.response.message != null) {
+        this.notification.error(this.response.message);
+      }
+      else {
         this.router.navigate(["/dashboard"]);
       }
     });
-  } 
+  }
 }

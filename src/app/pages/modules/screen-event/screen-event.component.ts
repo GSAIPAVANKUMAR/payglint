@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { AuthenticationService } from "src/app/services/authentication.service";
 import { screenEventTableFilterPayload } from "../../../models/tables-filters.model";
 import { BackendApiService } from "../../../services/backend-api.service";
 import { NotificationService } from "../../../services/notification.service";
@@ -21,10 +22,13 @@ export class ScreenEventComponent implements OnInit {
   tableCurrentPage: number = 1;
   screenEventTableFilters: screenEventTableFilterPayload = {};
 
+  user = this.authenticationService.userValue;
+
   constructor(
     private httpClient: HttpClient,
     private notify: NotificationService,
     private api: BackendApiService,
+    private authenticationService: AuthenticationService,
   ) { }
 
   ngOnInit() {
@@ -36,7 +40,7 @@ export class ScreenEventComponent implements OnInit {
   }
 
   getScreenEventTableData(screenEventTableFilters: screenEventTableFilterPayload) {
-    this.api.getEventTable(screenEventTableFilters)
+    this.api.getEventTable(screenEventTableFilters, this.user?.x_access_token)
       .subscribe(
         data => {
           this.tableData = data;
@@ -68,7 +72,6 @@ export class ScreenEventComponent implements OnInit {
   }
 
   onScreenEventFilterReset() {
-    this.notify.success('Hello');
   }
 
   onPageEvent = ($event: { pageIndex: number }) => {

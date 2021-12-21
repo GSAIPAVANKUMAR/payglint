@@ -6,6 +6,7 @@ import { NotificationService } from '../../../services/notification.service';
 import { BackendApiService } from '../../../services/backend-api.service';
 import { Router } from '@angular/router';
 import { eventTableFilterPayload } from '../../../models/tables-filters.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-event',
@@ -78,12 +79,14 @@ export class EventComponent implements OnInit {
   // Number of data per page.
   tableDataPerPage: number = 10;
 
+  user = this.authenticationService.userValue;
+
   constructor(
     private httpClient: HttpClient,
     private matDialog: MatDialog,
-    private router: Router,
     private notify: NotificationService,
     private api: BackendApiService,
+    private authenticationService: AuthenticationService,
   ) { }
 
   ngOnInit(): void {
@@ -96,7 +99,7 @@ export class EventComponent implements OnInit {
   }
 
   getEventTableData(tableFilters: eventTableFilterPayload) {
-    this.api.getEventTable(tableFilters)
+    this.api.getEventTable(tableFilters, this.user?.x_access_token)
       .subscribe(
         data => {
           this.tableData = data;
