@@ -1,37 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { screenEventTableFilterPayload } from "../../models/tables-filters.model";
 import { BackendApiService } from "../../services/backend-api.service";
 import { NotificationService } from "../../services/notification.service";
-
-interface screenEventFilterPayload {
-  action?: { values: string[] };
-  deviceId?: { values: string[] };
-  id?: { values: string[] };
-  screenId?: { values: string[] };
-  screenListenerType?: { values: string[] };
-  sessionId?: { values: string[] };
-  userId?: { values: string[] };
-  version?: { values: string[] };
-};
-
-interface rangePayload {
-  bigEquals?: Date;
-  smallEquals?: Date;
-}
-
-interface sortPayload {
-  fieldName?: string;
-  order?: string;
-}
-
-interface screenEventTableFilterPayload {
-  currentPage?: number;
-  perPage?: number;
-  filters?: screenEventFilterPayload;
-  ranges?: rangePayload;
-  sort?: sortPayload;
-}
 
 @Component({
   selector: "app-screen-event",
@@ -76,10 +48,10 @@ export class ScreenEventComponent implements OnInit {
   }
 
   onscreenEventFilterSubmit(eventFilterForm: NgForm) {
-    const userid: string = eventFilterForm.value.userid? eventFilterForm.value.userid : undefined;
-    const deviceid: string = eventFilterForm.value.deviceid? eventFilterForm.value.deviceid : undefined;
-    const sessionid: string = eventFilterForm.value.sessionid? eventFilterForm.value.sessionid : undefined;
-    const screenid: string = eventFilterForm.value.screenid? eventFilterForm.value.screenid : undefined;
+    const userid: string = eventFilterForm.value.userid ? eventFilterForm.value.userid : undefined;
+    const deviceid: string = eventFilterForm.value.deviceid ? eventFilterForm.value.deviceid : undefined;
+    const sessionid: string = eventFilterForm.value.sessionid ? eventFilterForm.value.sessionid : undefined;
+    const screenid: string = eventFilterForm.value.screenid ? eventFilterForm.value.screenid : undefined;
 
     this.screenEventTableFilters = {
       currentPage: this.tableCurrentPage,

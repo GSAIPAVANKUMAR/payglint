@@ -5,40 +5,7 @@ import { SavefilterComponent } from '../../shared/component/savefilter/savefilte
 import { NotificationService } from '../../services/notification.service';
 import { BackendApiService } from '../../services/backend-api.service';
 import { Router } from '@angular/router';
-
-interface filterPayload {
-  severity?: { values: string[] };
-  userId?: { values: string[] };
-  deviceId?: { values: string[] };
-  sessionId?: { values: string[] };
-  checkpoint?: { values: string[] };
-  requestId?: { values: string[] };
-  status?: { values: string[] };
-  amount?: { values: string[] };
-  currency?: { values: string[] };
-  destination?: { values: string[] };
-  score?: { values: string[] };
-};
-
-interface rangePayload {
-  bigEquals?: Date;
-  smallEquals?: Date;
-}
-
-interface sortPayload {
-  fieldName?: string;
-  order?: string;
-}
-
-interface tableFilterPayload {
-  currentPage?: number;
-  perPage?: number;
-  filters?: filterPayload;
-  ranges?: rangePayload;
-  sort?: sortPayload;
-}
-
-
+import { eventTableFilterPayload } from '../../models/tables-filters.model';
 
 @Component({
   selector: 'app-event',
@@ -102,7 +69,7 @@ export class EventComponent implements OnInit {
 
 
   tableData: any;
-  tableFilters: tableFilterPayload = {};
+  tableFilters: eventTableFilterPayload = {};
 
   checkpointSelected: any;
   severitySelected: any;
@@ -128,7 +95,7 @@ export class EventComponent implements OnInit {
     // this.getPageDetails();
   }
 
-  getEventTableData(tableFilters: tableFilterPayload) {
+  getEventTableData(tableFilters: eventTableFilterPayload) {
     this.api.getEventTable(tableFilters)
       .subscribe(
         data => {
