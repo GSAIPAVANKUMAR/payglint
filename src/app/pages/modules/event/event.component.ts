@@ -299,6 +299,7 @@ export class EventComponent implements OnInit {
   }
   selectedSeverity(val: any) {
     this.severitySelected = val;
+    this.nameplaceholder =""
   }
   selectedStatus(val: any) {
     this.statusSelected = val;

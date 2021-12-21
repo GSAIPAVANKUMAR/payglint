@@ -6,7 +6,7 @@
     <div>
         <div class="inlinebtn">
             <div class="lowbtn">
-                <div class="btns">{{row.Severity}}</div>
+                <div class="btns">{{row.severity}}</div>
             </div>
             <div class="inptuetag">
                 <mat-form-field class="single-select">
@@ -27,37 +27,37 @@
             <div class="genaralinf" *ngIf="showgeninf">
                 <div class="adressline">
                     <span class="acordian1">IP</span>
-                    <span class="acordian2">66.102.6.8</span>
+                    <span class="acordian2">{{ip}}</span>
                 </div>
 
                 <div class="adressline2">
                     <span class="acordian1">User ID</span>
-                    <span class="acordian2">text</span>
+                    <span class="acordian2">{{userID}}</span>
                 </div>
                 <div class="adressline">
                     <span class="acordian1">Checkpoint</span>
-                    <span class="acordian2">Login</span>
+                    <span class="acordian2">{{checkpoint}}</span>
                 </div>
                 <div class="adressline2">
                     <span class="acordian1">Risk Score</span>
-                    <span class="acordian2">147</span>
+                    <span class="acordian2">{{riskScore}}</span>
                 </div>
                 <div class="adressline">
                     <span class="acordian1">Severity</span>
-                    <span class="acordian2">Low</span>
+                    <span class="acordian2">{{severity}}</span>
                 </div>
 
                 <div class="adressline2">
                     <span class="acordian1">Request ID</span>
-                    <span class="acordian2">text</span>
+                    <span class="acordian2">{{requestID}}</span>
                 </div>
                 <div class="adressline">
                     <span class="acordian1">Device</span>
-                    <span class="acordian2">66.102.6.8</span>
+                    <span class="acordian2">{{device}}</span>
                 </div>
                 <div class="adressline2">
                     <span class="acordian1">Session ID</span>
-                    <span class="acordian2">text</span>
+                    <span class="acordian2">{{session}}</span>
                 </div>
             </div>
             <div style="margin-top: 10px;">
@@ -69,20 +69,20 @@
                 <div class="genaralinf" *ngIf="showuserinf">
                     <div class="adressline">
                         <span class="acordian1">Email</span>
-                        <span class="acordian2">example@gmail.com</span>
+                        <span class="acordian2">{{email}}</span>
                     </div>
 
                     <div class="adressline2">
                         <span class="acordian1">Email Verifation</span>
-                        <span class="acordian2">Not Verified</span>
+                        <span class="acordian2">{{emailVerification}}</span>
                     </div>
                     <div class="adressline">
                         <span class="acordian1">Phone</span>
-                        <span class="acordian2">+8801740488691</span>
+                        <span class="acordian2">{{phone}}</span>
                     </div>
                     <div class="adressline2">
                         <span class="acordian1">Phone Verification</span>
-                        <span class="acordian2">Not Verified</span>
+                        <span class="acordian2">{{phoneVerification}}</span>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,6 @@
+import { User } from './../../../models/user';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BackendApiService } from 'src/app/pages/services/backend-api.service';
 
 @Component({
   selector: 'app-checkpopup',
@@ -10,11 +12,48 @@ export class CheckpopupComponent implements OnInit {
   dis = false;
   showuserinf = true;
   showreasoninf = true;
+  ip: any;
+  userID: any;
+  checkpoint: any;
+  riskScore: any;
+  severity: any;
+  requestID: any;
+  device: any;
+  session: any;
+  email: any;
+  emailVerification: any;
+  phone: any;
+  phoneVerification : any;
   @Input() row: any;
   @Output() newEvent = new EventEmitter<boolean>();
-  constructor() { }
+  response: any;
+  notification: any;
+  router: any;
+  constructor(private service: BackendApiService ) {
+   }
 
   ngOnInit(): void {
+    console.log(this.row);
+    this.getRequestRowData(this.row.requestId)
+  }
+
+  getRequestRowData(requestid: any) {
+    this.service.getRequestData(requestid).subscribe((res: any)=>{
+      this.response = res;
+      console.log(this.response)
+      this.ip = this.response.ip;
+      this.userID = this.response.userId;
+      this.checkpoint = this.response.checkPointType;
+      this.riskScore = this.response.score;
+      this.severity = this.response.riskLevel;
+      this.requestID = this.response.requestId;
+      this.device = this.response.deviceId;
+      this.session = this.response.sessionId;
+      this.email = this.response.user.email;
+      this.emailVerification = this.response.user.isEmailVerified;
+      this.phone = this.response.user.phoneUser;
+      this.phoneVerification = this.response.user.isPhoneUserVerified;
+      })
   }
   addNew(value:boolean){
     this.newEvent.emit(this.dis);

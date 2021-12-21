@@ -81,9 +81,9 @@
 .mat-nav-list .mat-list-item:hover .menu-link-label {
   font-weight: 600 !important;
 }
-.mat-nav-list .mat-list-item:hover .sidenav-icon img {
-  background-color: #86c255;
-}
+/* .mat-nav-list .mat-list-item:hover .sidenav-icon img {
+  background-color: #86C255;
+} */
 
 ::ng-deep .mat-drawer.mat-drawer-side {
   overflow: hidden !important;
