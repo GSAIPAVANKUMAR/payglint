@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../models/user.model';
 
 const API_URL = environment.url;
@@ -12,11 +12,23 @@ const API_URL = environment.url;
 export class AuthenticationService {
 
     userSubject = new BehaviorSubject<User | null>(null);
+    user = new Observable<User | null>();
 
     constructor(
         private router: Router,
         private http: HttpClient,
-    ) { }
+    ) {
+        if (sessionStorage.getItem('user')) {
+            this.userSubject.next(JSON.parse(sessionStorage.getItem('user') as string));
+            // this.userSubject = new BehaviorSubject<User | null>(JSON.parse(sessionStorage.getItem('user') as string));
+        }
+        else {
+            this.userSubject.next(JSON.parse(localStorage.getItem('user') as string));
+            // this.userSubject = new BehaviorSubject<User | null>(JSON.parse(localStorage.getItem('user') as string));
+        }
+
+        this.user = this.userSubject.asObservable();
+    }
 
     public get userValue(): User | null {
         return this.userSubject?.value;
@@ -33,6 +45,10 @@ export class AuthenticationService {
             .post<any>(API_URL + '/api/auth/login', data, httpOptions)
             .pipe(
                 map((user) => {
+                    localStorage.removeItem('user');
+                    sessionStorage.removeItem('user');
+                    localStorage.setItem('user', JSON.stringify(user));
+                    sessionStorage.setItem('user', JSON.stringify(user));
                     this.handleAuthentication(user?.token, user?.message);
                     return user;
                 })
@@ -45,5 +61,9 @@ export class AuthenticationService {
     }
 
     logout() {
+        sessionStorage.removeItem('user');
+        localStorage.removeItem('user');
+        this.userSubject.next(null);
+        this.router.navigate(['/login']);
     }
 }

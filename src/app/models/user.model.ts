@@ -1,9 +1,9 @@
 export class User {
     constructor(
-        private token: string,
+        private _token: string,
         public message: string | null
     ) { }
-    get x_access_token() {
-        return this.token;
+    get token() {
+        return this._token;
     }
 }

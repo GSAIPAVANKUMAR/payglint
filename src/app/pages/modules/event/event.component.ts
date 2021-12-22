@@ -99,7 +99,7 @@ export class EventComponent implements OnInit {
   }
 
   getEventTableData(tableFilters: eventTableFilterPayload) {
-    this.api.getEventTable(tableFilters, this.user?.x_access_token)
+    this.api.getEventTable(tableFilters, this.user?.token)
       .subscribe(
         data => {
           this.tableData = data;

@@ -9,8 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatCardModule} from '@angular/material/card';
-import { MatDialogModule} from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,7 +20,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
-import { MatPaginator } from "@angular/material/paginator";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
@@ -34,11 +33,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatRippleModule } from '@angular/material/core';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatDatepickerModule} from '@angular/material/datepicker'; 
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import  {MatStepperModule } from '@angular/material/stepper';
-// import {CdkTableModule} from '@angular/cdk/table';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { LoginComponent } from './pages/modules/login/login.component';
 import { HomeModule } from './pages/modules/home/home.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -47,7 +45,6 @@ import { MaterialModule } from "../app/pages/shared/service/material/material.mo
 import { ApplicationService } from './pages/application.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { PaginatorDirective } from './pagination.directive';
-// import { DashboardComponent } from './pages/modules/dashboard/dashboard.component';
 import { AgmCoreModule } from '@agm/core';
 import { AudittrialsComponent } from './pages/modules/audittrials/audittrials.component';
 import { EventComponent } from './pages/modules/event/event.component';
@@ -56,7 +53,6 @@ import { SavefilterComponent } from './pages/shared/component/savefilter/savefil
 import { MapComponent } from './pages/shared/component/map/map.component';
 import { EdituserComponent } from './pages/shared/component/edituser/edituser.component';
 import { AddmodelComponent } from './pages/shared/component/addmodel/addmodel.component';
-// import { DashboardComponent } from './pages/modules/dashboard/dashboard.component';
 
 
 
@@ -65,7 +61,6 @@ import { AddmodelComponent } from './pages/shared/component/addmodel/addmodel.co
     AppComponent,
     LoginComponent,
     PaginatorDirective,
-    // DashboardComponent,
     CheckpopupComponent,
     SavefilterComponent,
     MapComponent,
@@ -80,7 +75,6 @@ import { AddmodelComponent } from './pages/shared/component/addmodel/addmodel.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // MatPaginator,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
@@ -131,8 +125,8 @@ import { AddmodelComponent } from './pages/shared/component/addmodel/addmodel.co
       apiKey: "AIzaSyAjeJEPREBQFvAIqDSZliF0WjQrCld-Mh0"
     }),
   ],
-  entryComponents:[LoginComponent],
-  providers: [ApplicationService,ToastrService],
+  entryComponents: [LoginComponent],
+  providers: [ApplicationService, ToastrService],
   bootstrap: [AppComponent],
   exports: [PaginatorDirective]
 })

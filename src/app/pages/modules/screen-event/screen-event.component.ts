@@ -40,7 +40,7 @@ export class ScreenEventComponent implements OnInit {
   }
 
   getScreenEventTableData(screenEventTableFilters: screenEventTableFilterPayload) {
-    this.api.getEventTable(screenEventTableFilters, this.user?.x_access_token)
+    this.api.getEventTable(screenEventTableFilters, this.user?.token)
       .subscribe(
         data => {
           this.tableData = data;
