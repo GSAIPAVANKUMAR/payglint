@@ -204,15 +204,20 @@ export class EventComponent implements OnInit {
 
   }
 
-  download() {
+  exportEventTableData() {
     this.api.getEventTable(this.tableFilters, this.user?.token)
       .subscribe(
         data => {
+          this.downloadEventDataCSV(data);
         },
         error => {
           this.notify.error(error);
         }
       );
+  }
+
+  downloadEventDataCSV(data: any){
+    //download CSV file.
   }
 
   onTabChanged($event: any) {
