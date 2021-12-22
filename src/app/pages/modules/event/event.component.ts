@@ -4,9 +4,9 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SavefilterComponent } from '../../shared/component/savefilter/savefilter.component';
 import { NotificationService } from '../../../services/notification.service';
 import { BackendApiService } from '../../../services/backend-api.service';
-import { Router } from '@angular/router';
 import { eventTableFilterPayload } from '../../../models/tables-filters.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { eventTablePayload } from 'src/app/models/table.model';
 
 @Component({
   selector: 'app-event',
@@ -46,35 +46,15 @@ export class EventComponent implements OnInit {
   };
 
 
-  // states
-  // tableData1 = [{ Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // { Severity: 'Low', Score: '147', Date: '25/10/2021 10:01', Session: "6b39922cccb091f26_163 b021-4cc2601e7ce9", UserID: 'text', DeviceID: 'abcde460-2c29-4574-b574-4895625', Checkpoint: 'LOGIN', Amount: '', Currency: '', Destination: '', Status: '', Resolution: 'Safe' },
-  // ];
-
-
-
-
-  tableData: any;
+  tableData: eventTablePayload[] = [];
   tableFilters: eventTableFilterPayload = {};
 
   checkpointSelected: any;
   severitySelected: any;
   statusSelected: any;
+
+  dateRangeStart: string | undefined = '';
+  dateRangeEnd: string | undefined = '';
 
   // Number of data per page.
   tableDataPerPage: number = 10;
@@ -110,6 +90,21 @@ export class EventComponent implements OnInit {
       );
   }
 
+  dateRangeChange(startDate: any, endDate: any) {
+    try {
+      this.dateRangeStart = '';
+      this.dateRangeEnd = '';
+      const sd = startDate.value.split('/');
+      this.dateRangeStart = this.dateRangeStart.concat(sd[2], '-', sd[0], '-', sd[1], ' 00:00');
+      const ed = endDate.value.split('/');
+      this.dateRangeEnd = this.dateRangeEnd.concat(ed[2], '-', ed[0], '-', ed[1], ' 00:00');
+    }
+    catch (e) {
+      this.dateRangeStart = undefined;
+      this.dateRangeEnd = undefined;
+    }
+  }
+
   applyFiltersEvent() {
     this.updateTableFiltersForm();
     this.getEventTableData(this.tableFilters);
@@ -120,10 +115,11 @@ export class EventComponent implements OnInit {
     const deviceid = (<HTMLInputElement>document.getElementById("deviceid"))?.value;
     const sessionid = (<HTMLInputElement>document.getElementById("sessionid"))?.value;
     const requestid = (<HTMLInputElement>document.getElementById("requestid"))?.value;
+
     this.tableFilters = {
       currentPage: 1,
       perPage: this.tableDataPerPage,
-      filters: {
+      filters: (userid || deviceid || sessionid || requestid || this.severitySelected || this.checkpointSelected || this.statusSelected) ? {
         userId: userid ? { values: [userid] } : undefined,
         deviceId: deviceid ? { values: [deviceid] } : undefined,
         sessionId: sessionid ? { values: [sessionid] } : undefined,
@@ -131,11 +127,21 @@ export class EventComponent implements OnInit {
         severity: this.severitySelected ? { values: [this.severitySelected] } : undefined,
         checkpoint: this.checkpointSelected ? { values: [this.checkpointSelected] } : undefined,
         status: this.statusSelected ? { values: [this.statusSelected] } : undefined,
-      }
+      } : undefined,
+      ranges: (this.dateRangeEnd && this.dateRangeStart) ? {
+        bigEquals: this.dateRangeEnd ? this.dateRangeEnd : undefined,
+        smallEquals: this.dateRangeStart ? this.dateRangeStart : undefined,
+      } : undefined
     }
   }
 
-  resetFiltersEvent() {
+  resetFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any) {
+    startDate.value = '';
+    endDate.value = '';
+    requestid.value = '';
+    userid.value = '';
+    deviceid.value = '';
+    sessionid.value = '';
     this.resetTableFiltersForm();
     this.getEventTableData(this.tableFilters);
   }
@@ -144,15 +150,8 @@ export class EventComponent implements OnInit {
     this.tableFilters = {
       currentPage: 1,
       perPage: this.tableDataPerPage,
-      filters: {
-        userId: undefined,
-        deviceId: undefined,
-        sessionId: undefined,
-        requestId: undefined,
-        severity: undefined,
-        checkpoint: undefined,
-        status: undefined,
-      }
+      filters: undefined,
+      ranges: undefined
     }
   }
 

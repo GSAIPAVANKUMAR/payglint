@@ -15,8 +15,8 @@ export interface eventTableFilterPayload {
         score?: { values: string[] };
     };
     ranges?: {
-        bigEquals?: Date;
-        smallEquals?: Date;
+        bigEquals?: string;
+        smallEquals?: string;
     };
     sort?: {
         fieldName?: string;
@@ -38,8 +38,8 @@ export interface screenEventTableFilterPayload {
         version?: { values: string[] };
     };
     ranges?: {
-        bigEquals?: Date;
-        smallEquals?: Date;
+        bigEquals?: string;
+        smallEquals?: string;
     };
     sort?: {
         fieldName?: string;
@@ -62,8 +62,8 @@ export interface auditTrailTableFilterPayload {
         userNameFilter?: { values: string[] };
     }
     ranges?: {
-        bigEquals?: Date;
-        smallEquals?: Date;
+        bigEquals?: string;
+        smallEquals?: string;
     };
     sort?: {
         fieldName?: string;
