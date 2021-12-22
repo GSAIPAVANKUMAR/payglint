@@ -401,3 +401,12 @@ button {
     }
   }
 }
+
+tr.mat-row{
+  &:hover{
+    cursor: pointer;
+  }
+}
+::ng-deep .mat-tab-body.mat-tab-body-active {
+  overflow-y: hidden !important;
+}
