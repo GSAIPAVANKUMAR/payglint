@@ -58,6 +58,7 @@ export class EventComponent implements OnInit {
 
   // Number of data per page.
   tableDataPerPage: number = 10;
+  tableCurrentPage: number = 1;
 
   user = this.authenticationService.userValue;
 
@@ -70,8 +71,9 @@ export class EventComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.tableCurrentPage = 1;
     this.tableFilters = {
-      currentPage: 1,
+      currentPage: this.tableCurrentPage,
       perPage: this.tableDataPerPage
     };
     this.getEventTableData(this.tableFilters);
@@ -117,7 +119,7 @@ export class EventComponent implements OnInit {
     const requestid = (<HTMLInputElement>document.getElementById("requestid"))?.value;
 
     this.tableFilters = {
-      currentPage: 1,
+      currentPage: this.tableCurrentPage,
       perPage: this.tableDataPerPage,
       filters: (userid || deviceid || sessionid || requestid || this.severitySelected || this.checkpointSelected || this.statusSelected) ? {
         userId: userid ? { values: [userid] } : undefined,
@@ -135,20 +137,23 @@ export class EventComponent implements OnInit {
     }
   }
 
-  resetFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any) {
+  resetFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any, severity:any, checkpoint: any, status: any) {
     startDate.value = '';
     endDate.value = '';
     requestid.value = '';
     userid.value = '';
     deviceid.value = '';
     sessionid.value = '';
+    severity.value = undefined;
+    checkpoint.value = undefined;
+    status.value = undefined;
     this.resetTableFiltersForm();
     this.getEventTableData(this.tableFilters);
   }
 
   resetTableFiltersForm() {
     this.tableFilters = {
-      currentPage: 1,
+      currentPage: this.tableCurrentPage,
       perPage: this.tableDataPerPage,
       filters: undefined,
       ranges: undefined
@@ -161,8 +166,10 @@ export class EventComponent implements OnInit {
     }
   }
 
-  onPageEvent = ($event: { pageIndex: any; pageSize: any; }) => {
-    // this.getData($event.pageIndex, $event.pageSize);
+  onPageEvent = ($event: { pageIndex: any; }) => {
+    this.tableCurrentPage = $event.pageIndex + 1;
+    this.tableFilters.currentPage = this.tableCurrentPage;
+    this.getEventTableData(this.tableFilters);
   }
 
   showTestEmit = ($event: { pageIndex: any; pageSize: any; }) => {

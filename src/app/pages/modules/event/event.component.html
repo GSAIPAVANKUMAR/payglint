@@ -31,8 +31,9 @@
       <div class="mat-input-tag">
         <mat-form-field class="single-select">
           <mat-label>Severity</mat-label>
-          <mat-select class="select-input" panelClass="selectInputClass"
+          <mat-select class="select-input" panelClass="selectInputClass" #severity
             (selectionChange)="selectedSeverity($event.value)" disableOptionCentering>
+            <mat-option>None</mat-option>
             <mat-option value="LOW">LOW</mat-option>
             <mat-option value="MEDIUM">MEDIUM</mat-option>
             <mat-option value="HIGH">HIGH</mat-option>
@@ -77,8 +78,9 @@
       <div class="mat-input-tag">
         <mat-form-field class="single-select">
           <mat-label>Checkpoint</mat-label>
-          <mat-select class="select-input" panelClass="selectInputClass"
+          <mat-select class="select-input" panelClass="selectInputClass" #checkpoint
             (selectionChange)="selectedCheckpoint($event.value)" disableOptionCentering>
+            <mat-option>None</mat-option>
             <mat-option value="REGISTER">REGISTER</mat-option>
             <mat-option value="LOGIN">LOGIN</mat-option>
             <mat-option value="ADD PAYMENT METHOD">ADD PAYMENT METHOD</mat-option>
@@ -100,8 +102,9 @@
       <div class="mat-input-tag">
         <mat-form-field class="single-select">
           <mat-label>Status</mat-label>
-          <mat-select class="select-input" panelClass="selectInputClass"
+          <mat-select class="select-input" panelClass="selectInputClass" #status
             (selectionChange)="selectedStatus($event.value)" disableOptionCentering>
+            <mat-option>None</mat-option>
             <mat-option value="APPROVED">APPROVED</mat-option>
             <mat-option value="DENIED">DENIED</mat-option>
             <mat-option value="CANCELLED">CANCELLED</mat-option>
@@ -115,7 +118,7 @@
         </button>
 
         <span class="filter-delete-button"
-          (click)="resetFiltersEvent(dateRangeStart, dateRangeEnd, requestid, userid, deviceid, sessionid)"><img
+          (click)="resetFiltersEvent(dateRangeStart, dateRangeEnd, requestid, userid, deviceid, sessionid, severity, checkpoint, status)"><img
             src="../../../../assets/images/delete_icon_button.svg" /></span>
       </div>
     </div>
@@ -244,7 +247,7 @@
             </div>
 
             <div class="pg-container">
-              <mat-paginator appPagination [length]="18" [pageSize]="10" [hidePageSize]="true"
+              <mat-paginator appPagination [length]="50" [pageSize]="10" [hidePageSize]="true"
                 (page)="onPageEvent($event)">
               </mat-paginator>
             </div>
