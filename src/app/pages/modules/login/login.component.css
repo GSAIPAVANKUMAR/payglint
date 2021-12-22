@@ -1,7 +1,6 @@
 .formInput {
   width: 429px;
   height: 50px;
-
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
@@ -10,27 +9,27 @@
   margin-bottom: 20px;
   margin-left: 30px;
 }
-.email-input{
+.email-input {
   padding-top: 2px;
 }
-.email-text-input{
-  margin-top: 42px; 
-  text-indent:25px;
+.email-text-input {
+  margin-top: 42px;
+  text-indent: 25px;
   font-family: Lato;
-	font-style: normal;
+  font-style: normal;
   font-size: 16px;
   font-weight: 400;
 }
-.password-text-input{
-  text-indent:22px;
+.password-text-input {
+  text-indent: 22px;
   font-family: Lato;
-	font-style: normal;
+  font-style: normal;
   font-size: 16px;
   font-weight: 400;
 }
-.token-input{
+.token-input {
   font-family: Lato;
-	font-style: normal;
+  font-style: normal;
   font-size: 16px;
   font-weight: 400;
 }
@@ -58,12 +57,9 @@
 .txtsty {
   width: 44px;
   height: 22px;
-
   font-family: LATO-Bold;
   font-size: 16px;
   line-height: 22px;
-  /* identical to box height, or 137% */
-
   text-align: center;
   color: #ffffff;
 }
