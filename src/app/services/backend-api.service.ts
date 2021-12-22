@@ -33,6 +33,20 @@ export class BackendApiService {
       );
   }
 
+  getEventTableCSV(data: eventTableFilterPayload, token: any) {
+    const header = new HttpHeaders()
+      .set('accept', '*/*')
+      .set('x-access-token', token)
+      .set('Content-Type', 'application/json');
+    return this.http
+      .post<any>(API_URL + '/api/download-csv', data, { headers: header })
+      .pipe(
+        map((response) => {
+          return response;
+        })
+      );
+  }
+
   getScreenEventTable(data: screenEventTableFilterPayload, token: any) {
     const header = new HttpHeaders()
       .set('accept', '*/*')
