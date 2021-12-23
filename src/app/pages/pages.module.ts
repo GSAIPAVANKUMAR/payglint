@@ -17,6 +17,15 @@ import {
     ProfileScreenComponent,
 } from './index'
 
+import {
+    CheckpopupComponent,
+    SavefilterComponent,
+    // MapComponent,
+    EdituserComponent,
+    AddmodelComponent,
+    SideBarComponent,
+} from '../components/index';
+
 @NgModule({
     imports: [
         PagesRoutingModule,
@@ -35,6 +44,12 @@ import {
         AudittrialsComponent,
         EventComponent,
         ProfileScreenComponent,
+        CheckpopupComponent,
+        SavefilterComponent,
+        // MapComponent,
+        EdituserComponent,
+        AddmodelComponent,
+        SideBarComponent,
     ],
     exports: [
         ReportsComponent,
@@ -44,6 +59,12 @@ import {
         AudittrialsComponent,
         EventComponent,
         ProfileScreenComponent,
+        CheckpopupComponent,
+        SavefilterComponent,
+        // MapComponent,
+        EdituserComponent,
+        AddmodelComponent,
+        SideBarComponent,
     ],
 })
 export class PagesModule { }

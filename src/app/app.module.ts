@@ -1,4 +1,3 @@
-import { ProfileScreenComponent } from './pages/profilescreen/profilescreen.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,47 +8,22 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './pages/login/login.component';
-import { HomeModule } from './pages/home/home.module';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { PaginatorDirective } from './pagination.directive';
 import { AgmCoreModule } from '@agm/core';
-import { AudittrialsComponent } from './pages/audittrials/audittrials.component';
-import { EventComponent } from './pages/event/event.component';
 import { MaterialModule } from './angular-material-module';
 
-import {
-  CheckpopupComponent,
-  SavefilterComponent,
-  MapComponent,
-  EdituserComponent,
-  AddmodelComponent,
-  SideBarComponent,
-} from './components/index';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PaginatorDirective,
-    CheckpopupComponent,
-    SavefilterComponent,
-    MapComponent,
-    ProfileScreenComponent,
-    AddmodelComponent,
-    EdituserComponent,
-    AudittrialsComponent,
-    EventComponent,
-    SideBarComponent,
   ],
   exports: [
     PaginatorDirective,
-    CheckpopupComponent,
-    SavefilterComponent,
-    MapComponent,
-    EdituserComponent,
-    AddmodelComponent,
-    SideBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +33,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HomeModule,
+    PagesModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
