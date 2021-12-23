@@ -133,7 +133,7 @@
   border-left: 12px solid transparent !important;
   border-right: none !important;
   border-top: 7px solid transparent !important;
-  border-image-source: url("../../../../assets/images/arrow.png") !important;
+  border-image-source: url("../../../assets/images/arrow.png") !important;
 }
 
 table {
@@ -331,7 +331,7 @@ button {
   top: -85% !important;
 }
 ::ng-deep .mat-tab-label-active .list-img-icon {
-  background: url("../../../../assets/images/list 1.png") !important;
+  background: url("../../../assets/images/list 1.png") !important;
   // background: url("Images/logo.png");
   height: 12px;
   width: 12px;
@@ -339,14 +339,14 @@ button {
   margin-right: 0px !important;
 }
 .list-img-icon {
-  background: url("../../../../assets/images/listview.png");
+  background: url("../../../assets/images/listview.png");
   height: 12px;
   width: 12px;
   margin-right: 4px;
   display: block;
 }
 .imgicon1 {
-  background: url("../../../../assets/images/mapicon.png");
+  background: url("../../../assets/images/mapicon.png");
   // background: url("Images/logo.png");
   height: 16px;
   width: 16px;
@@ -354,7 +354,7 @@ button {
   display: block;
 }
 ::ng-deep .mat-tab-label-active .imgicon1 {
-  background: url("../../../../assets/images/mapicon2.png") !important;
+  background: url("../../../assets/images/mapicon2.png") !important;
   height: 16px;
   width: 16px;
   display: block;

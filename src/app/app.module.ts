@@ -16,14 +16,16 @@ import { PaginatorDirective } from './pagination.directive';
 import { AgmCoreModule } from '@agm/core';
 import { AudittrialsComponent } from './pages/audittrials/audittrials.component';
 import { EventComponent } from './pages/event/event.component';
-import { CheckpopupComponent } from 'src/app/components/checkpopup/checkpopup.component';
-import { SavefilterComponent } from 'src/app/components/savefilter/savefilter.component';
-import { MapComponent } from 'src/app/components/map/map.component';
-import { EdituserComponent } from 'src/app/components/edituser/edituser.component';
-import { AddmodelComponent } from 'src/app/components/addmodel/addmodel.component';
 import { MaterialModule } from './angular-material-module';
 
-
+import {
+  CheckpopupComponent,
+  SavefilterComponent,
+  MapComponent,
+  EdituserComponent,
+  AddmodelComponent,
+  // SideBarComponent,
+} from './components/index';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,14 @@ import { MaterialModule } from './angular-material-module';
     EdituserComponent,
     AudittrialsComponent,
     EventComponent
-
+  ],
+  exports: [
+    PaginatorDirective,
+    CheckpopupComponent,
+    SavefilterComponent,
+    MapComponent,
+    EdituserComponent,
+    AddmodelComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,8 +71,7 @@ import { MaterialModule } from './angular-material-module';
     }),
   ],
   entryComponents: [LoginComponent],
-  providers: [ ToastrService],
+  providers: [ToastrService],
   bootstrap: [AppComponent],
-  exports: [PaginatorDirective]
 })
 export class AppModule { }
