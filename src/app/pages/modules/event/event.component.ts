@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { SavefilterComponent } from '../../shared/component/savefilter/savefilter.component';
+import { SavefilterComponent } from 'src/app/components/savefilter/savefilter.component';
 import { NotificationService } from '../../../services/notification.service';
 import { BackendApiService } from '../../../services/backend-api.service';
 import { eventTableFilterPayload } from '../../../models/tables-filters.model';

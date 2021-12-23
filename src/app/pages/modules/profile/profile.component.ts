@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { SavefilterComponent } from "../../shared/component/savefilter/savefilter.component";
+import { SavefilterComponent } from "src/app/components/savefilter/savefilter.component";
 
 @Component({
   selector: "app-profile",

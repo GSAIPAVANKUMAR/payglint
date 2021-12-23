@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AddmodelComponent } from '../../shared/component/addmodel/addmodel.component';
-import { EdituserComponent } from '../../shared/component/edituser/edituser.component';
-import { SavefilterComponent } from '../../shared/component/savefilter/savefilter.component';
+import { AddmodelComponent } from 'src/app/components/addmodel/addmodel.component';
+import { EdituserComponent } from 'src/app/components/edituser/edituser.component';
+import { SavefilterComponent } from 'src/app/components/savefilter/savefilter.component';
 
 @Component({
   selector: 'app-profilescreen',
