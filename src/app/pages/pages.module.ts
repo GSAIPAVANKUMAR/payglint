@@ -15,6 +15,7 @@ import {
     AudittrialsComponent,
     EventComponent,
     ProfileScreenComponent,
+    RegistrationComponent,
 } from './index'
 
 import {
@@ -25,7 +26,6 @@ import {
     AddmodelComponent,
     SideBarComponent,
 } from '../components/index';
-import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
     imports: [

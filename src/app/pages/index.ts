@@ -5,3 +5,4 @@ export { DashboardComponent } from './dashboard/dashboard.component';
 export { AudittrialsComponent } from './audittrials/audittrials.component';
 export { EventComponent } from './event/event.component';
 export { ProfileScreenComponent } from './profilescreen/profilescreen.component';
+export { RegistrationComponent } from './registration/registration.component';
