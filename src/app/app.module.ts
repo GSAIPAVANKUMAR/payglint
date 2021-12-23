@@ -24,7 +24,7 @@ import {
   MapComponent,
   EdituserComponent,
   AddmodelComponent,
-  // SideBarComponent,
+  SideBarComponent,
 } from './components/index';
 
 @NgModule({
@@ -39,7 +39,8 @@ import {
     AddmodelComponent,
     EdituserComponent,
     AudittrialsComponent,
-    EventComponent
+    EventComponent,
+    SideBarComponent,
   ],
   exports: [
     PaginatorDirective,
@@ -48,6 +49,7 @@ import {
     MapComponent,
     EdituserComponent,
     AddmodelComponent,
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,

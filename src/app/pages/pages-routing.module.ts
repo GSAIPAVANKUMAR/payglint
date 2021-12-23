@@ -1,8 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+
 import { AuthGuard } from 'src/app/helpers/auth.guard';
 
-import { HomeComponent } from "./home/home.component";
+import { SideBarComponent } from "../components/sidebar/sidebar.component";
 
 import {
     ReportsComponent,
@@ -18,7 +19,7 @@ import {
 const routes: Routes = [
     {
         path: "",
-        component: HomeComponent,
+        component: SideBarComponent,
         children: [
             { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
             { path: "events", component: EventComponent, canActivate: [AuthGuard] },
