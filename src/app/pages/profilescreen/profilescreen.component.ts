@@ -10,7 +10,7 @@ import { SavefilterComponent } from 'src/app/components/savefilter/savefilter.co
   templateUrl: './profilescreen.component.html',
   styleUrls: ['./profilescreen.component.scss']
 })
-export class ProfilescreenComponent implements OnInit {
+export class ProfileScreenComponent implements OnInit {
   BASE_URL = 'http://localhost:3000';
   paginationInfo: any;
   pageSizeOptions: number[] = [5, 10, 25, 100];

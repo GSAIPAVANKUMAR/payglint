@@ -1,18 +1,7 @@
 ::ng-deep .mat-form-field-underline {
   display: none;
 }
-::ng-deep .screen-events .mat-select-arrow {
-  border-width: 0px;
-  border-style: solid;
-  border-color: black;
-  border-left: 12px solid transparent !important;
-  border-right: none !important;
-  border-top: 7px solid transparent !important;
-  border-image-source: url("../../../../assets/images/arrow.png") !important;
-}
-//   .mat-form-field-appearance-legacy .mat-form-field-infix {
-//     padding: .4375em 0;
-// }
+
 .screen-events{
   width: 1200px;
 }
@@ -308,7 +297,7 @@ button {
   top: -85% !important; 
 }
 ::ng-deep .mat-tab-label-active .list-img-icon {
-  background: url("../../../../assets/images/list 1.png") !important;
+  background: url("../../../assets/images/list 1.png") !important;
   // background: url("Images/logo.png");
   height: 12px;
   width: 12px;
@@ -316,7 +305,7 @@ button {
   margin-right: 0px !important;
 }
 .list-img-icon {
-  background: url("../../../../assets/images/listview.png");
+  background: url("../../../assets/images/listview.png");
   // background: url("Images/logo.png");
   height: 12px;
   width: 12px;
@@ -324,7 +313,7 @@ button {
   display: block;
 }
 .imgicon1 {
-  background: url("../../../../assets/images/mapicon.png");
+  background: url("../../../assets/images/mapicon.png");
   // background: url("Images/logo.png");
   height: 16px;
   width: 16px;
@@ -332,7 +321,7 @@ button {
   display: block;
 }
 ::ng-deep .mat-tab-label-active .imgicon1 {
-  background: url("../../../../assets/images/mapicon2.png") !important;
+  background: url("../../../assets/images/mapicon2.png") !important;
   // background: url("Images/logo.png");
   height: 16px;
   width: 16px;
