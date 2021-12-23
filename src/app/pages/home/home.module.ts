@@ -1,4 +1,3 @@
-// import { ProfileComponent } from './../profile/profile.component';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { DashboardComponent } from '../dashboard/dashboard.component';

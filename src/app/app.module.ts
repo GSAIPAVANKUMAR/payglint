@@ -1,5 +1,4 @@
-import { ProfileComponent } from './pages/profile/profile.component';
-import { ProfilescreenComponent } from './pages/profilescreen/profilescreen.component';
+import { ProfileScreenComponent } from './pages/profilescreen/profilescreen.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -34,11 +33,10 @@ import { MaterialModule } from './angular-material-module';
     CheckpopupComponent,
     SavefilterComponent,
     MapComponent,
-    ProfilescreenComponent,
+    ProfileScreenComponent,
     AddmodelComponent,
     EdituserComponent,
     AudittrialsComponent,
-    ProfileComponent,
     EventComponent
 
   ],

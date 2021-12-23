@@ -4,8 +4,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AnalyticsComponent } from "../analytics/analytics.component";
 import { DashboardComponent } from "../dashboard/dashboard.component";
-import { ProfileComponent } from "../profile/profile.component";
-import { ProfilescreenComponent } from "../profilescreen/profilescreen.component";
+import { ProfileScreenComponent } from "../profilescreen/profilescreen.component";
 import { ReportsComponent } from "../reports/reports.component";
 import { HomeComponent } from "./home.component";
 import { ScreenEventComponent } from '../screen-event/screen-event.component';
@@ -22,7 +21,7 @@ const routes: Routes = [
       { path: "screenevents", component: ScreenEventComponent, canActivate: [AuthGuard] },
       { path: "reports", component: ReportsComponent, canActivate: [AuthGuard] },
       { path: "analytics", component: AnalyticsComponent, canActivate: [AuthGuard] },
-      { path: "profilescreen", component: ProfilescreenComponent, canActivate: [AuthGuard] },
+      { path: "profilescreen", component: ProfileScreenComponent, canActivate: [AuthGuard] },
       { path: "audittrails", component: AudittrialsComponent, canActivate: [AuthGuard] },
     ],
   },
