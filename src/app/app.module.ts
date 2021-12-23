@@ -12,7 +12,6 @@ import {
 } from './pages/index';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { PaginatorDirective } from './pagination.directive';
 import { AgmCoreModule } from '@agm/core';
 import { MaterialModule } from './angular-material-module';
 
@@ -22,10 +21,8 @@ import { PagesModule } from './pages/pages.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    PaginatorDirective,
   ],
   exports: [
-    PaginatorDirective,
   ],
   imports: [
     BrowserModule,

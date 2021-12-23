@@ -26,7 +26,7 @@ import {
     AddmodelComponent,
     SideBarComponent,
 } from '../components/index';
-import { PaginatorDirective } from '../pagination.directive';
+import { PaginatorDirective } from 'src/app/pagination.directive';
 
 @NgModule({
     imports: [
@@ -53,6 +53,7 @@ import { PaginatorDirective } from '../pagination.directive';
         AddmodelComponent,
         SideBarComponent,
         RegistrationComponent,
+        PaginatorDirective,
     ],
     exports: [
         ReportsComponent,
@@ -68,6 +69,7 @@ import { PaginatorDirective } from '../pagination.directive';
         EdituserComponent,
         AddmodelComponent,
         SideBarComponent,
+        PaginatorDirective,
     ],
 })
 export class PagesModule { }
