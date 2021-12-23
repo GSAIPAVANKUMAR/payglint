@@ -12,7 +12,6 @@ import {
 } from './pages/index';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { AgmCoreModule } from '@agm/core';
 import { MaterialModule } from './angular-material-module';
 
 import { PagesModule } from './pages/pages.module';
@@ -40,9 +39,6 @@ import { PagesModule } from './pages/pages.module';
     HttpClientModule,
     ToastrModule.forRoot({
       preventDuplicates: true
-    }),
-    AgmCoreModule.forRoot({
-      apiKey: "AIzaSyAjeJEPREBQFvAIqDSZliF0WjQrCld-Mh0"
     }),
   ],
   entryComponents: [LoginComponent],

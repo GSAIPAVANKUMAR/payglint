@@ -21,12 +21,13 @@ import {
 import {
     CheckpopupComponent,
     SavefilterComponent,
-    // MapComponent,
+    MapComponent,
     EdituserComponent,
     AddmodelComponent,
     SideBarComponent,
 } from '../components/index';
 import { PaginatorDirective } from 'src/app/pagination.directive';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
     imports: [
@@ -37,6 +38,9 @@ import { PaginatorDirective } from 'src/app/pagination.directive';
         FormsModule,
         ReactiveFormsModule,
         MatFormFieldModule,
+        AgmCoreModule.forRoot({
+            apiKey: "AIzaSyAjeJEPREBQFvAIqDSZliF0WjQrCld-Mh0"
+        }),
     ],
     declarations: [
         ReportsComponent,
@@ -48,7 +52,7 @@ import { PaginatorDirective } from 'src/app/pagination.directive';
         ProfileScreenComponent,
         CheckpopupComponent,
         SavefilterComponent,
-        // MapComponent,
+        MapComponent,
         EdituserComponent,
         AddmodelComponent,
         SideBarComponent,
@@ -65,7 +69,7 @@ import { PaginatorDirective } from 'src/app/pagination.directive';
         ProfileScreenComponent,
         CheckpopupComponent,
         SavefilterComponent,
-        // MapComponent,
+        MapComponent,
         EdituserComponent,
         AddmodelComponent,
         SideBarComponent,
