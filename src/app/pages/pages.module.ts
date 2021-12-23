@@ -25,6 +25,7 @@ import {
     AddmodelComponent,
     SideBarComponent,
 } from '../components/index';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
     imports: [
@@ -50,6 +51,7 @@ import {
         EdituserComponent,
         AddmodelComponent,
         SideBarComponent,
+        RegistrationComponent,
     ],
     exports: [
         ReportsComponent,
