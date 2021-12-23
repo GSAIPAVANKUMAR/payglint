@@ -75,12 +75,12 @@
   opacity: 0.4;
 }
 #icon {
-  background-image: url(../../../../assets/images/lock.png);
+  background-image: url(../../../assets/images/lock.png);
   background-repeat: no-repeat;
   background-position: 7px 14px;
 }
 #emailicon {
-  background-image: url(../../../../assets/images/email.png);
+  background-image: url(../../../assets/images/email.png);
   background-repeat: no-repeat;
   background-position: 7px 14px;
 }
