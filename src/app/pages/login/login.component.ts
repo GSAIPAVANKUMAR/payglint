@@ -7,7 +7,7 @@ import { AuthenticationService } from "src/app/services/authentication.service";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"],
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.notification.error(this.response.message);
       }
       else {
-        this.router.navigate(["/dashboard"]);
+        this.router.navigate(["/events"]);
       }
     });
   }
