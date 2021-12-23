@@ -63,26 +63,26 @@
     </div>
     <div class="list-tab-body">
         <div class="example-container">
-            <table mat-table [dataSource]=" tableData">
+            <table mat-table [dataSource]="tableData">
                 <ng-container matColumnDef="Date">
                     <th mat-header-cell *matHeaderCellDef> Date </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
                 </ng-container>
                 <ng-container matColumnDef="LogedInUser">
                     <th mat-header-cell *matHeaderCellDef> Loged In User </th>
-                    <td mat-cell *matCellDef="let element"> {{element.LogedInUser}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
                 </ng-container>
                 <ng-container matColumnDef="Resource">
                     <th mat-header-cell *matHeaderCellDef> Resource </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Resource}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.resource}} </td>
                 </ng-container>
                 <ng-container matColumnDef="Sessionid">
                     <th mat-header-cell *matHeaderCellDef> Sessionid </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Sessionid}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                 </ng-container>
                 <ng-container matColumnDef="Path">
                     <th mat-header-cell *matHeaderCellDef> Path </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Path}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.path}} </td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="['Date', 'LogedInUser', 'Resource', 'Sessionid', 'Path']">
                 </tr>

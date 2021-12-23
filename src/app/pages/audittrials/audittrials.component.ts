@@ -4,6 +4,10 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddmodelComponent } from 'src/app/components/addmodel/addmodel.component';
 import { EdituserComponent } from 'src/app/components/edituser/edituser.component';
 import { SavefilterComponent } from 'src/app/components/savefilter/savefilter.component';
+import { auditTrailTableFilterPayload } from 'src/app/models/tables-filters.model';
+import { NotificationService } from 'src/app/services/notification.service';
+import { BackendApiService } from 'src/app/services/backend-api.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-audittrials',
@@ -25,56 +29,78 @@ export class AudittrialsComponent implements OnInit {
     pageSize: 10,
     pageIndex: 1
   };
-  tableData1 = [{ Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
-    { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
-    { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
-    { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
-    { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' }
+  // tableData1 = [
+  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
+  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
+  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
+  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
+  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' }
+  // ];
 
-  ];
   tableData: any;
   matDialgeditRef!: MatDialogRef<EdituserComponent>;
   rowData: any;
-  
 
-  constructor(private httpClient: HttpClient, private matDialog: MatDialog) {
-    this.getPageDetails();
-   
+  auditTrailTableFilter: auditTrailTableFilterPayload = {};
+  auditTrailTablePerPage: number = 10;
+  auditTrailTableCurrentPage: number = 1;
+
+  user = this.authenticationService.userValue;
+
+  constructor(
+    private httpClient: HttpClient,
+    private matDialog: MatDialog,
+    private notify: NotificationService,
+    private api: BackendApiService,
+    private authenticationService: AuthenticationService,
+  ) { }
+
+  ngOnInit(): void {
+    this.auditTrailTableFilter = {
+      currentPage: this.auditTrailTableCurrentPage,
+      perPage: this.auditTrailTablePerPage
+    };
+
+    this.getAuditTrailTableData(this.auditTrailTableFilter);
   }
+
+  getAuditTrailTableData(auditTrailTableFilter: auditTrailTableFilterPayload) {
+    this.api.getAuditTrailTable(auditTrailTableFilter, this.user?.token)
+      .subscribe(
+        data => {
+          this.tableData = data;
+        },
+        error => {
+          this.notify.error(error);
+        }
+      );
+  }
+
+
   setPageSizeOptions = (setPageSizeOptionsInput: string) => {
     if (setPageSizeOptionsInput) {
       this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
   }
 
-  ngOnInit(): void {
-    this.getPageDetails();
-  }
   onPageEvent = ($event: { pageIndex: any; pageSize: any; }) => {
-    this.getData($event.pageIndex, $event.pageSize);
+    // this.getData($event.pageIndex, $event.pageSize);
   }
   showTestEmit = ($event: { pageIndex: any; pageSize: any; }) => {
-    this.EmitResult =  {
+    this.EmitResult = {
       pageNumber: $event.pageIndex,
       pageSize: $event.pageSize
     };
   }
-  getData = (pg: number, lmt: any) => {
-    // return this.allProjects(pg, lmt).subscribe( res => {
-    // this.tableData = [];
-    // });
-    const start : number = pg*9;
-    console.log(this.tableData1.slice(start,start+lmt));
-    this.tableData = this.tableData1.slice(start,start+lmt);
-  }
-  getPageDetails = () => {
-    // this.getPageSize().subscribe( res => {
-    // this.paginationInfo = this.tableData1;
-    // this.getData(0, this.paginationInfo.pageSize);
-    // });
-    this.paginationInfo = this.tableData1;
-    this.getData(0, 9);
-  }
+  // getData = (pg: number, lmt: any) => {
+  //   const start: number = pg * 9;
+  //   console.log(this.tableData1.slice(start, start + lmt));
+  //   this.tableData = this.tableData1.slice(start, start + lmt);
+  // }
+  // getPageDetails = () => {
+  //   this.paginationInfo = this.tableData1;
+  //   this.getData(0, 9);
+  // }
   allProjects = (page: number, limit: any) => {
     return this.httpClient.get(`${this.BASE_URL}/posts?_page=${page + 1}&_limit=${limit}`);
   }
@@ -95,9 +121,10 @@ export class AudittrialsComponent implements OnInit {
 
   editModal(row: any) {
     this.rowData = row;
-    this.matDialgeditRef = this.matDialog.open(EdituserComponent, {data: {row:this.rowData},
+    this.matDialgeditRef = this.matDialog.open(EdituserComponent, {
+      data: { row: this.rowData },
       disableClose: true
     })
-    
+
   }
 }

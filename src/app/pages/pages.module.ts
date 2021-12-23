@@ -26,6 +26,7 @@ import {
     AddmodelComponent,
     SideBarComponent,
 } from '../components/index';
+import { PaginatorDirective } from '../pagination.directive';
 
 @NgModule({
     imports: [

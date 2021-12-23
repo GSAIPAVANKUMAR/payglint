@@ -7,7 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { LoginComponent } from './pages/login/login.component';
+import {
+  LoginComponent,
+} from './pages/index';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { PaginatorDirective } from './pagination.directive';

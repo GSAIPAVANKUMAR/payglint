@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SavefilterComponent } from 'src/app/components/savefilter/savefilter.component';
-import { NotificationService } from '../../services/notification.service';
-import { BackendApiService } from '../../services/backend-api.service';
-import { eventTableFilterPayload } from '../../models/tables-filters.model';
+import { NotificationService } from 'src/app/services/notification.service';
+import { BackendApiService } from 'src/app/services/backend-api.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { eventTableFilterPayload } from '../../models/tables-filters.model';
 import { eventTablePayload } from 'src/app/models/table.model';
 
 @Component({
@@ -47,7 +47,7 @@ export class EventComponent implements OnInit {
 
 
   tableData: eventTablePayload[] = [];
-  tableFilters: eventTableFilterPayload = {};
+  eventTableFilter: eventTableFilterPayload = {};
 
   checkpointSelected: any;
   severitySelected: any;
@@ -57,8 +57,8 @@ export class EventComponent implements OnInit {
   dateRangeEnd: string | undefined = '';
 
   // Number of data per page.
-  tableDataPerPage: number = 10;
-  tableCurrentPage: number = 1;
+  eventTablePerPage: number = 10;
+  eventTableCurrentPage: number = 1;
 
   user = this.authenticationService.userValue;
 
@@ -71,16 +71,16 @@ export class EventComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.tableCurrentPage = 1;
-    this.tableFilters = {
-      currentPage: this.tableCurrentPage,
-      perPage: this.tableDataPerPage
+    this.eventTableCurrentPage = 1;
+    this.eventTableFilter = {
+      currentPage: this.eventTableCurrentPage,
+      perPage: this.eventTablePerPage
     };
-    this.getEventTableData(this.tableFilters);
+    this.getEventTableData(this.eventTableFilter);
   }
 
-  getEventTableData(tableFilters: eventTableFilterPayload) {
-    this.api.getEventTable(tableFilters, this.user?.token)
+  getEventTableData(eventTableFilter: eventTableFilterPayload) {
+    this.api.getEventTable(eventTableFilter, this.user?.token)
       .subscribe(
         data => {
           this.tableData = data;
@@ -108,7 +108,7 @@ export class EventComponent implements OnInit {
 
   applyFiltersEvent() {
     this.updateTableFiltersForm();
-    this.getEventTableData(this.tableFilters);
+    this.getEventTableData(this.eventTableFilter);
   }
 
   updateTableFiltersForm() {
@@ -117,9 +117,9 @@ export class EventComponent implements OnInit {
     const sessionid = (<HTMLInputElement>document.getElementById("sessionid"))?.value;
     const requestid = (<HTMLInputElement>document.getElementById("requestid"))?.value;
 
-    this.tableFilters = {
-      currentPage: this.tableCurrentPage,
-      perPage: this.tableDataPerPage,
+    this.eventTableFilter = {
+      currentPage: this.eventTableCurrentPage,
+      perPage: this.eventTablePerPage,
       filters: (userid || deviceid || sessionid || requestid || this.severitySelected || this.checkpointSelected || this.statusSelected) ? {
         userId: userid ? { values: [userid] } : undefined,
         deviceId: deviceid ? { values: [deviceid] } : undefined,
@@ -147,13 +147,13 @@ export class EventComponent implements OnInit {
     checkpoint.value = undefined;
     status.value = undefined;
     this.resetTableFiltersForm();
-    this.getEventTableData(this.tableFilters);
+    this.getEventTableData(this.eventTableFilter);
   }
 
   resetTableFiltersForm() {
-    this.tableFilters = {
-      currentPage: this.tableCurrentPage,
-      perPage: this.tableDataPerPage,
+    this.eventTableFilter = {
+      currentPage: this.eventTableCurrentPage,
+      perPage: this.eventTablePerPage,
       filters: undefined,
       ranges: undefined
     }
@@ -166,9 +166,9 @@ export class EventComponent implements OnInit {
   }
 
   onPageEvent = ($event: { pageIndex: any; }) => {
-    this.tableCurrentPage = $event.pageIndex + 1;
-    this.tableFilters.currentPage = this.tableCurrentPage;
-    this.getEventTableData(this.tableFilters);
+    this.eventTableCurrentPage = $event.pageIndex + 1;
+    this.eventTableFilter.currentPage = this.eventTableCurrentPage;
+    this.getEventTableData(this.eventTableFilter);
   }
 
   showTestEmit = ($event: { pageIndex: any; pageSize: any; }) => {
@@ -205,7 +205,7 @@ export class EventComponent implements OnInit {
   }
 
   exportEventTableData() {
-    this.api.getEventTable(this.tableFilters, this.user?.token)
+    this.api.getEventTable(this.eventTableFilter, this.user?.token)
       .subscribe(
         data => {
           this.downloadEventDataCSV(data);
@@ -216,7 +216,7 @@ export class EventComponent implements OnInit {
       );
   }
 
-  downloadEventDataCSV(data: any){
+  downloadEventDataCSV(data: any) {
     //download CSV file.
   }
 
