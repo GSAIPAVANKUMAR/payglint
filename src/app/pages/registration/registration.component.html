@@ -8,7 +8,7 @@
                     </div>
                     <div class="registration-form">
                         <div class="form-title">Two Factor Autentification </div>
-                        <form>
+                        <form [formGroup] = "signupForm" (ngSubmit) = "onSubmit(signupForm.value)">
                             <div class="form-group">
                                 <input 
                                 type="password" 
@@ -16,8 +16,18 @@
                                 id="new-password"
                                 placeholder="Type your new password"
                                 class="form-control text-input"
-                                >
+                                formControlName="password"
+                                autocomplete="off"
+                                [ngClass] ="{'has-error': signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)}"
+                                />
                             </div>
+                            <!-- password error validation -->
+                            <div *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)" class="error-wrapper">
+                                <div *ngIf="signupForm.controls['password'].errors?.['required']">
+                                  {{message.PASSWORD_REQUIRED}}
+                                </div>
+                              </div>
+                            <!-- EOF password error validation -->
                             <div class="form-group">
                                 <input 
                                 type="password" 
@@ -25,13 +35,26 @@
                                 id="confirm-password" 
                                 class="form-control text-input"
                                 placeholder="Confirm Password"
-                                >
+                                formControlName="confirmPassword"
+                                autocomplete="off"
+                                [ngClass] ="{'has-error': signupForm.controls['confirmPassword'].invalid && (signupForm.controls['confirmPassword'].dirty || signupForm.controls['confirmPassword'].touched)}"
+                                />
                             </div>
+                            <!-- confirm password error validation -->
+                            <div *ngIf="signupForm.controls['confirmPassword'].invalid && (signupForm.controls['confirmPassword'].dirty || signupForm.controls['confirmPassword'].touched)" class="error-wrapper">
+                                <div *ngIf="signupForm.controls['confirmPassword'].errors?.['required']">
+                                  {{message.PASSWORD_REQUIRED}}
+                                </div>
+                                <div *ngIf="signupForm.controls['confirmPassword'].errors?.['MatchPassword']">
+                                    <p>Password not matched</p>
+                                  </div>
+                              </div>
+                            <!-- EOF confirm password error validation -->
                             <div class="qr-code-section">
                                 <p>
                                     Scan this QR code with your mobile phone.
                                 </p>
-                                <img src="../../../../assets/images/qr-code.svg" alt="QR CODE" draggable="false">
+                                <img src="../../../../assets/images/qr-code.svg" alt="QR CODE" draggable="false" />
                             </div>
                             <div class="form-group">
                                 <input 
@@ -40,10 +63,24 @@
                                 id="auth-token" 
                                 class="form-control auth-token"
                                 placeholder="Verification Code"
-                                >
+                                formControlName="token"
+                                autocomplete="off"
+                                [ngClass] ="{'has-error': signupForm.controls['token'].invalid && (signupForm.controls['token'].dirty || signupForm.controls['token'].touched)}"
+                                />
                             </div>
+                            <!-- token error validation -->
+                            <div *ngIf="signupForm.controls['token'].invalid && (signupForm.controls['token'].dirty || signupForm.controls['token'].touched)" class="error-wrapper">
+                                <div *ngIf="signupForm.controls['token'].errors?.['required']" style="margin-left: 50px;">
+                                  {{message.TOKEN_REQUIRED}}
+                                </div>
+                                <div *ngIf="signupForm.controls['token'].errors?.['pattern']" style="margin-left: 50px;">
+                                    {{message.TOKEN_VALID}}
+                                  </div>
+                              </div>
+                            <!-- EOF token error validation -->
                             <div class="form-group">
-                                <button class="btn-register">Register</button>
+                                <button 
+                                class="btn-register" type="submit" [disabled]="signupForm.invalid" >Register</button>
                             </div>
                         </form>
                     </div>
