@@ -13,7 +13,7 @@
     <div class="row event-filter-row">
       <span class="filter-title">Filters</span>
       <mat-form-field class="single-select-view">
-        <mat-label>{{ viewfileter }}</mat-label>
+        <mat-label>View all filters</mat-label>
         <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="selectedView($event.value)"
           disableOptionCentering>
           <mat-option value="one">First option</mat-option>
@@ -26,8 +26,8 @@
     </div>
 
     <!-- filter options section-->
+    
     <div class="row event-filter-options">
-      <!-- savirity select options -->
       <div class="mat-input-tag">
         <mat-form-field class="single-select">
           <mat-label>Severity</mat-label>
@@ -42,17 +42,14 @@
         </mat-form-field>
       </div>
 
-      <!-- user id input box -->
       <div class="form-group">
         <input #userid id="userid" type="text" placeholder="User ID" class="form-control" />
       </div>
 
-      <!-- device id input box -->
       <div class="form-group">
         <input #deviceid id="deviceid" type="text" placeholder="Device ID" class="form-control" />
       </div>
 
-      <!-- select date range -->
       <div class="date-range-wrapper">
         <mat-form-field class="is-form-date-range-picker" appearance="fill">
           <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
@@ -69,12 +66,10 @@
         </mat-form-field>
       </div>
 
-      <!-- session id input box -->
       <div class="form-group">
         <input #sessionid id="sessionid" type="text" placeholder="Session ID" class="form-control" />
       </div>
 
-      <!-- checkpoint select options -->
       <div class="mat-input-tag">
         <mat-form-field class="single-select">
           <mat-label>Checkpoint</mat-label>
@@ -93,12 +88,10 @@
         </mat-form-field>
       </div>
 
-      <!-- request id input box -->
       <div class="form-group">
         <input #requestid id="requestid" type="text" placeholder="Request ID" class="form-control" />
       </div>
 
-      <!-- status select options -->
       <div class="mat-input-tag">
         <mat-form-field class="single-select">
           <mat-label>Status</mat-label>
@@ -113,12 +106,12 @@
       </div>
 
       <div class="right-side-button-panel">
-        <button class="btn button-txt" type="submit" (click)="applyFiltersEvent()">
+        <button class="btn button-txt" type="submit" (click)="applyEventTableFiltersEvent()">
           <img src="../../../../assets/images/right.png" />Apply
         </button>
 
         <span class="filter-delete-button"
-          (click)="resetFiltersEvent(dateRangeStart, dateRangeEnd, requestid, userid, deviceid, sessionid, severity, checkpoint, status)"><img
+          (click)="resetEventTableFiltersEvent(dateRangeStart, dateRangeEnd, requestid, userid, deviceid, sessionid, severity, checkpoint, status)"><img
             src="../../../../assets/images/delete_icon_button.svg" /></span>
       </div>
     </div>
@@ -248,7 +241,7 @@
 
             <div class="pg-container">
               <mat-paginator appPagination [length]="50" [pageSize]="10" [hidePageSize]="true"
-                (page)="onPageEvent($event)">
+                (page)="onEventTablePageEvent($event)">
               </mat-paginator>
             </div>
           </div>
@@ -269,7 +262,3 @@
     </div>
   </div>
 </div>
-
-<!-- <mat-paginator style-paginator showFirstLastButtons [length]="7130" [pageSize]="10"
-                                          [pageSizeOptions]="[5, 10, 25, 100]">
-                                        </mat-paginator> -->

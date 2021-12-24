@@ -28,6 +28,7 @@ import {
 } from '../components/index';
 import { PaginatorDirective } from 'src/app/pagination.directive';
 import { AgmCoreModule } from '@agm/core';
+import { SelectDropDownModule } from 'ngx-select-dropdown'
 
 @NgModule({
     imports: [
@@ -38,6 +39,7 @@ import { AgmCoreModule } from '@agm/core';
         FormsModule,
         ReactiveFormsModule,
         MatFormFieldModule,
+        SelectDropDownModule,
         AgmCoreModule.forRoot({
             apiKey: "AIzaSyAjeJEPREBQFvAIqDSZliF0WjQrCld-Mh0"
         }),

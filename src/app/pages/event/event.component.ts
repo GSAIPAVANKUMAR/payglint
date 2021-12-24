@@ -15,36 +15,13 @@ import { eventTablePayload } from 'src/app/models/table.model';
 })
 
 export class EventComponent implements OnInit {
-  BASE_URL = 'http://localhost:3000';
-  mockCsvData!: string;
-
-  mockHeaders = `Severity,Score,Date,Session,UserID,DeviceID,Checkpoint,Amount,Currency,Destination,Status,Resolution
-`
   // MatPaginator Inputs
-  paginationInfo: any;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
   showexport = true;
   selectedRowIndex: any;
   dispalyRow = false;
   rowData: any;
-  nameplaceholder: string = 'Name(0)';
-  viewfileter: string = 'View all filters'
-  checkvalue: string = "Checkpoint (0)"
-  status: string = "Status (0)"
-  startdate = "Start Date to Date End"
+
   matDialgRef!: MatDialogRef<SavefilterComponent>;
-  // Test states
-  EmitResult = {
-    pageNumber: '',
-    pageSize: ''
-  };
-
-  testPaginator = {
-    length: 1000,
-    pageSize: 10,
-    pageIndex: 1
-  };
-
 
   tableData: eventTablePayload[] = [];
   eventTableFilter: eventTableFilterPayload = {};
@@ -106,12 +83,12 @@ export class EventComponent implements OnInit {
     }
   }
 
-  applyFiltersEvent() {
-    this.updateTableFiltersForm();
+  applyEventTableFiltersEvent() {
+    this.updateEventTableFiltersForm();
     this.getEventTableData(this.eventTableFilter);
   }
 
-  updateTableFiltersForm() {
+  updateEventTableFiltersForm() {
     const userid = (<HTMLInputElement>document.getElementById("userid"))?.value;
     const deviceid = (<HTMLInputElement>document.getElementById("deviceid"))?.value;
     const sessionid = (<HTMLInputElement>document.getElementById("sessionid"))?.value;
@@ -136,7 +113,7 @@ export class EventComponent implements OnInit {
     }
   }
 
-  resetFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any, severity: any, checkpoint: any, status: any) {
+  resetEventTableFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any, severity: any, checkpoint: any, status: any) {
     startDate.value = '';
     endDate.value = '';
     requestid.value = '';
@@ -146,11 +123,11 @@ export class EventComponent implements OnInit {
     severity.value = undefined;
     checkpoint.value = undefined;
     status.value = undefined;
-    this.resetTableFiltersForm();
+    this.resetEventTableFiltersForm();
     this.getEventTableData(this.eventTableFilter);
   }
 
-  resetTableFiltersForm() {
+  resetEventTableFiltersForm() {
     this.eventTableFilter = {
       currentPage: this.eventTableCurrentPage,
       perPage: this.eventTablePerPage,
@@ -159,31 +136,10 @@ export class EventComponent implements OnInit {
     }
   }
 
-  setPageSizeOptions = (setPageSizeOptionsInput: string) => {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
-  }
-
-  onPageEvent = ($event: { pageIndex: any; }) => {
+  onEventTablePageEvent = ($event: { pageIndex: any; }) => {
     this.eventTableCurrentPage = $event.pageIndex + 1;
     this.eventTableFilter.currentPage = this.eventTableCurrentPage;
     this.getEventTableData(this.eventTableFilter);
-  }
-
-  showTestEmit = ($event: { pageIndex: any; pageSize: any; }) => {
-    this.EmitResult = {
-      pageNumber: $event.pageIndex,
-      pageSize: $event.pageSize
-    };
-  }
-
-  allProjects = (page: number, limit: any) => {
-    return this.httpClient.get(`${this.BASE_URL}/posts?_page=${page + 1}&_limit=${limit}`);
-  }
-
-  getPageSize = () => {
-    return this.httpClient.get(`${this.BASE_URL}/pageSize`);
   }
 
   hideRow(value: boolean) {
@@ -200,8 +156,7 @@ export class EventComponent implements OnInit {
   openModal() {
     this.matDialgRef = this.matDialog.open(SavefilterComponent, {
       disableClose: true
-    })
-
+    });
   }
 
   exportEventTableData() {
@@ -236,7 +191,6 @@ export class EventComponent implements OnInit {
   }
 
   selectedView(val: any) {
-    this.viewfileter = ""
   }
 
   selectedSeverity(val: any) {

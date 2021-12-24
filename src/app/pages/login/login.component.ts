@@ -42,15 +42,14 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   onSubmit(user: any): void {
-    if (this.loginForm.valid) {
-      this.authenticationService.login(user).subscribe((res) => {
-        this.response = res;
-        if (this.response.message != null) {
-          this.notification.error(this.response.message);
-        } else {
-          this.router.navigate(["/events"]);
-        }
-      });
-    }
+    this.authenticationService.login(user).subscribe(res => {
+      this.response = res;
+      if (this.response.message != null) {
+        this.notification.error(this.response.message);
+      }
+      else {
+        this.router.navigate(["/dashboard"]);
+      }
+    });
   }
 }
