@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.notification.error(this.response.message);
       }
       else {
-        this.router.navigate(["/events"]);
+        this.router.navigate(["/dashboard"]);
       }
     });
   }
