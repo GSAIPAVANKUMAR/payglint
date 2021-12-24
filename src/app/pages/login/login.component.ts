@@ -3,6 +3,8 @@ import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NotificationService } from "../../services/notification.service";
 import { AuthenticationService } from "src/app/services/authentication.service";
+import { AppSettings } from "../../settings/app.pattern";
+import { AppMessageSetting } from "src/app/settings/app.message";
 
 @Component({
   selector: "app-login",
@@ -12,21 +14,27 @@ import { AuthenticationService } from "src/app/services/authentication.service";
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   response: any = [];
+  message: any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      token: ['', Validators.required]
-    });
     // get return url from route parameters or default to '/'
     // this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/home";
+    this.validateLoginForm();
+    this.message = AppMessageSetting;
+  }
+
+  validateLoginForm() {
+    this.loginForm = this.formBuilder.group({
+      email: ["", [Validators.required, Validators.pattern(AppSettings.EMAIL)]],
+      password: ["", [Validators.required]],
+      token: ["", [Validators.required, Validators.pattern(AppSettings.TOKEN)]],
+    });
   }
 
   // convenience getter for easy access to form fields

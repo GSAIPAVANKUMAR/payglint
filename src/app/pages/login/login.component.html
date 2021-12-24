@@ -21,8 +21,20 @@
                   formControlName="email"
                   placeholder="Email"
                   class="form-control text-input"
+                  autocomplete="off"
+                  [ngClass] ="{ 'has-error': loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)}"
                 />
               </div>
+              <!-- email error validation -->
+              <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="error-wrapper">
+                <div *ngIf="loginForm.controls['email'].errors?.['required']">
+                  {{message.EMAIL_REQUIRED}}
+                </div>
+                <div *ngIf="loginForm.controls['email'].errors?.['pattern']">
+                  {{message.EMAIL_VALID}}
+                </div>
+              </div>
+              <!-- EOF email error validation -->
               <div class="form-group">
                 <input
                   id="lock-icon"
@@ -30,22 +42,44 @@
                   formControlName="password"
                   placeholder="Password"
                   class="form-control text-input"
+                  autocomplete="off"
                 />
               </div>
+              <!-- Password error validation -->
+              <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="error-wrapper">
+                <div *ngIf="loginForm.controls['password'].errors?.['required']">
+                  {{message.PASSWORD_REQUIRED}}
+                </div>
+              </div>
+              <!-- EOF password error validation -->
               <div class="form-group">
                 <input
                   formControlName="token"
                   placeholder="Token"
                   class="form-control auth-token"
+                  autocomplete="off"
                 />
               </div>
+              <!-- Token error validation -->
+              <div *ngIf="loginForm.controls['token'].invalid && (loginForm.controls['token'].dirty || loginForm.controls['token'].touched)" class="error-wrapper">
+                <div *ngIf="loginForm.controls['token'].errors?.['required']">
+                  {{message.TOKEN_REQUIRED}}
+                </div>
+                <div *ngIf="loginForm.controls['token'].errors?.['pattern']">
+                  {{message.TOKEN_VALID}}
+                </div>
+              </div>
+              <!-- EOF token error validation -->
               <div class="form-group">
-                <button type="submit" class="btn login-button">Log In</button>
+                <button type="submit" class="btn login-button" [disabled]="loginForm.invalid">Log In</button>
               </div>
             </form>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="footer-text">Copyright @ Paygilant 2021</div>
     </div>
   </div>
 </div>

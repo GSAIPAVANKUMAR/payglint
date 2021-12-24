@@ -54,3 +54,15 @@ body {
   font-family: LATO-ThinItalic;
   src: url(assets/fonts/Lato/Lato-ThinItalic.ttf) format("opentype");
 }
+
+.error-wrapper{
+  text-align: left;
+  color: rgb(230, 14, 14);
+  margin-top: -10px;
+}
+.has-error{
+  // border-color: rgb(173, 7, 7) !important;
+  outline: 0;
+  border-color: rgb(216, 12, 12) !important;
+  color: rgb(230, 14, 14);
+}
