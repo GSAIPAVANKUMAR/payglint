@@ -43,6 +43,7 @@
                   placeholder="Password"
                   class="form-control text-input"
                   autocomplete="off"
+                  [ngClass] ="{ 'has-error': loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)}"
                 />
               </div>
               <!-- Password error validation -->
@@ -58,6 +59,7 @@
                   placeholder="Token"
                   class="form-control auth-token"
                   autocomplete="off"
+                  [ngClass] ="{ 'has-error': loginForm.controls['token'].invalid && (loginForm.controls['token'].dirty || loginForm.controls['token'].touched)}"
                 />
               </div>
               <!-- Token error validation -->
