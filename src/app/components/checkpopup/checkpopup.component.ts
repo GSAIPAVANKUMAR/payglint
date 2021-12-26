@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { BackendApiService } from 'src/app/services/backend-api.service';
 
 @Component({
@@ -28,8 +29,13 @@ export class CheckpopupComponent implements OnInit {
   response: any;
   notification: any;
   router: any;
-  constructor(private service: BackendApiService) {
-  }
+
+  user = this.authenticationService.userValue;
+
+  constructor(
+    private service: BackendApiService,
+    private authenticationService: AuthenticationService,
+  ) { }
 
   ngOnInit(): void {
     console.log(this.row);
@@ -37,7 +43,7 @@ export class CheckpopupComponent implements OnInit {
   }
 
   getRequestRowData(requestid: any) {
-    this.service.getRequestData(requestid).subscribe((res: any) => {
+    this.service.getRequestData(requestid, this.user?.token).subscribe((res: any) => {
       this.response = res;
       console.log(this.response)
       this.ip = this.response.ip;

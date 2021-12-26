@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  url : '/api'
+  url : 'https://poc-eu1.paygilant.com/axiom-test/dashboard'
 
 };
