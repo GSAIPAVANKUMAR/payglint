@@ -21,7 +21,7 @@ export class EventComponent implements OnInit {
   selectedRowIndex: any;
   dispalyRow = false;
   rowData: any;
-
+  noTableDataFlag: boolean = false;
   matDialgRef!: MatDialogRef<SavefilterComponent>;
 
   tableData: eventTablePayload[] = [];
@@ -65,6 +65,11 @@ export class EventComponent implements OnInit {
       .subscribe(
         data => {
           this.tableData = data;
+          if(this.tableData.length > 0){
+            this.noTableDataFlag = false
+          }else{
+            this.noTableDataFlag = true
+          }
         },
         error => {
           this.notify.error(error);
@@ -170,7 +175,11 @@ export class EventComponent implements OnInit {
     this.api.getEventTable(this.eventTableFilter, this.user?.token)
       .subscribe(
         data => {
-          this.downloadEventDataCSV(data);
+          if(data.length > 0 ){
+            this.downloadEventDataCSV(data);
+          }else{
+            this.notify.info("No Data to export");
+          }
         },
         error => {
           this.notify.error(error);

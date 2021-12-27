@@ -12,7 +12,7 @@
     <!-- filter section  -->
     <div class="row event-filter-row">
       <span class="filter-title">Filters</span>
-      <mat-form-field class="single-select-view">
+      <mat-form-field class="single-select-view" floatLabel="never">
         <mat-label>View all filters</mat-label>
         <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="selectedView($event.value)"
           disableOptionCentering>
@@ -26,10 +26,9 @@
     </div>
 
     <!-- filter options section-->
-    
     <div class="row event-filter-options">
       <div class="mat-input-tag">
-        <mat-form-field class="single-select">
+        <mat-form-field class="single-select" floatLabel="never">
           <mat-label>Severity</mat-label>
           <mat-select class="select-input" panelClass="selectInputClass" #severity
             (selectionChange)="selectedSeverity($event.value)" disableOptionCentering>
@@ -51,7 +50,7 @@
       </div>
 
       <div class="date-range-wrapper">
-        <mat-form-field class="is-form-date-range-picker" appearance="fill">
+        <mat-form-field class="is-form-date-range-picker" floatLabel="never">
           <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
           <mat-date-range-input [rangePicker]="picker">
             <input matStartDate #dateRangeStart placeholder="Start date"
@@ -71,7 +70,7 @@
       </div>
 
       <div class="mat-input-tag">
-        <mat-form-field class="single-select">
+        <mat-form-field class="single-select" floatLabel="never">
           <mat-label>Checkpoint</mat-label>
           <mat-select class="select-input" panelClass="selectInputClass" #checkpoint
             (selectionChange)="selectedCheckpoint($event.value)" disableOptionCentering>
@@ -93,7 +92,7 @@
       </div>
 
       <div class="mat-input-tag">
-        <mat-form-field class="single-select">
+        <mat-form-field class="single-select" floatLabel="never">
           <mat-label>Status</mat-label>
           <mat-select class="select-input" panelClass="selectInputClass" #status
             (selectionChange)="selectedStatus($event.value)" disableOptionCentering>
@@ -238,6 +237,13 @@
                     "></tr>
               </table>
             </div>
+            <!-- No table data section -->
+            <div class="no-table-data" *ngIf ="noTableDataFlag">
+              <div class="content">
+                No available data to display
+              </div>
+            </div>
+            <!-- EOF no table data section -->
 
             <div class="pg-container">
               <mat-paginator appPagination [length]="50" [pageSize]="10" [hidePageSize]="true"
@@ -262,3 +268,4 @@
     </div>
   </div>
 </div>
+
