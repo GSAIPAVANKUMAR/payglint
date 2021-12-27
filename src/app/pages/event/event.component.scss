@@ -432,8 +432,6 @@ tr.mat-row {
 //   outline: none;
 // }
 
-
-
 // .new-filter-options-row{
 //   .severity-options{
 //     width: 130px;
@@ -446,3 +444,20 @@ tr.mat-row {
 // .form-control:focus {
 //   outline: none;
 // }
+
+.no-table-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 400px;
+  .content {
+    font-family: LATO-Regular;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4d556a;
+  }
+}
