@@ -19,7 +19,7 @@
     <mat-nav-list class="nav-list-wrapper">
       <!-- dashboard menu -->
       <mat-list-item
-        (click)="navigate('/dashboard')"
+        (click)="navigate('axiom-test/dashboard/dashboard')"
         class="mat-list-value"
         [ngClass]="{ 'active-link': activeLink == 'dashboard' }"
         [disableRipple]="true"
@@ -41,7 +41,7 @@
 
       <!-- events menu -->
       <mat-list-item
-        (click)="navigate('/events')"
+        (click)="navigate('axiom-test/dashboard/events')"
         [ngClass]="{ 'active-link': activeLink == 'events' }"
         class="mat-list-value"
       >
@@ -61,7 +61,7 @@
       </mat-list-item>
       <!-- Screen events menu -->
       <mat-list-item
-        (click)="navigate('/screenevents')"
+        (click)="navigate('axiom-test/dashboard/screenevents')"
         [ngClass]="{ 'active-link': activeLink == 'screenevents' }"
         class="mat-list-value"
       >
@@ -81,7 +81,7 @@
       </mat-list-item>
       <!-- reports menu -->
       <mat-list-item
-        (click)="navigate('/reports')"
+        (click)="navigate('axiom-test/dashboard/reports')"
         class="mat-list-value"
         [ngClass]="{ 'active-link': activeLink == 'reports' }"
       >
@@ -102,7 +102,7 @@
       </mat-list-item>
       <!-- analytics menu -->
       <mat-list-item
-        (click)="navigate('/analytics')"
+        (click)="navigate('axiom-test/dashboard/analytics')"
         class="mat-list-value"
         [ngClass]="{ 'active-link': activeLink == 'analytics' }"
       >
@@ -124,7 +124,7 @@
       <!-- audit trails menu -->
       <mat-list-item
         data-toggle="collapse"
-        (click)="navigate('/audittrails')"
+        (click)="navigate('axiom-test/dashboard/audittrails')"
         class="mat-list-value"
         [ngClass]="{ 'active-link': activeLink == 'audittrails' }"
       >
@@ -144,7 +144,7 @@
       </mat-list-item>
       <!-- Profile menu -->
       <mat-list-item
-        (click)="navigate('/profilescreen')"
+        (click)="navigate('axiom-test/dashboard/profilescreen')"
         class="mat-list-value"
         [ngClass]="{ 'active-link': activeLink == 'profilesceen' }"
       >

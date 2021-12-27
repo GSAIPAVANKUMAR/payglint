@@ -56,24 +56,24 @@ export class SideBarComponent implements OnInit {
     this.router.events.subscribe((router: any) => {
       if (router.url) {
         let activePath = router.url;
-        if (activePath.includes("/events")) {
+        if (activePath.includes("axiom-test/dashboard/events")) {
           this.activeLink = "events";
-        } else if (activePath.includes("/screenevents")) {
+        } else if (activePath.includes("axiom-test/dashboard/screenevents")) {
           this.activeLink = "screenevents";
         }
-        else if (activePath.includes("/profilescreen")) {
+        else if (activePath.includes("axiom-test/dashboard/profilescreen")) {
           this.activeLink = "profilescreen";
         }
-        else if (activePath.includes("/audittrails")) {
+        else if (activePath.includes("axiom-test/dashboard/audittrails")) {
           this.activeLink = "audittrails";
         }
-        else if (activePath.includes("/reports")) {
+        else if (activePath.includes("axiom-test/dashboard/reports")) {
           this.activeLink = "reports";
         }
-        else if (activePath.includes("/analytics")) {
+        else if (activePath.includes("axiom-test/dashboard/analytics")) {
           this.activeLink = "analytics";
         }
-        if (activePath.includes("/dashboard")) {
+        if (activePath.includes("axiom-test/dashboard/dashboard")) {
           this.activeLink = "dashboard";
         }
       }

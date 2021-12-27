@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.notification.error(this.response.message);
       }
       else {
-        this.router.navigate(["/dashboard"]);
+        this.router.navigate(["axiom-test/dashboard/dashboard"]);
       }
     });
   }
