@@ -7,6 +7,7 @@ import { BackendApiService } from 'src/app/services/backend-api.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { eventTableFilterPayload } from '../../models/tables-filters.model';
 import { eventTablePayload } from 'src/app/models/table.model';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-event',
@@ -33,6 +34,7 @@ export class EventComponent implements OnInit {
   dateRangeStart: string | undefined = '';
   dateRangeEnd: string | undefined = '';
 
+
   // Number of data per page.
   eventTablePerPage: number = 10;
   eventTableCurrentPage: number = 1;
@@ -51,7 +53,9 @@ export class EventComponent implements OnInit {
     this.eventTableCurrentPage = 1;
     this.eventTableFilter = {
       currentPage: this.eventTableCurrentPage,
-      perPage: this.eventTablePerPage
+      perPage: this.eventTablePerPage,
+      filters: undefined,
+      ranges: undefined
     };
     this.getEventTableData(this.eventTableFilter);
   }
@@ -64,22 +68,21 @@ export class EventComponent implements OnInit {
         },
         error => {
           this.notify.error(error);
+          console.log(error);
         }
       );
   }
 
   dateRangeChange(startDate: any, endDate: any) {
-    try {
-      this.dateRangeStart = '';
+    const sd: string[] = startDate.value.split('/');
+    const ed: string[] = endDate.value.split('/');
+    if (sd.length != 3 || ed.length != 3) {
       this.dateRangeEnd = '';
-      const sd = startDate.value.split('/');
-      this.dateRangeStart = this.dateRangeStart.concat(sd[2], '-', sd[0], '-', sd[1], ' 00:00');
-      const ed = endDate.value.split('/');
-      this.dateRangeEnd = this.dateRangeEnd.concat(ed[2], '-', ed[0], '-', ed[1], ' 00:00');
+      this.dateRangeStart = '';
     }
-    catch (e) {
-      this.dateRangeStart = undefined;
-      this.dateRangeEnd = undefined;
+    else {
+      this.dateRangeStart = ''.concat(sd[2], '-', (sd[0].length == 2) ? sd[0] : `0${sd[0]}`, '-', (sd[1].length == 2) ? sd[1] : `0${sd[1]}`, ' 00:00');
+      this.dateRangeEnd = ''.concat(ed[2], '-', (ed[0].length == 2) ? ed[0] : `0${ed[0]}`, '-', (ed[1].length == 2) ? ed[1] : `0${ed[1]}`, ' 00:00');
     }
   }
 
@@ -106,7 +109,7 @@ export class EventComponent implements OnInit {
         checkpoint: this.checkpointSelected ? { values: [this.checkpointSelected] } : undefined,
         status: this.statusSelected ? { values: [this.statusSelected] } : undefined,
       } : undefined,
-      ranges: (this.dateRangeEnd && this.dateRangeStart) ? {
+      ranges: (this.dateRangeEnd != '' && this.dateRangeStart != '') ? {
         bigEquals: this.dateRangeEnd ? this.dateRangeEnd : undefined,
         smallEquals: this.dateRangeStart ? this.dateRangeStart : undefined,
       } : undefined
@@ -132,7 +135,7 @@ export class EventComponent implements OnInit {
       currentPage: this.eventTableCurrentPage,
       perPage: this.eventTablePerPage,
       filters: undefined,
-      ranges: undefined
+      ranges: undefined,
     }
   }
 
@@ -173,6 +176,21 @@ export class EventComponent implements OnInit {
 
   downloadEventDataCSV(data: any) {
     //download CSV file.
+    const file_name = 'event-data.csv';
+
+    const replacer = (key: any, value: any) => (value === null ? '' : value); // specify how you want to handle null values here
+    const header = Object.keys(data[0]);
+    const csv = data.map((row: any) =>
+      header
+        .map((fieldName) => (fieldName != 'json') ? JSON.stringify(row[fieldName], replacer) : null)
+        .join(',')
+    );
+    csv.unshift(header.join(','));
+    const csvArray = csv.join('\r\n');
+
+    const a = document.createElement('a');
+    const blob = new Blob([csvArray], { type: 'text/csv' });
+    saveAs(blob, file_name);
   }
 
   onTabChanged($event: any) {
