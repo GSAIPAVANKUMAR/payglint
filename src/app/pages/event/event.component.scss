@@ -178,7 +178,7 @@ table {
 ::ng-deep .mat-form-field-infix {
   border-top: 0 !important;
 }
-.mat-raised-button {
+.btn-save-modal{
   background-color: #f6f6f6;
   margin-left: 10px;
   width: 87px;
@@ -191,7 +191,20 @@ table {
   border-radius: 3px;
   box-shadow: none;
 }
-.button-txt {
+// .mat-raised-button {
+//   background-color: #f6f6f6;
+//   margin-left: 10px;
+//   width: 87px;
+//   height: 36px;
+//   color: #658c3d;
+//   font-family: LATO-Regular;
+//   font-weight: 500;
+//   font-size: 14px;
+//   line-height: 22px;
+//   border-radius: 3px;
+//   box-shadow: none;
+// }
+.btn-filter-apply {
   margin-left: 10px;
   width: 161px;
   height: 36px;
@@ -200,6 +213,9 @@ table {
   box-sizing: border-box;
   border-radius: 3px;
   color: white;
+  &:hover{
+    background: darken(#86c255, 10%);
+  }
 }
 .remove-border-bottom ::ng-deep .mat-tab-header {
   border-bottom: none;

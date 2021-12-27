@@ -1,28 +1,60 @@
-<div style="width: 633px;height:400px">
-  <div class="save">
-    <span class="filter"> Save Filter </span>
-    <span (click)="CloseDialog()" style="margin-left:453px">
-      <img src="../../../assets/images/closeicon.png"></span>
+<div class="save-filter-wrapper">
+  <div class="save-filter-header">
+    <div class="header-title">Save Filter</div>
+    <div class="close_icon">
+      <img
+        src="../../../assets/images/close_icon.svg"
+        alt="Close Icon"
+        draggable="false"
+        (click)="CloseDialog()"
+      />
+    </div>
   </div>
-  <br />
-  <input id="nameicon" type="text" class="nametxt" style="text-indent: 20px;" placeholder="Name" />
-  <div class="viewers">Viewers</div>
-  <div class="nametxt">
-    <mat-form-field class="single-select">
-      <mat-label>{{selectplaceholder}}</mat-label>
-      <mat-select placeholder="Private" class="select-input"
-    (selectionChange)="selectedValue($event.value)" panelClass="selectInputClass">
-        <mat-option value="Private">Private</mat-option>
-        <mat-option value="Public">Public</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <span style="margin-left:21px">Only you</span>
-    <button class="addbtn">Add</button>
+  <div class="save-filter-body">
+    <form>
+      <input
+        type="text"
+        name="text-name"
+        id="text-name"
+        class="text-name form-control"
+        placeholder="Name"
+        autocomplete="off"
+      />
+      <div class="viewers-wrapper">
+        <div class="title">Viewers</div>
+        <div class="viewers-inside-form">
+          <mat-form-field class="single-select" floatLabel="never">
+            <mat-label>{{ selectplaceholder }}</mat-label>
+            <mat-select
+              placeholder="Private"
+              class="select-input"
+              (selectionChange)="selectedValue($event.value)"
+              panelClass="selectInputClass"
+            >
+              <mat-option value="Private">Private</mat-option>
+              <mat-option value="Public">Public</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <span class="mini-title">Only you</span>
+          <button class="btn btn-add">Add</button>
+        </div>
+        <div class="viewers-value">
+          <img
+            src="../../../assets/images/lock.svg"
+            *ngIf="show"
+            draggable="false"
+          />
+          <img
+            src="../../../assets/images/lock.svg"
+            *ngIf="!show"
+            draggable="false"
+          />
+          <span class="viewers-text">{{ access }}</span>
+        </div>
+        <div class="button-save-wrapper">
+          <button class="btn btn-save">Save</button>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="viewers">
-    <img src="../../../assets/images/lock.png" style="padding-bottom: 5px;" *ngIf="show">
-    <img src="../../../assets/images/lock.png" style="padding-bottom: 5px;" *ngIf="!show">
-    <span class="privatetxt">{{access}}</span>
-  </div>
-  <button class="butntxt"><span class="txtsty">Save </span></button>
 </div>
