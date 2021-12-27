@@ -76,12 +76,16 @@ export class EventComponent implements OnInit {
   dateRangeChange(startDate: any, endDate: any) {
     const sd: string[] = startDate.value.split('/');
     const ed: string[] = endDate.value.split('/');
-    if (sd.length != 3 || ed.length != 3) {
-      this.dateRangeEnd = '';
+    if (sd.length != 3) {
       this.dateRangeStart = '';
     }
     else {
       this.dateRangeStart = ''.concat(sd[2], '-', (sd[0].length == 2) ? sd[0] : `0${sd[0]}`, '-', (sd[1].length == 2) ? sd[1] : `0${sd[1]}`, ' 00:00');
+    }
+    if (ed.length != 3) {
+      this.dateRangeEnd = '';
+    }
+    else {
       this.dateRangeEnd = ''.concat(ed[2], '-', (ed[0].length == 2) ? ed[0] : `0${ed[0]}`, '-', (ed[1].length == 2) ? ed[1] : `0${ed[1]}`, ' 00:00');
     }
   }
@@ -109,7 +113,7 @@ export class EventComponent implements OnInit {
         checkpoint: this.checkpointSelected ? { values: [this.checkpointSelected] } : undefined,
         status: this.statusSelected ? { values: [this.statusSelected] } : undefined,
       } : undefined,
-      ranges: (this.dateRangeEnd != '' && this.dateRangeStart != '') ? {
+      ranges: (this.dateRangeEnd != '' || this.dateRangeStart != '') ? {
         bigEquals: this.dateRangeEnd ? this.dateRangeEnd : undefined,
         smallEquals: this.dateRangeStart ? this.dateRangeStart : undefined,
       } : undefined
