@@ -18,7 +18,7 @@ export class ScreenEventComponent implements OnInit {
   actionArray: string[] = ['START', 'END'];
 
   screenEventTableData: any;
-  tableDataSize: number = 0;
+  tableDataSize: number = 200;
   tablePerPageLimit: number = 10;
   tableCurrentPage: number = 1;
   screenEventTableFilters: screenEventTableFilterPayload = {};
@@ -45,14 +45,14 @@ export class ScreenEventComponent implements OnInit {
   }
 
   getScreenEventTableData(screenEventTableFilters: screenEventTableFilterPayload) {
-    this.api.getEventTable(screenEventTableFilters, this.user?.token)
+    this.api.getScreenEventTable(screenEventTableFilters, this.user?.token)
       .subscribe(
         data => {
-          this.screenEventTableData = data.result;
-          this.tableDataSize = data.count;
-          if(this.screenEventTableData.length > 0){
+          this.screenEventTableData = data;
+          // this.tableDataSize = data.count;
+          if (this.screenEventTableData.length > 0) {
             this.noScreenEventTableDataFlag = false
-          }else{
+          } else {
             this.noScreenEventTableDataFlag = true
           }
         },
@@ -62,11 +62,14 @@ export class ScreenEventComponent implements OnInit {
       );
   }
 
-  onscreenEventFilterSubmit(eventFilterForm: NgForm) {
-    const userid: string = eventFilterForm.value.userid ? eventFilterForm.value.userid : undefined;
-    const deviceid: string = eventFilterForm.value.deviceid ? eventFilterForm.value.deviceid : undefined;
-    const sessionid: string = eventFilterForm.value.sessionid ? eventFilterForm.value.sessionid : undefined;
-    const screenid: string = eventFilterForm.value.screenid ? eventFilterForm.value.screenid : undefined;
+  onscreenEventFilterSubmit(screenEventFilterForm: NgForm) {
+    console.log(screenEventFilterForm.value);
+    const userid: string = screenEventFilterForm.value.userid ? screenEventFilterForm.value.userid : undefined;
+    const deviceid: string = screenEventFilterForm.value.deviceid ? screenEventFilterForm.value.deviceid : undefined;
+    const sessionid: string = screenEventFilterForm.value.sessionid ? screenEventFilterForm.value.sessionid : undefined;
+    const screenid: string = screenEventFilterForm.value.screenid ? screenEventFilterForm.value.screenid : undefined;
+    const screenType: string = screenEventFilterForm.value.screenType ? screenEventFilterForm.value.screenType : undefined;
+    const action: string = screenEventFilterForm.value.action ? screenEventFilterForm.value.action : undefined;
 
     this.screenEventTableFilters = {
       currentPage: this.tableCurrentPage,
@@ -75,14 +78,23 @@ export class ScreenEventComponent implements OnInit {
         userId: userid ? { values: [userid] } : undefined,
         deviceId: deviceid ? { values: [deviceid] } : undefined,
         sessionId: sessionid ? { values: [sessionid] } : undefined,
-        screenId: screenid ? { values: [screenid] } : undefined
+        screenId: screenid ? { values: [screenid] } : undefined,
+        action: action ? { values: [action] } : undefined,
+        screenListenerType: screenType ? { values: [screenType] } : undefined
       }
     }
 
     this.getScreenEventTableData(this.screenEventTableFilters);
   }
 
-  onScreenEventFilterReset() {
+  onScreenEventFilterReset(screenEventFilterForm: any) {
+    screenEventFilterForm.reset();
+    this.screenEventTableFilters = {
+      currentPage: this.tableCurrentPage,
+      perPage: this.tablePerPageLimit,
+      filters: undefined,
+    }
+    this.getScreenEventTableData(this.screenEventTableFilters);
   }
 
   onPageEvent = ($event: { pageIndex: number }) => {
