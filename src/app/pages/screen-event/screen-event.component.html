@@ -1,50 +1,59 @@
 <div class="screen-event-wrapper">
   <div class="container-fluid">
-    <!-- Screen Event Header section -->
+
+    <!-- Header section -->
     <div class="row screen-event-header">
-      <div class="col-md-6 page-header">Screen Event</div>
-      <div class="col-md-6 user-profile">
+      <div class="col-md-6 screen-event-page-header">Screen Event</div>
+      <div class="col-md-6 screen-event-user-profile">
         <img src="../../../../assets/images/user_img.png" />
-        <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
+        <span class="screen-event-user-profile-name my-auto mx-2">Amanda Isti</span>
         <img src="../../../../assets/images/user_down_arrow.svg" />
       </div>
     </div>
-    <div class="row screen-event-save-as-section">
-      <div class="col-12">
-        <span class="is-page-label">Filters</span>
-        <select class="is-filter-select-option">
-          <option value="" hidden selected disabled>View all filters</option>
-          <option *ngFor="let filter of filtersArray">
-            {{filter}}
-          </option>
-        </select>
-        <button type="button" class="btn btn-light is-save-button ml-1">Save As</button>
-      </div>
+
+    <!-- filter section  -->
+    <div class="row screen-event-filter-row">
+      <span class="screen-event-filter-title">Filters</span>
+      <mat-form-field class="screen-event-filter-select" floatLabel="never">
+        <mat-label>View all filters</mat-label>
+        <mat-select class="screen-event-filter-option" panelClass="selectInputClass" disableOptionCentering>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="screen-event-filter-save-modal">
+        Save as
+      </button>
     </div>
-    <!-- Screen Event filter section -->
-    <div class="row screen-event-filter-section">
+
+    <!-- filter options section-->
+    <div class="row screen-event-filter-options">
       <form #screenEventFilterForm="ngForm" (ngSubmit)="onscreenEventFilterSubmit(screenEventFilterForm)"
         class="form-inline">
         <div class="form-group mr-1">
-          <select class="is-form-select-option-multiselect">
+          <select class="is-form-select-option-multiselect" id="screenType" name="screenType" ngModel>
+            <option value="" hidden selected disabled>Screen Type</option>
             <option *ngFor="let screenType of screenTypeArray" [value]="screenType">{{screenType}}</option>
           </select>
         </div>
         <div class="form-group mx-1">
-          <select class="is-form-select-option-multiselect">
+          <select class="is-form-select-option-multiselect" id="action" name="action" ngModel>
+            <option value="" hidden selected disabled>Action</option>
             <option *ngFor="let action of actionArray" [value]="action">{{action}}</option>
           </select>
         </div>
         <div class="form-group mx-1">
-          <mat-form-field class="is-form-date-range-picker" appearance="fill">
-            <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-              <input matStartDate placeholder="Start date">
-              <input matEndDate placeholder="End date">
-            </mat-date-range-input>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-          </mat-form-field>
+          <div class="screen-event-date-range-wrapper">
+            <mat-form-field class="screen-event-date-range-picker" floatLabel="never">
+              <mat-label class="screen-event-datepicker-label">Start Date to End Date</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate #dateRangeStart placeholder="Start date">
+                <input matEndDate #dateRangeEnd placeholder="End date">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
         </div>
         <div class="form-group mx-1">
           <input type="text" class="is-from-input-text-field" id="screenid" name="screenid" placeholder="Screenid"
@@ -64,43 +73,98 @@
         <div class="is-form-button-section">
           <button type="submit" class="btn is-form-submit-button"><img class="mr-1"
               src="../../../../assets/images/right.png">Apply</button>
-          <button type="button" class="btn is-form-reset-button" (click)="onScreenEventFilterReset()"><img
-              class="is-delete-icon" src="../../../../assets/images/delete_icon_button.svg"></button>
+          <img class="ml-2 is-delete-icon" (click)="onScreenEventFilterReset(screenEventFilterForm)" src="../../../../assets/images/delete_icon_button.svg">
         </div>
       </form>
     </div>
     <div class="row screen-event-Table-Section">
-      <div class="col-12">
-        <table class="table table-borderless is-screen-event-table">
-          <thead class="is-screen-event-table-header">
-            <tr>
-              <th class="is-screen-event-table-headers-text border-radius-top-left">Date</th>
-              <th class="is-screen-event-table-headers-text">Screen Listener Type</th>
-              <th class="is-screen-event-table-headers-text">Action</th>
-              <th class="is-screen-event-table-headers-text">Screenid</th>
-              <th class="is-screen-event-table-headers-text">Userid</th>
-              <th class="is-screen-event-table-headers-text">Sessionid</th>
-              <th class="is-screen-event-table-headers-text">Deviceid</th>
-              <th class="is-screen-event-table-headers-text border-radius-top-right">Version</th>
-            </tr>
-          </thead>
-          <tbody class="is-screen-event-table-body">
-            <tr *ngFor="let tableItem of tableData" class="is-screen-event-table-body-row">
-              <td class="is-screen-event-table-body-text">{{ tableItem.timestamp }}</td>
-              <td class="is-screen-event-table-body-text">{{ tableItem.screenListenerType }}</td>
-              <td class="is-screen-event-table-body-text">{{ tableItem.action }}</td>
-              <td class="is-screen-event-table-body-text">{{ tableItem.screenId }}</td>
-              <td class="is-screen-event-table-body-text">{{ tableItem.userId }}</td>
-              <td class="is-screen-event-table-body-text">{{ tableItem.sessionId }}</td>
-              <td class="is-screen-event-table-body-text">{{ tableItem.deviceId }}</td>
-              <td class="is-screen-event-table-body-text">{{ tableItem.version }}</td>
-            </tr>
-          </tbody>
+      <div class="col-12 screen-event-table-container">
+        <table mat-table [dataSource]="screenEventTableData">
+          <ng-container matColumnDef="timestamp">
+            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.timestamp.substring(8,10) }}/{{ element.timestamp.substring(5,7) }}/{{
+              element.timestamp.substring(0,4) }}<br>{{ element.timestamp.substring(11,16) }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="screenListenerType">
+            <th mat-header-cell *matHeaderCellDef>Screen Listener Type</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.screenListenerType }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.action }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="screenId">
+            <th mat-header-cell *matHeaderCellDef>Screenid</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.screenId }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="userId">
+            <th mat-header-cell *matHeaderCellDef>Userid</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.userId }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="sessionId">
+            <th mat-header-cell *matHeaderCellDef>Sessionid</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.sessionId }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="deviceId">
+            <th mat-header-cell *matHeaderCellDef>Deviceid</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.deviceId }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="version">
+            <th mat-header-cell *matHeaderCellDef>Version</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.version }}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="[
+                      'timestamp',
+                      'screenListenerType',
+                      'action',
+                      'screenId',
+                      'userId',
+                      'sessionId',
+                      'deviceId',
+                      'version'
+                    ]">
+          </tr>
+          <tr mat-row (click)="display(row)" [ngClass]="{ highlight: selectedRowIndex == row }" *matRowDef="
+                      let row;
+                      columns: [
+                      'timestamp',
+                      'screenListenerType',
+                      'action',
+                      'screenId',
+                      'userId',
+                      'sessionId',
+                      'deviceId',
+                      'version'
+                      ]
+                    "></tr>
         </table>
       </div>
     </div>
+    <!-- No table data section -->
+    <div class="no-screen-event-table-data" *ngIf="noScreenEventTableDataFlag">
+      <div class="no-screen-event-table-data-text">
+        No available data to display
+      </div>
+    </div>
+    <!-- EOF no table data section -->
     <div class="screen-event-pagination-section">
-      <mat-paginator appPagination [length]=50 [pageSize]=10 [hidePageSize]="true"
+      <mat-paginator appPagination [length]="tableDataSize" [pageSize]=10 [hidePageSize]="true"
         (page)="onPageEvent($event)">
       </mat-paginator>
     </div>

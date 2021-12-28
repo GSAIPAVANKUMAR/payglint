@@ -21,10 +21,10 @@ export class EventComponent implements OnInit {
   selectedRowIndex: any;
   dispalyRow = false;
   rowData: any;
-  noTableDataFlag: boolean = false;
+  noEventTableDataFlag: boolean = false;
   matDialgRef!: MatDialogRef<SavefilterComponent>;
 
-  tableData: eventTablePayload[] = [];
+  eventTableData: eventTablePayload[] = [];
   tableDataSize: number = 0;
   eventTableFilter: eventTableFilterPayload = {};
 
@@ -65,12 +65,12 @@ export class EventComponent implements OnInit {
     this.api.getEventTable(eventTableFilter, this.user?.token)
       .subscribe(
         data => {
-          this.tableData = data.result;
+          this.eventTableData = data.result;
           this.tableDataSize = data.count;
-          if(this.tableData.length > 0){
-            this.noTableDataFlag = false
+          if(this.eventTableData.length > 0){
+            this.noEventTableDataFlag = false
           }else{
-            this.noTableDataFlag = true
+            this.noEventTableDataFlag = true
           }
         },
         error => {

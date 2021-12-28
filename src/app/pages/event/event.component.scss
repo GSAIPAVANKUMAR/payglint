@@ -14,6 +14,14 @@
     }
     .user-profile {
       text-align: right;
+      .user-profile-name {
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #272727;
+      }
     }
   }
   .event-filter-row {
@@ -243,8 +251,6 @@ button {
 .mat-header-cell {
   background: #f6f6f6;
   height: 63px;
-}
-.mat-header-cell {
   font-family: LATO-Bold;
   font-size: 14px;
   line-height: 17px;
@@ -271,7 +277,6 @@ button {
   font-family: LATO-Regular;
   font-size: 12px;
   line-height: 14px;
-
   color: #4d556a;
 }
 .lowbtn {
