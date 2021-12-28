@@ -6,8 +6,7 @@
     flex-direction: row;
     align-items: center;
     .page-header {
-      font-family: Lato;
-      font-weight: bold;
+      font-family: LATO-Bold;
       font-size: 25px;
       line-height: 22px;
       color: #4d556a;
@@ -21,8 +20,7 @@
     width: fit-content;
     margin-top: 20px;
     .filter-title {
-      font-family: Lato;
-      font-weight: bold;
+      font-family: LATO-Bold;
       font-size: 18px;
       line-height: 22px;
       color: #4d556a;
@@ -339,7 +337,6 @@ button {
 }
 ::ng-deep .mat-tab-label-active .list-img-icon {
   background: url("../../../assets/images/list 1.png") !important;
-  // background: url("Images/logo.png");
   height: 12px;
   width: 12px;
   display: block;
