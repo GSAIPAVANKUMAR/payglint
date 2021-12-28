@@ -130,7 +130,7 @@
           </ng-template>
           <div class="list-tab-body">
             <div class="example-container">
-              <table mat-table [dataSource]="tableData">
+              <table mat-table [dataSource]="eventTableData">
                 <ng-container matColumnDef="Severity">
                   <th mat-header-cell *matHeaderCellDef>Severity</th>
                   <td mat-cell *matCellDef="let element">
@@ -238,7 +238,7 @@
               </table>
             </div>
             <!-- No table data section -->
-            <div class="no-table-data" *ngIf="noTableDataFlag">
+            <div class="no-table-data" *ngIf="noEventTableDataFlag">
               <div class="content">
                 No available data to display
               </div>
