@@ -60,7 +60,7 @@ export class CheckpopupComponent implements OnInit {
       this.phoneVerification = this.response.user.isPhoneUserVerified;
     })
   }
-  addNew(value: boolean) {
+  closePopup(value: boolean) {
     this.newEvent.emit(this.dis);
   }
   gencollapse() {
