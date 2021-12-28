@@ -246,7 +246,7 @@
             <!-- EOF no table data section -->
 
             <div class="pg-container">
-              <mat-paginator appPagination [length]="50" [pageSize]="10" [hidePageSize]="true"
+              <mat-paginator appPagination [length]="tableDataSize" [pageSize]="10" [hidePageSize]="true"
                 (page)="onEventTablePageEvent($event)">
               </mat-paginator>
             </div>

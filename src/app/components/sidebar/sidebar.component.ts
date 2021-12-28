@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthenticationService } from "src/app/services/authentication.service";
+import { environment } from 'src/environments/environment';
+
+const route_prefix = environment.routePrefix;
 
 @Component({
   selector: "app-sidebar",
@@ -19,7 +22,6 @@ export class SideBarComponent implements OnInit {
   showSlackIcon: boolean = false;
   workSpaceUrl!: string;
   shortName!: string;
-  // userData: any;
 
   constructor(
     private router: Router,
@@ -31,12 +33,13 @@ export class SideBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  userLogout(){
+  userLogout() {
     this.authenticationService.logout();
+    this.router.navigate([route_prefix + 'login']);
   }
 
   navigate(value: any) {
-    this.router.navigate([value]);
+    this.router.navigate([route_prefix + value]);
   }
 
 
@@ -48,41 +51,32 @@ export class SideBarComponent implements OnInit {
     }
   }
 
-  // back() {
-  //   this.location.back();
-  // }
   listenRouting() {
     let routerUrl: string, routerList: Array<any>, target: any;
     this.router.events.subscribe((router: any) => {
       if (router.url) {
         let activePath = router.url;
-        if (activePath.includes("axiom-test/dashboard/events")) {
+        if (activePath.includes(route_prefix + "events")) {
           this.activeLink = "events";
-        } else if (activePath.includes("axiom-test/dashboard/screenevents")) {
+        } else if (activePath.includes(route_prefix + "screenevents")) {
           this.activeLink = "screenevents";
         }
-        else if (activePath.includes("axiom-test/dashboard/profilescreen")) {
+        else if (activePath.includes(route_prefix + "profilescreen")) {
           this.activeLink = "profilescreen";
         }
-        else if (activePath.includes("axiom-test/dashboard/audittrails")) {
+        else if (activePath.includes(route_prefix + "audittrails")) {
           this.activeLink = "audittrails";
         }
-        else if (activePath.includes("axiom-test/dashboard/reports")) {
+        else if (activePath.includes(route_prefix + "reports")) {
           this.activeLink = "reports";
         }
-        else if (activePath.includes("axiom-test/dashboard/analytics")) {
+        else if (activePath.includes(route_prefix + "analytics")) {
           this.activeLink = "analytics";
         }
-        if (activePath.includes("axiom-test/dashboard/dashboard")) {
+        if (activePath.includes(route_prefix + "dashboard")) {
           this.activeLink = "dashboard";
         }
       }
-
-      // if (router.url == "/home/dashboard" || router.url == "/home") {
-      //   this.router.navigate(["/dashboard"]);
-      //   return;
-      // }
-      // routerUrl = router.urlAfterRedirects;
     });
   }
 }

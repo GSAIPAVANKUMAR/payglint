@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url : 'https://poc-eu1.paygilant.com/axiom-test/dashboard'
+  url : 'https://poc-eu1.paygilant.com/axiom-test/dashboard',
+  routePrefix: 'axiom-test/dashboard/'
 };
 
 /*

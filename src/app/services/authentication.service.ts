@@ -64,6 +64,5 @@ export class AuthenticationService {
         sessionStorage.removeItem('user');
         localStorage.removeItem('user');
         this.userSubject.next(null);
-        this.router.navigate(['/login']);
     }
 }

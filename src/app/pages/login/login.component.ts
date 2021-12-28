@@ -5,6 +5,9 @@ import { NotificationService } from "../../services/notification.service";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { AppSettings } from "../../settings/app.pattern";
 import { AppMessageSetting } from "src/app/settings/app.message";
+import { environment } from 'src/environments/environment';
+
+const route_prefix = environment.routePrefix;
 
 @Component({
   selector: "app-login",
@@ -20,7 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // get return url from route parameters or default to '/'
@@ -48,7 +51,7 @@ export class LoginComponent implements OnInit {
         this.notification.error(this.response.message);
       }
       else {
-        this.router.navigate(["axiom-test/dashboard/dashboard"]);
+        this.router.navigate([route_prefix + "dashboard"]);
       }
     });
   }

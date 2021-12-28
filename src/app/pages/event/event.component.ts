@@ -25,6 +25,7 @@ export class EventComponent implements OnInit {
   matDialgRef!: MatDialogRef<SavefilterComponent>;
 
   tableData: eventTablePayload[] = [];
+  tableDataSize: number = 0;
   eventTableFilter: eventTableFilterPayload = {};
 
   checkpointSelected: any;
@@ -64,7 +65,8 @@ export class EventComponent implements OnInit {
     this.api.getEventTable(eventTableFilter, this.user?.token)
       .subscribe(
         data => {
-          this.tableData = data;
+          this.tableData = data.result;
+          this.tableDataSize = data.count;
           if(this.tableData.length > 0){
             this.noTableDataFlag = false
           }else{
