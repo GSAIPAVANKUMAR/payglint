@@ -44,6 +44,7 @@ export class AudittrialsComponent implements OnInit {
   auditTrailTableFilter: auditTrailTableFilterPayload = {};
   auditTrailTablePerPage: number = 10;
   auditTrailTableCurrentPage: number = 1;
+  auditTrailTableTotalData: number = 500;
 
   user = this.authenticationService.userValue;
 
@@ -84,7 +85,9 @@ export class AudittrialsComponent implements OnInit {
   }
 
   onPageEvent = ($event: { pageIndex: any; pageSize: any; }) => {
-    // this.getData($event.pageIndex, $event.pageSize);
+    this.auditTrailTableCurrentPage = $event.pageIndex + 1;
+    this.auditTrailTableFilter.currentPage = this.auditTrailTableCurrentPage;
+    this.getAuditTrailTableData(this.auditTrailTableFilter);
   }
   showTestEmit = ($event: { pageIndex: any; pageSize: any; }) => {
     this.EmitResult = {

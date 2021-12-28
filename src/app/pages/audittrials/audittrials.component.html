@@ -139,8 +139,8 @@
     <div class="pg-container">
       <mat-paginator
         appPagination
-        [length]="5"
-        [pageSize]="9"
+        [length]="auditTrailTableTotalData"
+        [pageSize]="auditTrailTablePerPage"
         [hidePageSize]="true"
         (page)="onPageEvent($event)"
       >

@@ -47,8 +47,12 @@
             <mat-form-field class="screen-event-date-range-picker" floatLabel="never">
               <mat-label class="screen-event-datepicker-label">Start Date to End Date</mat-label>
               <mat-date-range-input [rangePicker]="picker">
-                <input matStartDate #dateRangeStart placeholder="Start date">
-                <input matEndDate #dateRangeEnd placeholder="End date">
+                <input matStartDate #dateRangeStartSE placeholder="Start date"
+                  (blur)="dateRangeChangeSE(dateRangeStartSE, dateRangeEndSE)"
+                  (dateChange)="dateRangeChangeSE(dateRangeStartSE, dateRangeEndSE)">
+                <input matEndDate #dateRangeEndSE placeholder="End date"
+                  (blur)="dateRangeChangeSE(dateRangeStartSE, dateRangeEndSE)"
+                  (dateChange)="dateRangeChangeSE(dateRangeStartSE, dateRangeEndSE)">
               </mat-date-range-input>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-date-range-picker #picker></mat-date-range-picker>
@@ -73,7 +77,8 @@
         <div class="is-form-button-section">
           <button type="submit" class="btn is-form-submit-button"><img class="mr-1"
               src="../../../../assets/images/right.png">Apply</button>
-          <img class="ml-2 is-delete-icon" (click)="onScreenEventFilterReset(screenEventFilterForm)" src="../../../../assets/images/delete_icon_button.svg">
+          <img class="ml-2 is-delete-icon" (click)="onScreenEventFilterReset(screenEventFilterForm, dateRangeStartSE, dateRangeEndSE)"
+            src="../../../../assets/images/delete_icon_button.svg">
         </div>
       </form>
     </div>

@@ -23,6 +23,9 @@ export class ScreenEventComponent implements OnInit {
   tableCurrentPage: number = 1;
   screenEventTableFilters: screenEventTableFilterPayload = {};
 
+  dateRangeStartSE: string = '';
+  dateRangeEndSE: string = '';
+
   selectedRowIndex: any;
 
   user = this.authenticationService.userValue;
@@ -39,7 +42,9 @@ export class ScreenEventComponent implements OnInit {
   ngOnInit() {
     this.screenEventTableFilters = {
       currentPage: this.tableCurrentPage,
-      perPage: this.tablePerPageLimit
+      perPage: this.tablePerPageLimit,
+      filters: undefined,
+      ranges: undefined,
     };
     this.getScreenEventTableData(this.screenEventTableFilters);
   }
@@ -81,20 +86,44 @@ export class ScreenEventComponent implements OnInit {
         screenId: screenid ? { values: [screenid] } : undefined,
         action: action ? { values: [action] } : undefined,
         screenListenerType: screenType ? { values: [screenType] } : undefined
+      },
+      ranges: {
+        bigEquals: this.dateRangeEndSE ? this.dateRangeEndSE : undefined,
+        smallEquals: this.dateRangeStartSE ? this.dateRangeStartSE : undefined,
       }
     }
 
     this.getScreenEventTableData(this.screenEventTableFilters);
   }
 
-  onScreenEventFilterReset(screenEventFilterForm: any) {
+  onScreenEventFilterReset(screenEventFilterForm: any, startDateSE: any, endDateSE: any) {
     screenEventFilterForm.reset();
+    startDateSE.value = '';
+    endDateSE.value = '';
     this.screenEventTableFilters = {
       currentPage: this.tableCurrentPage,
       perPage: this.tablePerPageLimit,
       filters: undefined,
+      ranges: undefined
     }
     this.getScreenEventTableData(this.screenEventTableFilters);
+  }
+
+  dateRangeChangeSE(startDateSE: any, endDateSE: any) {
+    const sd: string[] = startDateSE.value.split('/');
+    const ed: string[] = endDateSE.value.split('/');
+    if (sd.length != 3) {
+      this.dateRangeStartSE = '';
+    }
+    else {
+      this.dateRangeStartSE = ''.concat(sd[2], '-', (sd[0].length == 2) ? sd[0] : `0${sd[0]}`, '-', (sd[1].length == 2) ? sd[1] : `0${sd[1]}`, ' 00:00');
+    }
+    if (ed.length != 3) {
+      this.dateRangeEndSE = '';
+    }
+    else {
+      this.dateRangeEndSE = ''.concat(ed[2], '-', (ed[0].length == 2) ? ed[0] : `0${ed[0]}`, '-', (ed[1].length == 2) ? ed[1] : `0${ed[1]}`, ' 00:00');
+    }
   }
 
   onPageEvent = ($event: { pageIndex: number }) => {
