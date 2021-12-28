@@ -15,6 +15,14 @@
     }
     .user-profile {
       text-align: right;
+      .user-profile-name {
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #272727;
+      }
     }
   }
   .event-filter-row {

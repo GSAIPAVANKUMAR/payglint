@@ -1,25 +1,27 @@
 <div class="screen-event-wrapper">
   <div class="container-fluid">
-    <!-- Screen Event Header section -->
+    <!-- Header section -->
     <div class="row screen-event-header">
-      <div class="col-md-6 page-header">Screen Event</div>
-      <div class="col-md-6 user-profile">
+      <div class="col-md-6 screen-event-page-header">Screen Event</div>
+      <div class="col-md-6 screen-event-user-profile">
         <img src="../../../../assets/images/user_img.png" />
-        <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
+        <span class="screen-event-user-profile-name my-auto mx-2">Amanda Isti</span>
         <img src="../../../../assets/images/user_down_arrow.svg" />
       </div>
     </div>
-    <div class="row screen-event-save-as-section">
-      <div class="col-12">
-        <span class="is-page-label">Filters</span>
-        <select class="is-filter-select-option">
-          <option value="" hidden selected disabled>View all filters</option>
-          <option *ngFor="let filter of filtersArray">
-            {{filter}}
-          </option>
-        </select>
-        <button type="button" class="btn btn-light is-save-button ml-1">Save As</button>
-      </div>
+    <!-- filter section  -->
+    <div class="row screen-event-filter-row">
+      <span class="screen-event-filter-title">Filters</span>
+      <mat-form-field class="screen-event-filter-select" floatLabel="never">
+        <mat-label>View all filters</mat-label>
+        <mat-select class="screen-event-filter-option" panelClass="selectInputClass" disableOptionCentering>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="screen-event-filter-save-modal">
+        Save as
+      </button>
     </div>
     <!-- Screen Event filter section -->
     <div class="row screen-event-filter-section">
@@ -100,7 +102,7 @@
       </div>
     </div>
     <div class="screen-event-pagination-section">
-      <mat-paginator appPagination [length]=50 [pageSize]=10 [hidePageSize]="true"
+      <mat-paginator appPagination [length]="tableDataSize" [pageSize]=10 [hidePageSize]="true"
         (page)="onPageEvent($event)">
       </mat-paginator>
     </div>
