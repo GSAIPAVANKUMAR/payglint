@@ -41,10 +41,12 @@ export class AudittrialsComponent implements OnInit {
   matDialgeditRef!: MatDialogRef<EdituserComponent>;
   rowData: any;
 
+  noAuditTrailTableDataFlag: boolean = false;
+
   auditTrailTableFilter: auditTrailTableFilterPayload = {};
   auditTrailTablePerPage: number = 10;
   auditTrailTableCurrentPage: number = 1;
-  auditTrailTableTotalData: number = 500;
+  auditTrailTableTotalData: number = 0;
 
   user = this.authenticationService.userValue;
 
@@ -69,7 +71,13 @@ export class AudittrialsComponent implements OnInit {
     this.api.getAuditTrailTable(auditTrailTableFilter, this.user?.token)
       .subscribe(
         data => {
-          this.tableData = data;
+          this.tableData = data.result;
+          this.auditTrailTableTotalData = data.count;
+          if (this.tableData.length > 0) {
+            this.noAuditTrailTableDataFlag = false
+          } else {
+            this.noAuditTrailTableDataFlag = true
+          }
         },
         error => {
           this.notify.error(error);

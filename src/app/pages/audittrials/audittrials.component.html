@@ -136,6 +136,15 @@
         ></tr>
       </table>
     </div>
+
+    <!-- No table data section -->
+    <div class="no-audit-trail-table-data" *ngIf="noAuditTrailTableDataFlag">
+      <div class="content">
+        No available data to display
+      </div>
+    </div>
+    <!-- EOF no table data section -->
+
     <div class="pg-container">
       <mat-paginator
         appPagination

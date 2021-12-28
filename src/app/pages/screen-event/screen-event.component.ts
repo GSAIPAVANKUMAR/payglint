@@ -18,7 +18,7 @@ export class ScreenEventComponent implements OnInit {
   actionArray: string[] = ['START', 'END'];
 
   screenEventTableData: any;
-  tableDataSize: number = 200;
+  tableDataSize: number = 0;
   tablePerPageLimit: number = 10;
   tableCurrentPage: number = 1;
   screenEventTableFilters: screenEventTableFilterPayload = {};
@@ -53,8 +53,8 @@ export class ScreenEventComponent implements OnInit {
     this.api.getScreenEventTable(screenEventTableFilters, this.user?.token)
       .subscribe(
         data => {
-          this.screenEventTableData = data;
-          // this.tableDataSize = data.count;
+          this.screenEventTableData = data.result;
+          this.tableDataSize = data.count;
           if (this.screenEventTableData.length > 0) {
             this.noScreenEventTableDataFlag = false
           } else {
