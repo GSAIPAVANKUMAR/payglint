@@ -43,9 +43,7 @@
         height: 36px;
         background: transparent;
         border: none;
-        font-family: Lato;
-        font-style: normal;
-        font-weight: normal;
+        font-family: LATO-Regular;
         font-size: 12px;
         line-height: 14px;
         width: 122px;
@@ -105,15 +103,13 @@
     border: 1px solid #cfd3d2;
     box-sizing: border-box;
     border-radius: 3px;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
+    font-family: LATO-Bold;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
     color: #4d556a;
     &:hover {
-      background: #eeeeee;
+      background: darken(#ffffff, 3%);
       cursor: pointer;
     }
   }
@@ -178,7 +174,7 @@ table {
 ::ng-deep .mat-form-field-infix {
   border-top: 0 !important;
 }
-.btn-save-modal{
+.btn-save-modal {
   background-color: #f6f6f6;
   margin-left: 10px;
   width: 87px;
@@ -191,19 +187,7 @@ table {
   border-radius: 3px;
   box-shadow: none;
 }
-// .mat-raised-button {
-//   background-color: #f6f6f6;
-//   margin-left: 10px;
-//   width: 87px;
-//   height: 36px;
-//   color: #658c3d;
-//   font-family: LATO-Regular;
-//   font-weight: 500;
-//   font-size: 14px;
-//   line-height: 22px;
-//   border-radius: 3px;
-//   box-shadow: none;
-// }
+
 .btn-filter-apply {
   margin-left: 10px;
   width: 161px;
@@ -213,7 +197,7 @@ table {
   box-sizing: border-box;
   border-radius: 3px;
   color: white;
-  &:hover{
+  &:hover {
     background: darken(#86c255, 10%);
   }
 }
@@ -370,7 +354,6 @@ button {
 }
 .imgicon1 {
   background: url("../../../assets/images/mapicon.png");
-  // background: url("Images/logo.png");
   height: 16px;
   width: 16px;
   margin-right: 4px;
@@ -417,9 +400,9 @@ button {
     box-sizing: border-box;
     border-radius: 3px;
     color: #9d9ea8;
+    padding: 3px;
     .is-datepicker-label {
-      font-family: Lato;
-      font-style: normal;
+      font-family: LATO-Regular;
       font-weight: 500;
       font-size: 12px;
       line-height: 14px;
@@ -438,28 +421,6 @@ tr.mat-row {
 ::ng-deep .mat-tab-body.mat-tab-body-active {
   overflow-y: hidden !important;
 }
-
-// ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
-//   height: 36px !important;
-//   border: solid 1px #9d9ea8 !important;
-//   padding: 0 !important;
-//   border-radius: 3px;
-//   background-color: white;
-//   outline: none;
-// }
-
-// .new-filter-options-row{
-//   .severity-options{
-//     width: 130px;
-//     // background:red;
-//     overflow: hidden;
-//     max-width: 130px;
-//   }
-// }
-
-// .form-control:focus {
-//   outline: none;
-// }
 
 .no-table-data {
   display: flex;
