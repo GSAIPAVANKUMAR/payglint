@@ -1,92 +1,150 @@
-<div class="screen-events">
-    <div class="row" style="margin-top: 10px;">
-        <div class="col-6">
-            <h5 class="is-page-header">Profiles</h5>
-        </div>
-        <div class="col-6 justify-content-end d-flex">
-            <img src="../../../../assets/images/user_img.png" />
-            <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
-            <img src="../../../../assets/images/user_down_arrow.svg" />
-        </div>
+<div class="profile-wrapper">
+  <div class="container-fluid">
+    <div class="row profile-header">
+      <div class="col-md-6 page-header">Profiles</div>
+      <div class="col-md-6 user-profile">
+        <img src="../../../../assets/images/user_img.png" draggable="false" />
+        <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
+        <img
+          src="../../../../assets/images/user_down_arrow.svg"
+          draggable="false"
+        />
+      </div>
     </div>
-    <div class="filter-row">
-        <div> <span class="filtertxt">Filters</span>
-            <mat-form-field class="single-select-view">
-                <mat-select placeholder="View All Filters" class="select-input" panelClass="selectInputClass" disableOptionCentering>
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <button mat-raised-button class="cyan-text" (click)="openModal()">Save as</button>
-        </div>
+    <!-- filter section -->
+    <div class="row profile-filter-row">
+      <span class="filter-title">Filters</span>
+      <mat-form-field class="single-select-view" floatLabel="never">
+        <mat-label>View all filters</mat-label>
+        <mat-select
+          class="select-input"
+          panelClass="selectInputClass"
+          disableOptionCentering
+        >
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="btn-save-modal" (click)="openModal()">Save as</button>
     </div>
-    <div class="filter-menu-row">
-        <div class="form-group inputform">
-            <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Name"
-                class="form-control text-input" />
-        </div>
-        <div class="form-group inputform">
-            <input id="emailicon" style="height: 34px;background: transparent;" type="text" placeholder="Email"
-                class="form-control text-input" />
-        </div>
-        <div class="mat-input-tag">
-            <mat-form-field class="single-select">
-                <mat-label>Checkpoint (0)</mat-label>
-                <mat-select class="select-input" panelClass="selectInputClass" disableOptionCentering>
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="single-select" style="margin-left:10px; width: 162px;">
-            <mat-form-field class="select-input-tag">
-                <mat-label>Start Date to Date End</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-datepicker-toggle matPrefix [for]="picker">
-                    <mat-icon matDatepickerToggleIcon>
-                        <img src="../../../../assets/images/calendar.png">
-                    </mat-icon>
-                </mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </div>
+    <!-- EOF filter section -->
 
-        <button class="button-txt" style="margin-left: 44%;" (click)="openaddModal()">Add
-            New</button>
-    </div>
-    <div class="list-tab-body">
-        <div class="example-container">
-            <table mat-table [dataSource]=" tableData">
-                <ng-container matColumnDef="Name">
-                    <th mat-header-cell *matHeaderCellDef> Name </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Email">
-                    <th mat-header-cell *matHeaderCellDef> Email </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Role">
-                    <th mat-header-cell *matHeaderCellDef> Role </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Role}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Created">
-                    <th mat-header-cell *matHeaderCellDef> Created </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Created}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Updated">
-                    <th mat-header-cell *matHeaderCellDef> Updated </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Updated}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="['Name', 'Email', 'Role', 'Created', 'Updated']">
-                </tr>
-                <tr mat-row (click)="editModal(row)" *matRowDef="let row; columns: ['Name', 'Email', 'Role', 'Created', 'Updated'];">
-                </tr>
-            </table>
-        </div>
+    <!-- filter options section -->
+    <div class="row profile-filter-options">
+      <div class="form-group">
+        <input
+          type="text"
+          name="text-name"
+          id="text-name"
+          placeholder="Name"
+          autocomplete="off"
+          class="form-control"
+        />
+      </div>
 
-        <div class="pg-container">
-            <mat-paginator appPagination [length]=5 [pageSize]=9 [hidePageSize]='true' (page)="onPageEvent($event)">
-            </mat-paginator>
-        </div>
+      <div class="form-group">
+        <input
+          type="text"
+          name="text-email"
+          id="text-email"
+          placeholder="Email"
+          autocomplete="off"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mat-input-tag">
+        <mat-form-field class="single-select" floatLabel="never">
+          <mat-label>Checkpoint (0)</mat-label>
+          <mat-select
+            class="select-input"
+            panelClass="selectInputClass"
+            disableOptionCentering
+          >
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="date-range-wrapper">
+        <mat-form-field class="is-form-date-range-picker" floatLabel="never">
+          <mat-label class="is-datepicker-label"
+            >Start Date to End Date</mat-label
+          >
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate #dateRangeStart placeholder="Start date" />
+            <input matEndDate #dateRangeEnd placeholder="End date" />
+          </mat-date-range-input>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+
+      <div class="right-side-button-panel">
+        <button class="btn btn-add-new" (click)="openaddModal()">
+          + Add New
+        </button>
+      </div>
     </div>
+    <!-- EOF filter options section -->
+
+    <!-- table content section -->
+    <div class="row profile-table-body">
+      <table mat-table [dataSource]="tableData">
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.Name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">{{ element.Email }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Role">
+          <th mat-header-cell *matHeaderCellDef>Role</th>
+          <td mat-cell *matCellDef="let element">{{ element.Role }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Created">
+          <th mat-header-cell *matHeaderCellDef>Created</th>
+          <td mat-cell *matCellDef="let element">{{ element.Created }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Updated">
+          <th mat-header-cell *matHeaderCellDef>Updated</th>
+          <td mat-cell *matCellDef="let element">{{ element.Updated }}</td>
+        </ng-container>
+        <tr
+          mat-header-row
+          *matHeaderRowDef="['Name', 'Email', 'Role', 'Created', 'Updated']"
+        ></tr>
+        <tr
+          mat-row
+          (click)="editModal(row)"
+          *matRowDef="
+            let row;
+            columns: ['Name', 'Email', 'Role', 'Created', 'Updated']
+          "
+        ></tr>
+      </table>
+    </div>
+    <!-- EOF table content section -->
+
+    <!-- No table data section -->
+    <div class="no-table-data" *ngIf="false">
+      <div class="content">No available data to display</div>
+    </div>
+
+    <!-- Pagination section -->
+    <div class="pg-container">
+      <mat-paginator
+        appPagination
+        [length]="5"
+        [pageSize]="9"
+        [hidePageSize]="true"
+        (page)="onPageEvent($event)"
+      >
+      </mat-paginator>
+    </div>
+  </div>
 </div>
