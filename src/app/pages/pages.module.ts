@@ -23,7 +23,7 @@ import {
     SavefilterComponent,
     MapComponent,
     EdituserComponent,
-    AddmodelComponent,
+    AdduserComponent,
     SideBarComponent,
 } from '../components/index';
 import { PaginatorDirective } from 'src/app/pagination.directive';
@@ -56,7 +56,7 @@ import { SelectDropDownModule } from 'ngx-select-dropdown'
         SavefilterComponent,
         MapComponent,
         EdituserComponent,
-        AddmodelComponent,
+        AdduserComponent,
         SideBarComponent,
         RegistrationComponent,
         PaginatorDirective,
@@ -73,7 +73,7 @@ import { SelectDropDownModule } from 'ngx-select-dropdown'
         SavefilterComponent,
         MapComponent,
         EdituserComponent,
-        AddmodelComponent,
+        AdduserComponent,
         SideBarComponent,
         PaginatorDirective,
     ],
