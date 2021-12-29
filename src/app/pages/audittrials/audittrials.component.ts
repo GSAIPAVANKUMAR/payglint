@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AddmodelComponent } from 'src/app/components/addmodel/addmodel.component';
+import { AdduserComponent } from 'src/app/components/adduser/adduser.component';
 import { EdituserComponent } from 'src/app/components/edituser/edituser.component';
 import { SavefilterComponent } from 'src/app/components/savefilter/savefilter.component';
 import { auditTrailTableFilterPayload } from 'src/app/models/tables-filters.model';
@@ -19,7 +19,7 @@ export class AudittrialsComponent implements OnInit {
   paginationInfo: any;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   matDialgRef!: MatDialogRef<SavefilterComponent>;
-  matDialgRefmodel!: MatDialogRef<AddmodelComponent>;
+  matDialgRefmodel!: MatDialogRef<AdduserComponent>;
   EmitResult = {
     pageNumber: '',
     pageSize: ''
@@ -125,7 +125,7 @@ export class AudittrialsComponent implements OnInit {
     })
   }
   openaddModal() {
-    this.matDialgRefmodel = this.matDialog.open(AddmodelComponent, {
+    this.matDialgRefmodel = this.matDialog.open(AdduserComponent, {
       disableClose: true
     })
   }
