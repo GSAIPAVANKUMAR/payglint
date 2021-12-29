@@ -3,9 +3,9 @@
     <div class="row audit-header">
       <div class="col-md-6 page-header">Audit Trails</div>
       <div class="col-md-6 user-profile">
-        <img src="../../../../assets/images/user_img.png" />
+        <img src="../../../../assets/images/user_img.png" draggable="false" />
         <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
-        <img src="../../../../assets/images/user_down_arrow.svg" />
+        <img src="../../../../assets/images/user_down_arrow.svg" draggable="false"/>
       </div>
     </div>
     <!-- filter section -->
@@ -136,6 +136,7 @@
         ></tr>
       </table>
     </div>
+    <!-- EOF no table data section -->
 
     <!-- No table data section -->
     <div class="no-audit-trail-table-data" *ngIf="noAuditTrailTableDataFlag">
@@ -143,8 +144,8 @@
         No available data to display
       </div>
     </div>
-    <!-- EOF no table data section -->
 
+    <!-- Pagination section -->
     <div class="pg-container">
       <mat-paginator
         appPagination
