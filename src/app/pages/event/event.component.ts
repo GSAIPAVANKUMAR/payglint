@@ -41,6 +41,8 @@ export class EventComponent implements OnInit {
   eventTableCurrentPage: number = 1;
 
   user = this.authenticationService.userValue;
+  
+  savedFilters:any = [];
 
   constructor(
     private httpClient: HttpClient,
@@ -59,6 +61,9 @@ export class EventComponent implements OnInit {
       ranges: undefined
     };
     this.getEventTableData(this.eventTableFilter);
+	
+	//Get saved filters if any
+	this.loadSavedFilters();
   }
 
   getEventTableData(eventTableFilter: eventTableFilterPayload) {
@@ -108,6 +113,7 @@ export class EventComponent implements OnInit {
     const sessionid = (<HTMLInputElement>document.getElementById("sessionid"))?.value;
     const requestid = (<HTMLInputElement>document.getElementById("requestid"))?.value;
 
+	this.eventTableCurrentPage = 1;
     this.eventTableFilter = {
       currentPage: this.eventTableCurrentPage,
       perPage: this.eventTablePerPage,
@@ -137,6 +143,12 @@ export class EventComponent implements OnInit {
     severity.value = undefined;
     checkpoint.value = undefined;
     status.value = undefined;
+	
+	this.severitySelected = undefined;
+	this.checkpointSelected = undefined;
+	this.statusSelected = undefined;
+	this.eventTableCurrentPage = 1;
+	
     this.resetEventTableFiltersForm();
     this.getEventTableData(this.eventTableFilter);
   }
@@ -170,6 +182,7 @@ export class EventComponent implements OnInit {
   openModal() {
     this.matDialgRef = this.matDialog.open(SavefilterComponent, {
       disableClose: true
+	  //data :{'name':'Sunil'}
     });
   }
 
@@ -177,8 +190,8 @@ export class EventComponent implements OnInit {
     this.api.getEventTable(this.eventTableFilter, this.user?.token)
       .subscribe(
         data => {
-          if(data.length > 0 ){
-            this.downloadEventDataCSV(data);
+          if(data.result.length > 0 ){
+            this.downloadEventDataCSV(data.result);
           }else{
             this.notify.info("No Data to export");
           }
@@ -232,5 +245,33 @@ export class EventComponent implements OnInit {
 
   selectedStatus(val: any) {
     this.statusSelected = val;
+  }
+  
+  //Method to get the saved filter data and set it back to UI.
+  loadSavedFilters() {
+	this.api.getSavedFilterData("", this.user?.token)
+      .subscribe(
+        data => {
+			if (data.length > 0) {
+				this.savedFilters = data;
+			} else {
+				this.savedFilters = [{'filter_name':'No saved Filters'}];
+			}
+        },
+        error => {
+          this.notify.error(error);
+        }
+      );
+  }
+  
+  //set selected saved filter attributes
+  setSelectedFilters(filterData: any) {
+	  console.log("Selected filter data: " + filterData);
+	  if (filterData) {
+		    (<HTMLInputElement>document.getElementById("userid")).value=filterData.userid;
+			(<HTMLInputElement>document.getElementById("deviceid")).value=filterData.deviceid;
+			(<HTMLInputElement>document.getElementById("sessionid")).value=filterData.sessionid;
+			(<HTMLInputElement>document.getElementById("requestid")).value=filterData.requestid;
+	  }
   }
 }
