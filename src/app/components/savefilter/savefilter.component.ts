@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { BackendApiService } from 'src/app/services/backend-api.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -21,16 +21,18 @@ export class SavefilterComponent implements OnInit {
   user = this.authenticationService.userValue;
   
   constructor(
+   @Inject(MAT_DIALOG_DATA) public data: any,
   private _mdr: MatDialogRef<SavefilterComponent>,
   private api: BackendApiService,
   private authenticationService: AuthenticationService,
   private notify: NotificationService,
- // @Inject(MAT_DIALOG_DATA) public data: any)
+ 
   ) { }
   
   ngOnInit(): void {
 	   // will log the entire data object
-	  // console.log("Filter Data ====>" + this.data);
+	  console.log("Filter Data ====>" + JSON.stringify(this.data));
+	  //console.log("======>" +this.data.filters.checkpoint.values[0]);
   }
   
   CloseDialog() {
@@ -56,24 +58,20 @@ export class SavefilterComponent implements OnInit {
 	  
 	//Get the filter data inputs
 	const filterName = (<HTMLInputElement>document.getElementById("text-name"))?.value;
- 	const userid = (<HTMLInputElement>document.getElementById("userid"))?.value;
-    const deviceid = (<HTMLInputElement>document.getElementById("deviceid"))?.value;
-    const sessionid = (<HTMLInputElement>document.getElementById("sessionid"))?.value;
-    const requestid = (<HTMLInputElement>document.getElementById("requestid"))?.value;
 	
 	//Construct API request payload.
 	this.filterData = {
 			"filter_data": {
-				"checkpoint": "",
-				"deviceid": deviceid,
-				"end_date": "",
+				"checkpoint": (this.data.filters)?(this.data.filters.checkpoint)?.values[0]:"",
+				"deviceid": (this.data.filters)?(this.data.filters.deviceId)?.values[0]:"",
+				"end_date": (this.data.ranges)? this.data.ranges.bigEquals : "",
 				"filter_name": filterName,
-				"requestid": requestid,
-				"sessionid": sessionid,
-				"severity": "",
-				"start_date": "",
-				//"status": "Active",
-				"userid": userid
+				"requestid": (this.data.filters)?(this.data.filters.requestId)?.values[0]:"",
+				"sessionid": (this.data.filters)?(this.data.filters.sessionId)?.values[0]:"",
+				"severity": (this.data.filters)?(this.data.filters.severity)?.values[0]:"",
+				"start_date": (this.data.smallEquals)? this.data.ranges.smallEquals : "", 
+				"status": (this.data.filters)?(this.data.filters.status)?.values[0]:"",
+				"userid": (this.data.filters)?(this.data.filters.userId)?.values[0]:""
 		  },
 		  "filter_type": this.selectplaceholder
 	};

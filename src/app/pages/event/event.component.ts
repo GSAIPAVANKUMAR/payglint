@@ -43,6 +43,7 @@ export class EventComponent implements OnInit {
   user = this.authenticationService.userValue;
   
   savedFilters:any = [];
+  filterSelected: any;
 
   constructor(
     private httpClient: HttpClient,
@@ -133,7 +134,7 @@ export class EventComponent implements OnInit {
     }
   }
 
-  resetEventTableFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any, severity: any, checkpoint: any, status: any) {
+  resetEventTableFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any, severity: any, checkpoint: any, status: any,filters:any) {
     startDate.value = '';
     endDate.value = '';
     requestid.value = '';
@@ -151,6 +152,9 @@ export class EventComponent implements OnInit {
 	
     this.resetEventTableFiltersForm();
     this.getEventTableData(this.eventTableFilter);
+	
+	this.filterSelected = undefined;
+	filters.value=undefined;
   }
 
   resetEventTableFiltersForm() {
@@ -181,8 +185,8 @@ export class EventComponent implements OnInit {
 
   openModal() {
     this.matDialgRef = this.matDialog.open(SavefilterComponent, {
-      disableClose: true
-	  //data :{'name':'Sunil'}
+      disableClose: true,
+	  data :this.eventTableFilter,
     });
   }
 
@@ -246,6 +250,7 @@ export class EventComponent implements OnInit {
   selectedStatus(val: any) {
     this.statusSelected = val;
   }
+  
   
   //Method to get the saved filter data and set it back to UI.
   loadSavedFilters() {

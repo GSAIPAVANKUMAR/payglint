@@ -14,9 +14,9 @@
       <span class="filter-title">Filters</span>
       <mat-form-field class="single-select-view" floatLabel="never">
         <mat-label>View all filters</mat-label>
-        <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="setSelectedFilters($event.value)"
+        <mat-select class="select-input" panelClass="selectInputClass" #filters (selectionChange)="setSelectedFilters($event.value)"
           disableOptionCentering>
-  		  
+  		    <mat-option>None</mat-option>
 			<mat-option *ngFor="let filterData of savedFilters" [value]="filterData">
 					{{filterData.filter_name}}
 			</mat-option>
@@ -33,7 +33,7 @@
       <div class="mat-input-tag">
         <mat-form-field class="single-select" floatLabel="never">
           <mat-label>Severity</mat-label>
-          <mat-select class="select-input" panelClass="selectInputClass" #severity
+          <mat-select id="severity" class="select-input" panelClass="selectInputClass" #severity
             (selectionChange)="selectedSeverity($event.value)" disableOptionCentering>
             <mat-option>None</mat-option>
             <mat-option value="LOW">LOW</mat-option>
@@ -113,7 +113,7 @@
         </button>
 
         <span class="filter-delete-button"
-          (click)="resetEventTableFiltersEvent(dateRangeStart, dateRangeEnd, requestid, userid, deviceid, sessionid, severity, checkpoint, status)"><img
+          (click)="resetEventTableFiltersEvent(dateRangeStart, dateRangeEnd, requestid, userid, deviceid, sessionid, severity, checkpoint, status,filters)"><img
             src="../../../../assets/images/delete_icon_button.svg" /></span>
       </div>
     </div>
