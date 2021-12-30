@@ -1,33 +1,71 @@
-<div style="width: 663px;height:454px" class="edit-user">
-    <div class="save">
-      <span class="filter"> Edit User </span>
-      <span (click)="CloseDialog()" style="margin-left:480px;padding-top: -20px;">
-        <img src="../../../assets/images/closeicon.png"></span>
+<div class="edit-user-wrapper">
+  <div class="modal-header">
+    <div class="header-title">Edit User</div>
+    <div class="close_icon">
+      <img
+        src="../../../assets/images/close_icon.svg"
+        alt="Close Icon"
+        draggable="false"
+        (click)="CloseDialog()"
+      />
     </div>
-    <br />
-    <div style="margin-left: 37px; ">Name*</div>
-    <input id="nameicon" type="text" [defaultValue]="name" class="nametxt"
-      style="text-indent: 20px; margin-bottom: 20px; padding-top: 11px" />
-    <div style="margin-left: 37px;">Email*</div>
-    <input id="nameicon" type="text" [defaultValue]="email" class="nametxt"
-      style="text-indent: 23px;margin-bottom: 20px;" />
-    <div style="margin-left: 37px;">Role*</div>
-    <div style="margin-left: 38px;">
-      <mat-form-field class="single-select">
-        <mat-select class="select-input" [(value)]="rolename" panelClass="selectInputClass">
-          <mat-option value="Role">Role</mat-option>
-          <mat-option value="Two">Second Option</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <br/>
-    <br/>
-    <span style="margin-left: 37px;">
-      <img src="../../../assets/images/deleteicon.png">
-    </span>
-      <button class="btn butntxt"><span class="txtsty">Update </span></button>
-    <span style="margin-left: 12px;">
-      <img src="../../../assets/images/reset.png">
-    </span>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="name" class="label">Name <span class="star">*</span></label>
+        <input
+          type="text"
+          name="text-name"
+          id="text-name"
+          placeholder=""
+          value="Ziv Cohen"
+          class="form-control text-name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email" class="label"
+          >Email <span class="star">*</span></label
+        >
+        <input
+          type="text"
+          name="text-email"
+          id="text-email"
+          placeholder=""
+          value="example@gmail.com"
+          class="form-control text-email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="select-role-label" class="label"
+          >Role <span class="star">*</span></label
+        >
+        <mat-form-field class="select-role" floatLabel="never">
+          <mat-label class="select-role-label">Role</mat-label>
+          <mat-select name="role" class="mat-role-select">
+            <mat-option value="Admin User"> Admin User </mat-option>
+            <mat-option value="Super User"> Super User </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="button-panel-wrapper">
+        <div class="button-panel-left">
+          <button class="btn btn-delete">
+            <span>
+              <img
+                src="../../../assets/images/delete_icon.svg"
+                alt="Icon"
+                draggable="false"
+              />
+            </span>
+            Delete
+          </button>
+        </div>
+        <div class="button-panel-right">
+          <button class="btn btn-update">Update</button>
+          <button class="btn btn-resetpassword">Reset Password</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
-

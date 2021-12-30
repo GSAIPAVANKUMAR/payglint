@@ -223,6 +223,11 @@ button {
   line-height: 14px;
   color: #4d556a;
 }
+tr.mat-row{
+  &:hover{
+    cursor: pointer;
+  }
+}
 
 ::ng-deep .mat-form-field-label {
   width: 48px;
