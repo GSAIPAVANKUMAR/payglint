@@ -7,7 +7,8 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./adduser.component.scss']
 })
 export class AdduserComponent implements OnInit {
-
+ 
+  
   constructor(private _mdr: MatDialogRef<AdduserComponent>) { }
 
   ngOnInit(): void {
