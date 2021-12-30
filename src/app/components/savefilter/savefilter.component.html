@@ -28,15 +28,15 @@
             <mat-select
               placeholder="Private"
               class="select-input"
-              (selectionChange)="selectedValue($event.value)"
+              (selectionChange)="setSelectedValue($event.value)"
               panelClass="selectInputClass"
             >
-              <mat-option value="Private">Private</mat-option>
-              <mat-option value="Public">Public</mat-option>
+              <mat-option value="private">Private</mat-option>
+              <mat-option value="public">Public</mat-option>
             </mat-select>
           </mat-form-field>
-          <span class="mini-title">Only you</span>
-          <button class="btn btn-add">Add</button>
+          <span class="mini-title">{{ title }}</span>
+          <button class="btn btn-add" [disabled]=true>Add</button>
         </div>
         <div class="viewers-value">
           <img
@@ -52,7 +52,7 @@
           <span class="viewers-text">{{ access }}</span>
         </div>
         <div class="button-save-wrapper">
-          <button class="btn btn-save">Save</button>
+          <button class="btn btn-save" (click)="saveFilters()">Save</button>
         </div>
       </div>
     </form>

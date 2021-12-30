@@ -14,10 +14,13 @@
       <span class="filter-title">Filters</span>
       <mat-form-field class="single-select-view" floatLabel="never">
         <mat-label>View all filters</mat-label>
-        <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="selectedView($event.value)"
+        <mat-select class="select-input" panelClass="selectInputClass" (selectionChange)="setSelectedFilters($event.value)"
           disableOptionCentering>
-          <mat-option value="one">First option</mat-option>
-          <mat-option value="two">Second option</mat-option>
+  		  
+			<mat-option *ngFor="let filterData of savedFilters" [value]="filterData">
+					{{filterData.filter_name}}
+			</mat-option>
+			
         </mat-select>
       </mat-form-field>
       <button class="btn-save-modal" (click)="openModal()">
@@ -36,7 +39,7 @@
             <mat-option value="LOW">LOW</mat-option>
             <mat-option value="MEDIUM">MEDIUM</mat-option>
             <mat-option value="HIGH">HIGH</mat-option>
-            <mat-option value="VERY HIGH">VERY HIGH</mat-option>
+            <mat-option value="VERY_HIGH">VERY HIGH</mat-option>
           </mat-select>
         </mat-form-field>
       </div>

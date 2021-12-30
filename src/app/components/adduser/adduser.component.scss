@@ -1,78 +1,110 @@
-.save {
-  background-color: #f6f6f6;
-  height: 61px;
-  padding-left: 32px;
-  padding-top: 20px;
-  display: flex;
+.adduser-wrapper {
+  width: 630px;
+  min-height: 430px;
+  .modal-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    background: #f6f6f6;
+    .header-title {
+      width: 50%;
+      font-family: LATO-Bold;
+      font-size: 20px;
+      line-height: 22px;
+      color: #4d556a;
+    }
+    .close_icon {
+      width: 50%;
+      text-align: right;
+      img {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .modal-body {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    .text-name {
+      height: 50px;
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+      border-radius: 5px;
+      text-indent: 30px;
+      background-image: url(../../../assets/images/name_icon.svg);
+      background-repeat: no-repeat;
+      background-position: 15px 15px;
+    }
+    .text-email {
+      margin-top: 25px;
+      height: 50px;
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
+      border-radius: 5px;
+      text-indent: 30px;
+      background-image: url(../../../assets/images/email.svg);
+      background-repeat: no-repeat;
+      background-position: 15px 15px;
+    }
+    .create-button-wrapper {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      .btn-create {
+        width: 173px;
+        height: 50px;
+        background: #4d556a;
+        border-radius: 3px;
+        font-family: LATO-Bold;
+        font-size: 16px;
+        line-height: 22px;
+        color: #ffffff;
+        &:hover {
+          background: darken($color: #4d556a, $amount: 10%);
+        }
+      }
+    }
+  }
 }
-.filter {
-  font-weight: bold;
-  font-size: 20px;
-  background-color: #f6f6f6;
-}
-#nameicon {
-  background-image: url(../../../assets/images/username.png);
-  background-repeat: no-repeat;
-  background-position: 5px 16px;
-  padding: 5px;
-}
-#emailicon{
-  background-image: url(../../../assets/images/emailicon.png);
-  background-repeat: no-repeat;
-  background-position: 5px 16px;
-  padding: 5px;
-}
+
 ::ng-deep .mat-dialog-container {
   display: block;
   padding: 0px;
   font-family: LATO-Regular;
   font-size: 15px;
 }
-::ng-deep .edit-user .mat-select-arrow {
-  border-width: 0px;
-  border-style: solid;
-  border-color: black;
-  border-left: 12px solid transparent !important;
-  border-right: none !important;
-  border-top: 7px solid transparent !important;
-  border-image-source: url("../../../assets/images/arrow.png") !important;
-  }
-.nametxt {
-  width: 595px !important;
-  height: 50px;
-  margin-left: 34px;
+
+::ng-deep.mat-select-min-line {
+  color: #7d8488 !important;
+}
+::ng-deep.select-role {
   margin-top: 10px;
+  width: 100%;
+  padding-left: 3%;
+  padding-right: 3%;
+  height: 50px;
+  padding-top: 5px;
+  font-family: LATO-Regular !important;
+  font-size: 16px;
+  line-height: 22px;
+  color: #7d8488 !important;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.03);
   border-radius: 5px;
-  font-family: LATO;
 }
-.single-select {
-  // padding: 0px 10px;
-  padding-top:  10px;
-  padding-left:8px;
-  border: 1px solid #9D9EA8;
-  box-sizing: border-box;
-  border-radius: 3px;
-  // background-color: white;
-  outline: none;
-  color: #9D9EA8 !important;
-  height: 50px;
-  width: 595px;
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  padding-right: 8px;
-}
-.select-input {
-font-family: Lato;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 22px;
-color: #7D8488;
+
+::ng-deep.mat-form-field-label {
+  height: 35px;
 }

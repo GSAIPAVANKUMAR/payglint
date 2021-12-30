@@ -86,4 +86,34 @@ export class BackendApiService {
         })
       );
   }
+
+  //Make service API call to get the saved filter data from DB.
+  getSavedFilterData(data: any, token: any) {
+		const header = new HttpHeaders()
+		  .set('accept', '*/*')
+		  .set('x-access-token', token)
+		  .set('Content-Type', 'application/json');
+		return this.http
+		  .get<any>(API_URL + '/api/my/event/filters', { headers: header })
+		  .pipe(
+			map((response) => {
+			  return response;
+			})
+		  );
+	}
+	
+	//Make service API call to save the filter data into DB.
+	saveFilterData(data: any, token: any) {
+		const header = new HttpHeaders()
+		  .set('accept', '*/*')
+		  .set('x-access-token', token)
+		  .set('Content-Type', 'application/json');
+		return this.http
+		  .put<any>(API_URL + '/api/my/event/filters', data, { headers: header })
+		  .pipe(
+			map((response) => {
+			  return response;
+			})
+		  );
+	}
 }

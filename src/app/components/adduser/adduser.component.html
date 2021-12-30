@@ -1,26 +1,52 @@
-<div style="width: 663px;height:454px" class="edit-user">
-    <div class="save">
-        <span class="filter"> Create New User </span>
-        <span (click)="CloseDialog()" style="margin-left:420px;">
-            <img src="../../../assets/images/closeicon.png"></span>
+<div class="adduser-wrapper">
+  <div class="modal-header">
+    <div class="header-title">Create New User</div>
+    <div class="close_icon">
+      <img
+        src="../../../assets/images/close_icon.svg"
+        alt="Close Icon"
+        draggable="false"
+        (click)="CloseDialog()"
+      />
     </div>
-    <br />
-    <input id="nameicon" type="text" class="nametxt" style="text-indent: 20px; margin-bottom: 30px; padding-top: 11px "
-        placeholder="New User Name" />
-    <input id="emailicon" type="text" class="nametxt" style="text-indent: 23px; margin-bottom: 30px; padding-top: 11px "
-        placeholder=" New User Email" />
-    <div style="margin-left: 38px;">
-        <mat-form-field class="single-select">
-            <mat-select class="select-input" panelClass="selectInputClass" placeholder="Role">
-                <mat-option value="One">First</mat-option>
-                <mat-option value="Two">Second Option</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <br />
-    <br />
-    <span style="margin-left: 200px;">
-        <img src="../.././../../assets/images/createbtn.png">
-    </span>
+  </div>
+  <div class="modal-body">
+      <form>
+          <div class="form-group">
+            <input 
+            type="text" 
+            name="text-name" 
+            id="text-name" 
+            placeholder="New User Name"
+            autocomplete="off"
+            class="form-control text-name" />
+          </div>
+          <div class="form-group">
+              <input 
+              type="text" 
+              name="text-email" 
+              id="text-email" 
+              placeholder="New User Email"
+              autocomplete="off"
+              class="form-control text-email" />
+          </div>
+          <div class="form-group">
+            <mat-form-field class="select-role" floatLabel="never">
+                <mat-label class="select-role-label">Role</mat-label>
+                <mat-select  name="role" class="mat-role-select">
+                  <mat-option value="Admin User">
+                    Admin User
+                  </mat-option>
+                  <mat-option value="Super User">
+                    Super User
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div class="create-button-wrapper">
+            <button class="btn btn-create">Save</button>
+          </div>
+      </form>
+  </div>
 </div>
 
