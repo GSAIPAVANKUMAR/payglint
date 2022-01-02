@@ -13,35 +13,22 @@ import { AuthenticationService } from "src/app/services/authentication.service";
   styleUrls: ["./audittrials.component.scss"],
 })
 export class AudittrialsComponent implements OnInit {
-  BASE_URL = "http://localhost:3000";
-  paginationInfo: any;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+
   matDialgRef!: MatDialogRef<SavefilterComponent>;
-  EmitResult = {
-    pageNumber: "",
-    pageSize: "",
-  };
-  testPaginator = {
-    length: 1000,
-    pageSize: 10,
-    pageIndex: 1,
-  };
-  // tableData1 = [
-  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
-  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
-  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
-  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' },
-  //   { Date: 'Low', LogedInUser: 'Email', Resource: 'Role', Sessionid: 'Created ', Path: 'Updated' }
-  // ];
-  tableData: any;
-  rowData: any;
 
-  noAuditTrailTableDataFlag: boolean = false;
-
+  auditTrailTableData: any;
   auditTrailTableFilter: auditTrailTableFilterPayload = {};
   auditTrailTablePerPage: number = 10;
   auditTrailTableCurrentPage: number = 1;
   auditTrailTableTotalData: number = 0;
+
+  noAuditTrailTableDataFlag: boolean = false;
+
+  filterResourceOptionArray: Array<any> = [];
+  filterUserOptionArray: Array<any> = [];
+
+  dateRangeStart: string | undefined = '';
+  dateRangeEnd: string | undefined = '';
 
   user = this.authenticationService.userValue;
 
@@ -51,12 +38,18 @@ export class AudittrialsComponent implements OnInit {
     private notify: NotificationService,
     private api: BackendApiService,
     private authenticationService: AuthenticationService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.getfilterResourceOptionArray();
+    this.getfilterUserOptionArray();
+
     this.auditTrailTableFilter = {
       currentPage: this.auditTrailTableCurrentPage,
       perPage: this.auditTrailTablePerPage,
+      filters: undefined,
+      ranges: undefined,
+      sort: undefined
     };
 
     this.getAuditTrailTableData(this.auditTrailTableFilter);
@@ -67,9 +60,9 @@ export class AudittrialsComponent implements OnInit {
       .getAuditTrailTable(auditTrailTableFilter, this.user?.token)
       .subscribe(
         (data) => {
-          this.tableData = data.result;
+          this.auditTrailTableData = data.result;
           this.auditTrailTableTotalData = data.count;
-          if (this.tableData.length > 0) {
+          if (this.auditTrailTableData.length > 0) {
             this.noAuditTrailTableDataFlag = false;
           } else {
             this.noAuditTrailTableDataFlag = true;
@@ -81,34 +74,98 @@ export class AudittrialsComponent implements OnInit {
       );
   }
 
-  setPageSizeOptions = (setPageSizeOptionsInput: string) => {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput
-        .split(",")
-        .map((str) => +str);
+  getfilterResourceOptionArray() {
+    this.api
+      .getAuditTrailResourceFilterOptions(this.user?.token)
+      .subscribe(
+        (data) => {
+          this.filterResourceOptionArray = data.AuditTrailResources;
+        },
+        (error) => {
+          this.notify.error(error);
+        }
+      );
+  }
+
+  getfilterUserOptionArray() {
+    this.api
+      .getAuditTrailUserFilterOptions(this.user?.token)
+      .subscribe(
+        (data) => {
+          this.filterUserOptionArray = data;
+        },
+        (error) => {
+          this.notify.error(error);
+        }
+      );
+  }
+
+  resetAuditTrailFilters(auditTrailResource: any, auditTrailUser: any, auditTrailData: any, dateRangeStart: any, dateRangeEnd: any) {
+    auditTrailResource.value = undefined;
+    auditTrailUser.value = undefined;
+    auditTrailData.value = '';
+    dateRangeStart.value = '';
+    dateRangeEnd.value = '';
+
+    this.dateRangeEnd = '';
+    this.dateRangeStart = '';
+
+    this.auditTrailTableFilter = {
+      currentPage: this.auditTrailTableCurrentPage,
+      perPage: this.auditTrailTablePerPage,
+      filters: undefined,
+      ranges: undefined,
+      sort: undefined
+    };
+
+    this.getAuditTrailTableData(this.auditTrailTableFilter);
+  }
+
+  applyAuditTrailFilters(auditTrailResource: any, auditTrailUser: any, auditTrailData: any) {
+    const resource = auditTrailResource.value ? auditTrailResource.value : undefined;
+    const user = auditTrailUser.value ? auditTrailUser.value : undefined;
+    const data = auditTrailData.value ? auditTrailData.value : undefined;
+
+    this.auditTrailTableFilter = {
+      currentPage: this.auditTrailTableCurrentPage,
+      perPage: this.auditTrailTablePerPage,
+      filters: {
+        resourceFilter: resource ? { values: [resource] } : undefined,
+        userNameFilter: user ? { values: [user] } : undefined,
+      },
+      ranges: {
+        bigEquals: this.dateRangeEnd ? this.dateRangeEnd : undefined,
+        smallEquals: this.dateRangeStart ? this.dateRangeStart : undefined
+      },
+      sort: undefined
+    };
+
+    this.getAuditTrailTableData(this.auditTrailTableFilter);
+  }
+
+  dateRangeChange(startDate: any, endDate: any) {
+    const sd: string[] = startDate.value.split('/');
+    const ed: string[] = endDate.value.split('/');
+    if (sd.length != 3) {
+      this.dateRangeStart = '';
     }
-  };
+    else {
+      this.dateRangeStart = ''.concat(sd[2], '-', (sd[0].length == 2) ? sd[0] : `0${sd[0]}`, '-', (sd[1].length == 2) ? sd[1] : `0${sd[1]}`, ' 00:00');
+    }
+    if (ed.length != 3) {
+      this.dateRangeEnd = '';
+    }
+    else {
+      this.dateRangeEnd = ''.concat(ed[2], '-', (ed[0].length == 2) ? ed[0] : `0${ed[0]}`, '-', (ed[1].length == 2) ? ed[1] : `0${ed[1]}`, ' 00:00');
+    }
+  }
 
   onPageEvent = ($event: { pageIndex: any; pageSize: any }) => {
     this.auditTrailTableCurrentPage = $event.pageIndex + 1;
     this.auditTrailTableFilter.currentPage = this.auditTrailTableCurrentPage;
     this.getAuditTrailTableData(this.auditTrailTableFilter);
   };
-  showTestEmit = ($event: { pageIndex: any; pageSize: any }) => {
-    this.EmitResult = {
-      pageNumber: $event.pageIndex,
-      pageSize: $event.pageSize,
-    };
-  };
-  allProjects = (page: number, limit: any) => {
-    return this.httpClient.get(
-      `${this.BASE_URL}/posts?_page=${page + 1}&_limit=${limit}`
-    );
-  };
 
-  getPageSize = () => {
-    return this.httpClient.get(`${this.BASE_URL}/pageSize`);
-  };
   openModal() {
     this.matDialgRef = this.matDialog.open(SavefilterComponent, {
       disableClose: true,

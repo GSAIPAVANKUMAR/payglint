@@ -46,6 +46,34 @@ export class BackendApiService {
       );
   }
 
+  getAuditTrailResourceFilterOptions(token: any) {
+    const header = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('x-access-token', token)
+      .set('Content-Type', 'application/json');
+    return this.http
+      .get<any>(API_URL + '/api/audit/audit-trails-resources', { headers: header })
+      .pipe(
+        map((response) => {
+          return response;
+        })
+      );
+  }
+
+  getAuditTrailUserFilterOptions(token: any) {
+    const header = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('x-access-token', token)
+      .set('Content-Type', 'application/json');
+    return this.http
+      .get<any>(API_URL + '/api/audit/audit-trails-usernames', { headers: header })
+      .pipe(
+        map((response) => {
+          return response;
+        })
+      );
+  }
+
   getProfileTable(data: profileFilterPayload, token: any) {
     const header = new HttpHeaders()
       .set('accept', '*/*')

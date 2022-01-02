@@ -41,8 +41,8 @@ export class EventComponent implements OnInit {
   eventTableCurrentPage: number = 1;
 
   user = this.authenticationService.userValue;
-  
-  savedFilters:any = [];
+
+  savedFilters: any = [];
   filterSelected: any;
 
   constructor(
@@ -61,9 +61,9 @@ export class EventComponent implements OnInit {
       ranges: undefined
     };
     this.getEventTableData(this.eventTableFilter);
-	
-	//Get saved filters if any
-	this.loadSavedFilters();
+
+    //Get saved filters if any
+    this.loadSavedFilters();
   }
 
   getEventTableData(eventTableFilter: eventTableFilterPayload) {
@@ -72,9 +72,9 @@ export class EventComponent implements OnInit {
         data => {
           this.eventTableData = data.result;
           this.tableDataSize = data.count;
-          if(this.eventTableData.length > 0){
+          if (this.eventTableData.length > 0) {
             this.noEventTableDataFlag = false
-          }else{
+          } else {
             this.noEventTableDataFlag = true
           }
         },
@@ -113,7 +113,7 @@ export class EventComponent implements OnInit {
     const sessionid = (<HTMLInputElement>document.getElementById("sessionid"))?.value;
     const requestid = (<HTMLInputElement>document.getElementById("requestid"))?.value;
 
-	this.eventTableCurrentPage = 1;
+    this.eventTableCurrentPage = 1;
     this.eventTableFilter = {
       currentPage: this.eventTableCurrentPage,
       perPage: this.eventTablePerPage,
@@ -133,7 +133,7 @@ export class EventComponent implements OnInit {
     }
   }
 
-  resetEventTableFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any, severity: any, checkpoint: any, status: any,filters:any) {
+  resetEventTableFiltersEvent(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any, severity: any, checkpoint: any, status: any, filters: any) {
     startDate.value = '';
     endDate.value = '';
     requestid.value = '';
@@ -143,17 +143,19 @@ export class EventComponent implements OnInit {
     severity.value = undefined;
     checkpoint.value = undefined;
     status.value = undefined;
-	
-	this.severitySelected = undefined;
-	this.checkpointSelected = undefined;
-	this.statusSelected = undefined;
-	this.eventTableCurrentPage = 1;
-	
+
+    this.dateRangeEnd = '';
+    this.dateRangeStart = '';
+    this.severitySelected = undefined;
+    this.checkpointSelected = undefined;
+    this.statusSelected = undefined;
+    this.eventTableCurrentPage = 1;
+
     this.resetEventTableFiltersForm();
     this.getEventTableData(this.eventTableFilter);
-	
-	this.filterSelected = undefined;
-	filters.value=undefined;
+
+    this.filterSelected = undefined;
+    filters.value = undefined;
   }
 
   resetEventTableFiltersForm() {
@@ -176,7 +178,7 @@ export class EventComponent implements OnInit {
     this.selectedRowIndex = "fsd";
   }
 
-  display(row: any) {
+  async display(row: any) {
     this.dispalyRow = true;
     this.selectedRowIndex = row;
     this.rowData = row;
@@ -185,7 +187,7 @@ export class EventComponent implements OnInit {
   openModal() {
     this.matDialgRef = this.matDialog.open(SavefilterComponent, {
       disableClose: true,
-	  data :this.eventTableFilter,
+      data: this.eventTableFilter,
     });
   }
 
@@ -193,9 +195,9 @@ export class EventComponent implements OnInit {
     this.api.getEventTable(this.eventTableFilter, this.user?.token)
       .subscribe(
         data => {
-          if(data.result.length > 0 ){
+          if (data.result.length > 0) {
             this.downloadEventDataCSV(data.result);
-          }else{
+          } else {
             this.notify.info("No Data to export");
           }
         },
@@ -249,33 +251,33 @@ export class EventComponent implements OnInit {
   selectedStatus(val: any) {
     this.statusSelected = val;
   }
-  
-  
+
+
   //Method to get the saved filter data and set it back to UI.
   loadSavedFilters() {
-	this.api.getSavedFilterData("", this.user?.token)
+    this.api.getSavedFilterData("", this.user?.token)
       .subscribe(
         data => {
-			if (data.length > 0) {
-				this.savedFilters = data;
-			} else {
-				this.savedFilters = [{'filter_name':'No saved Filters'}];
-			}
+          if (data.length > 0) {
+            this.savedFilters = data;
+          } else {
+            this.savedFilters = [{ 'filter_name': 'No saved Filters' }];
+          }
         },
         error => {
           this.notify.error(error);
         }
       );
   }
-  
+
   //set selected saved filter attributes
   setSelectedFilters(filterData: any) {
-	  console.log("Selected filter data: " + filterData);
-	  if (filterData) {
-		    (<HTMLInputElement>document.getElementById("userid")).value=filterData.userid;
-			(<HTMLInputElement>document.getElementById("deviceid")).value=filterData.deviceid;
-			(<HTMLInputElement>document.getElementById("sessionid")).value=filterData.sessionid;
-			(<HTMLInputElement>document.getElementById("requestid")).value=filterData.requestid;
-	  }
+    console.log("Selected filter data: " + filterData);
+    if (filterData) {
+      (<HTMLInputElement>document.getElementById("userid")).value = filterData.userid;
+      (<HTMLInputElement>document.getElementById("deviceid")).value = filterData.deviceid;
+      (<HTMLInputElement>document.getElementById("sessionid")).value = filterData.sessionid;
+      (<HTMLInputElement>document.getElementById("requestid")).value = filterData.requestid;
+    }
   }
 }
