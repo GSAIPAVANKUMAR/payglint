@@ -72,5 +72,21 @@ export interface auditTrailTableFilterPayload {
 }
 
 export interface profileFilterPayload {
-
+    currentPage?: number;
+    perPage?: number;
+    filters?: {
+        emailFilter?: { values: string[] };
+        idFilter?: { values: string[] };
+        isUserVerifiedFilter?: { values: string[] };
+        nameFilter?: { values: string[] };
+        roleFilter?: { values: string[] };
+    }
+    ranges?: {
+        bigEquals?: string;
+        smallEquals?: string;
+    };
+    sort?: {
+        fieldName?: string;
+        order?: string;
+    };
 }

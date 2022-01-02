@@ -5,10 +5,7 @@
       <div class="col-md-6 user-profile">
         <img src="../../../../assets/images/user_img.png" draggable="false" />
         <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
-        <img
-          src="../../../../assets/images/user_down_arrow.svg"
-          draggable="false"
-        />
+        <img src="../../../../assets/images/user_down_arrow.svg" draggable="false" />
       </div>
     </div>
     <!-- filter section -->
@@ -16,11 +13,7 @@
       <span class="filter-title">Filters</span>
       <mat-form-field class="single-select-view" floatLabel="never">
         <mat-label>View all filters</mat-label>
-        <mat-select
-          class="select-input"
-          panelClass="selectInputClass"
-          disableOptionCentering
-        >
+        <mat-select class="select-input" panelClass="selectInputClass" disableOptionCentering>
           <mat-option value="one">First option</mat-option>
           <mat-option value="two">Second option</mat-option>
         </mat-select>
@@ -32,35 +25,18 @@
     <!-- filter options section -->
     <div class="row profile-filter-options">
       <div class="form-group">
-        <input
-          type="text"
-          name="text-name"
-          id="text-name"
-          placeholder="Name"
-          autocomplete="off"
-          class="form-control"
-        />
+        <input type="text" name="text-name" id="text-name" placeholder="Name" autocomplete="off" class="form-control" />
       </div>
 
       <div class="form-group">
-        <input
-          type="text"
-          name="text-email"
-          id="text-email"
-          placeholder="Email"
-          autocomplete="off"
-          class="form-control"
-        />
+        <input type="text" name="text-email" id="text-email" placeholder="Email" autocomplete="off"
+          class="form-control" />
       </div>
 
       <div class="mat-input-tag">
         <mat-form-field class="single-select" floatLabel="never">
           <mat-label>Checkpoint (0)</mat-label>
-          <mat-select
-            class="select-input"
-            panelClass="selectInputClass"
-            disableOptionCentering
-          >
+          <mat-select class="select-input" panelClass="selectInputClass" disableOptionCentering>
             <mat-option value="one">First option</mat-option>
             <mat-option value="two">Second option</mat-option>
           </mat-select>
@@ -68,17 +44,12 @@
       </div>
       <div class="date-range-wrapper">
         <mat-form-field class="is-form-date-range-picker" floatLabel="never">
-          <mat-label class="is-datepicker-label"
-            >Start Date to End Date</mat-label
-          >
+          <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
           <mat-date-range-input [rangePicker]="picker">
             <input matStartDate #dateRangeStart placeholder="Start date" />
             <input matEndDate #dateRangeEnd placeholder="End date" />
           </mat-date-range-input>
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
       </div>
@@ -93,39 +64,32 @@
 
     <!-- table content section -->
     <div class="row profile-table-body">
-      <table mat-table [dataSource]="tableData">
+      <table mat-table [dataSource]="profileTableData">
         <ng-container matColumnDef="Name">
           <th mat-header-cell *matHeaderCellDef>Name</th>
-          <td mat-cell *matCellDef="let element">{{ element.Name }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
         </ng-container>
         <ng-container matColumnDef="Email">
           <th mat-header-cell *matHeaderCellDef>Email</th>
-          <td mat-cell *matCellDef="let element">{{ element.Email }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
         </ng-container>
         <ng-container matColumnDef="Role">
           <th mat-header-cell *matHeaderCellDef>Role</th>
-          <td mat-cell *matCellDef="let element">{{ element.Role }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.role }}</td>
         </ng-container>
         <ng-container matColumnDef="Created">
           <th mat-header-cell *matHeaderCellDef>Created</th>
-          <td mat-cell *matCellDef="let element">{{ element.Created }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.created }}</td>
         </ng-container>
         <ng-container matColumnDef="Updated">
           <th mat-header-cell *matHeaderCellDef>Updated</th>
-          <td mat-cell *matCellDef="let element">{{ element.Updated }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.updated }}</td>
         </ng-container>
-        <tr
-          mat-header-row
-          *matHeaderRowDef="['Name', 'Email', 'Role', 'Created', 'Updated']"
-        ></tr>
-        <tr
-          mat-row
-          (click)="editModal(row)"
-          *matRowDef="
+        <tr mat-header-row *matHeaderRowDef="['Name', 'Email', 'Role', 'Created', 'Updated']"></tr>
+        <tr mat-row (click)="editModal(row)" *matRowDef="
             let row;
             columns: ['Name', 'Email', 'Role', 'Created', 'Updated']
-          "
-        ></tr>
+          "></tr>
       </table>
     </div>
     <!-- EOF table content section -->
@@ -137,13 +101,8 @@
 
     <!-- Pagination section -->
     <div class="pg-container">
-      <mat-paginator
-        appPagination
-        [length]="5"
-        [pageSize]="9"
-        [hidePageSize]="true"
-        (page)="onPageEvent($event)"
-      >
+      <mat-paginator appPagination [length]="profileTableDataSize" [pageSize]="profileTablePerPage"
+        [hidePageSize]="true" (page)="onProfileTablePageEvent($event)">
       </mat-paginator>
     </div>
   </div>

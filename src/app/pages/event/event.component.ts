@@ -46,7 +46,6 @@ export class EventComponent implements OnInit {
   filterSelected: any;
 
   constructor(
-    private httpClient: HttpClient,
     private matDialog: MatDialog,
     private notify: NotificationService,
     private api: BackendApiService,
