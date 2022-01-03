@@ -1,127 +1,215 @@
-<div class="reports-page">
-  <div class="row">
-    <div class="col-6">
-      <h5 class="is-page-header">Reports</h5>
+<div class="report-wrapper">
+  <div class="container-fluid">
+    <!-- Header section -->
+    <div class="row report-header">
+      <div class="col-md-6 page-header">Reports</div>
+      <div class="col-md-6 user-profile">
+        <img src="../../../../assets/images/user_img.png" draggable="false" />
+        <span class="user-name-text my-auto mx-2">Amanda Isti</span>
+        <img
+          src="../../../../assets/images/user_down_arrow.svg"
+          draggable="false"
+        />
+      </div>
     </div>
-    <div class="col-6 justify-content-end d-flex">
-      <img src="../../../../assets/images/user_img.png" />
-      <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
-      <img src="../../../../assets/images/user_down_arrow.svg" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 mb-2">
-      <span class="is-page-label">Filters</span>
-      <select class="is-filter-select-option">
-        <option value="" hidden selected disabled>View all filters</option>
-        <option *ngFor="let filter of filtersArray">
-          {{filter}}
-        </option>
-      </select>
-      <button type="button" class="btn btn-light is-save-button ml-1">Save As</button>
-    </div>
-    <div class="col-2">
-      <mat-form-field class="is-datepicker" appearance="fill">
-        <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate placeholder="Start date">
-          <input matEndDate placeholder="End date">
-        </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
+    <!-- filter section -->
+    <!-- <div class="row report-filter-row">
+      <span class="filter-title">Filters</span>
+      <mat-form-field class="single-select-view" floatLabel="never">
+        <mat-label>View all filters</mat-label>
+        <mat-select
+          class="select-input"
+          panelClass="selectInputClass"
+          disableOptionCentering
+        >
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
       </mat-form-field>
-    </div>
-    <div class="col-8">
-      <select class="is-checkpoint-select-option">
-        <option value="" hidden selected disabled>Checkpoint(0)</option>
-        <option *ngFor="let checkpoint of checkpointsArray">
-          {{checkpoint}}
-        </option>
-      </select>
-      <input class="is-input-field" type="text" placeholder="Min Amount">
-      <input class="is-input-field" type="text" placeholder="Max Amount">
-      <input class="is-input-field" type="text" placeholder="Currency">
-      <select class="is-status-select-option">
-        <option value="" hidden selected disabled>Status(0)</option>
-        <option *ngFor="let status of statusArray">
-          {{status}}
-        </option>
-      </select>
-    </div>
-    <div class="col-2">
-      <button class="button-txt">
-        <img src="../../../../assets/images/right.png" />Apply
-      </button>
-      <span style="margin-left: 0.5rem"><img src="../../../../assets/images/delete_icon_button.svg" /></span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="is-warning-label">
-        <span class="is-warning-label-text">Suspicious Activity Report</span>
+      <button class="btn-save-modal">Save as</button>
+    </div> -->
+
+    <!-- Filter option section -->
+    <div class="row report-filter-options">
+      <div class="date-range-wrapper">
+        <mat-form-field class="is-form-date-range-picker" floatLabel="never">
+          <mat-label class="is-datepicker-label"
+            >Start Date to End Date</mat-label
+          >
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate #dateRangeStart placeholder="Start date" />
+            <input matEndDate #dateRangeEnd placeholder="End date" />
+          </mat-date-range-input>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+
+      <div class="mat-input-tag">
+        <mat-form-field class="single-select" floatLabel="never">
+          <mat-label>Checkpoint (0)</mat-label>
+          <mat-select
+            class="select-input"
+            panelClass="selectInputClass"
+            disableOptionCentering
+          >
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          name="text-amount"
+          id="text-amount"
+          placeholder="Min Amount"
+          autocomplete="off"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          name="text-amount"
+          id="text-max-amount"
+          placeholder="Max Amount"
+          autocomplete="off"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          name="text-currency"
+          id="text-currency"
+          placeholder="Currency"
+          autocomplete="off"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mat-input-tag">
+        <mat-form-field class="single-select" floatLabel="never">
+          <mat-label>Status(0)</mat-label>
+          <mat-select
+            class="select-input"
+            panelClass="selectInputClass"
+            disableOptionCentering
+          >
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="right-side-button-panel">
+        <button class="btn btn-filter-apply" type="submit">
+          <img
+            src="../../../../assets/images/right.png"
+            draggable="false"
+          />Apply
+        </button>
+
+        <span class="filter-delete-button"
+          ><img
+            src="../../../../assets/images/delete_icon_button.svg"
+            draggable="false"
+        /></span>
       </div>
     </div>
-  </div>
-  <div class="row is-third-section">
-    <div class="col-7 is-border-right">
-      <div class="row mx-auto">
-        <div class="col-6">
-          <div class="is-suspicious-user-card">
-            <div class="row">
-              <div class="col-3 justify-content-end d-flex">
-                <img class="is-report-icons" src="../../../../assets/images/suspicious-user.svg" />
+
+    <!-- reports body section -->
+    <div class="reports-content-wrapper">
+      <div class="content-header">Suspicious Activity Report</div>
+      <div class="content-body">
+        <div class="row">
+          <div class="col-md-7 content-left">
+            <div class="card-wrapper">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="icon">
+                      <img
+                        src="../../../../assets/images/suspicious-user.svg"
+                        alt="Icon"
+                        draggable="false"
+                      />
+                    </div>
+                    <div class="content">
+                      <div class="big-text">115</div>
+                      <div class="small-text">Suspicious Users</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="icon">
+                      <img
+                        src="../../../../assets/images/verified-user-1.svg"
+                        alt="Icon"
+                        draggable="false"
+                      />
+                    </div>
+                    <div class="content">
+                      <div class="big-text red">
+                        27.12%
+                        <span class="smaller">of user</span>
+                      </div>
+                      <div class="small-text">Current active user 424</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-9">
-                <h3 class="my-auto is-number-active-user">115</h3>
-                <h5 class="is-number-active-user-label">Suspicious Users</h5>
-              </div>
+            </div>
+            <!-- Request chart section -->
+            <div class="request-chart-wrappper">
+              <div class="chart-title">Requests</div>
+              <canvas
+                #userChart
+                id="userChart"
+                style="width: 100%; height: 350px"
+              ></canvas>
             </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="is-active-user-card">
-            <div class="row">
-              <div class="col-3 justify-content-end d-flex">
-                <img class="is-report-icons" src="../../../../assets/images/verified-user-1.svg" />
+          <div class="col-md-5 content-right">
+            <!-- first chart -->
+            <div class="card">
+              <div class="left-section">
+                <h2 class="chart-big-title">High Risks(Transaction)</h2>
+                <h2 class="chart-value">34.88%</h2>
+                <h4 class="small-title">1453 out of</h4>
+                <h4 class="small-title _mt-10">4,166 transactions</h4>
               </div>
-              <div class="col-9">
-                <h3 class="my-auto is-user-label"><span class="is-percentage-active-user">27.12%</span> of user</h3>
-                <h5 class="is-number-active-user-label">Current active user 424</h5>
+              <div class="right-section">
+                <canvas
+                  #transactionChart
+                  id="transactionChart"
+                  style="width: 100%; height: 150px"
+                ></canvas>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="row is-border-top">
-        <div class="col-12 mt-3">
-          <h5 class="is-bar-chart-header">Requests</h5>
-          <canvas #userChart id="userChart" style="width:100%; height: 350px;"></canvas>
-        </div>
-      </div>
-    </div>
-    <div class="col-5">
-      <div class="row">
-        <div class="col-12">
-          <div class="row is-donut-chart-layout">
-            <div class="col-6" style="padding-top: 72px;">
-              <h5 class="is-donut-chart-text">High Risks(Transaction)</h5>
-              <h5 class="is-donut-chart-percentage">34.88%</h5>
-              <h5 class="is-donut-chart-label">1453 out of</h5>
-              <h5 class="is-donut-chart-label">4,166 transactions</h5>
-            </div>
-            <div class="col-6 my-auto">
-              <canvas #transactionChart id="transactionChart" style="width:100%; height: 150px;"></canvas>
-            </div>
-          </div>
-          <div class="row is-donut-chart-layout">
-            <div class="col-6" style="padding-top: 72px;">
-              <h5 class="is-donut-chart-text">High Risks(USD $)</h5>
-              <h5 class="is-donut-chart-percentage">12.55%</h5>
-              <h5 class="is-donut-chart-label">$19,770,338,223 out of</h5>
-              <h5 class="is-donut-chart-label">$157,520,871,321</h5>
-            </div>
-            <div class="col-6 my-auto">
-              <canvas #amountChart id="amountChart" style="width:100%; height: 150px;"></canvas>
+            <!-- second chart -->
+            <div class="card">
+              <div class="left-section">
+                <h2 class="chart-big-title">High Risks(USD $)</h2>
+                <h2 class="chart-value">12.55%</h2>
+                <h4 class="small-title">$19,770,338,223 out of</h4>
+                <h4 class="small-title _mt-10">$157,520,871,321</h4>
+              </div>
+              <div class="right-section">
+                <canvas
+                  #amountChart
+                  id="amountChart"
+                  style="width: 100%; height: 150px"
+                ></canvas>
+              </div>
             </div>
           </div>
         </div>

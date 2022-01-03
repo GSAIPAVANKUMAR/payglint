@@ -1,284 +1,300 @@
-.reports-page {
-    width: 1200px;
-    height: auto;
-    margin-top: 1.5rem;
-    margin-left: 1rem;
-    margin-bottom: 1.5rem;
-    margin-right: 1rem;
-}
-
-.is-page-header {
-    color: #4D556A !important;
-    font-size: 25px;
-    line-height: 27px;
-    font-weight: bold;
-    font-style: normal;
-    font-family: Lato;
-}
-
-.is-user-name-text {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    color: #4D556A;
-}
-
-.is-page-label {
-    color: #4D556A !important;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: bold;
-    font-style: normal;
-    font-family: Lato;
-    margin-right: 1rem;
-}
-
-.is-save-button {
-    height: 36px;
-    background-color: #F6F6F6;
-    color: #658C3D;
-    font-size: 14px;
-    line-height: 22px;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: 500;
-    margin-left: 1rem;
-}
-
-.is-filter-select-option {
-    height: 36px;
-    border: none;
-    outline: none;
-    background-color: #F6F6F6;
-    font-size: 14px;
-    line-height: 22px;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: 500;
-    color: #4D556A;
-}
-
-.is-datepicker {
-    height: 36px !important;
-    width: 200px !important;
-    // border: solid 1px #9D9EA8;
-    // border-radius: 3px;
-}
-
-.is-datepicker-label {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;    
-    line-height: 22px;
-    text-align: center;
-    color: #9D9EA8;
-}
-
-.is-input-field {
-    margin-left: 0.5rem;
-    height: 36px;
-    border: solid 1px #9D9EA8;
-    border-radius: 3px;
-    width: 120px;
-}
-
-.is-checkpoint-select-option {
-    margin-left: 0.5rem;
-    height: 36px;
-    width: 120px;
-    border: solid 1px #9D9EA8;
-    border-radius: 3px;
-    outline: none;
-    font-size: 14px;
-    line-height: 22px;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: 500;
-    color: #4D556A;
-}
-
-.is-status-select-option {
-    margin-left: 0.5rem;
-    height: 36px;
-    width: 120px;
-    border: solid 1px #9D9EA8;
-    border-radius: 3px;
-    outline: none;
-    font-size: 14px;
-    line-height: 22px;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: 500;
-    color: #4D556A;
-}
-
-.button-txt {
-    // margin-left: 4.5rem;
-    width: 130px;
-    height: 36px;
-    background: #86c255;
-    border: solid 1px #86c255;
-    box-sizing: border-box;
-    border-radius: 3px;
-    color: white;
-}
-
-.is-warning-label {
-    width: 100%;
-    height: 56px;
-    background-color: #F5F5F5;
-    text-align: center;
-    margin-top: 1.5rem;
-    border: solid 1px #E5E5E5;
-    border-radius: 4px 4px 0px 0px;
-}
-
-.is-warning-label-text {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 56px;
-    color: #4D556A;
-}
-
-.is-suspicious-user-card {
-    width: 100%;
-    height: 112px;
-    border: 1px solid #E5E5E5;
-    border-radius: 5px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.is-active-user-card {
-    width: 100% !important;
-    height: 112px;
-    border: 1px solid #E5E5E5;
-    border-radius: 5px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.is-bar-chart-header {
-    margin-left: 1.5rem;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 27px;
+.report-wrapper {
+  .report-header {
+    min-height: 86px;
+    border-bottom: 1px solid #e5e5e5;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    letter-spacing: 0.496657px;
-    color: #4D556A;
+    .page-header {
+      font-family: LATO-Bold;
+      font-size: 25px;
+      line-height: 22px;
+      color: #4d556a;
+      text-align: left;
+    }
+    .user-profile {
+      text-align: right;
+      .user-name-text {
+        font-family: LATO-Regular;
+        font-size: 18px;
+        line-height: 22px;
+        color: #4d556a;
+      }
+    }
+  }
+  .report-filter-row {
+    width: fit-content;
+    margin-top: 20px;
+    .filter-title {
+      font-family: LATO-Bold;
+      font-size: 18px;
+      line-height: 22px;
+      color: #4d556a;
+      width: 80px;
+    }
+    .btn-save-modal {
+      background-color: #f6f6f6;
+      margin-left: 10px;
+      width: 87px;
+      height: 36px;
+      color: #658c3d;
+      font-family: LATO-Regular;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      border-radius: 3px;
+      box-shadow: none;
+    }
+  }
+  .report-filter-options {
+    margin-top: 20px;
+    width: fit-content;
+    .mat-input-tag {
+      min-width: 130px;
+      width: 130px;
+    }
+    .date-range-wrapper {
+      width: 210px;
+      .is-form-date-range-picker {
+        height: 36px !important;
+        width: 200px !important;
+        border: 1px solid #9d9ea8;
+        box-sizing: border-box;
+        border-radius: 3px;
+        color: #9d9ea8;
+        padding: 3px;
+        .is-datepicker-label {
+          font-family: LATO-Regular;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 14px;
+          text-align: center;
+          color: #9d9ea8;
+          padding-left: 5px;
+        }
+      }
+    }
+    .form-group {
+      width: 122px;
+      margin-right: 10px;
+      .form-control {
+        height: 36px;
+        background: transparent;
+        border: none;
+        font-family: LATO-Regular;
+        font-size: 12px;
+        line-height: 14px;
+        width: 122px;
+        border: 1px solid #9d9ea8;
+        box-sizing: border-box;
+        border-radius: 3px;
+        color: #9d9ea8;
+      }
+    }
+    .single-select {
+      padding-top: 5px;
+      padding-left: 8px;
+      border: 1px solid #9d9ea8;
+      box-sizing: border-box;
+      border-radius: 3px;
+      outline: none;
+      color: #9d9ea8 !important;
+      height: 56px;
+      width: 122px;
+      height: 36px;
+      font-family: LATO-Regular;
+      font-size: 12px;
+      line-height: 14px;
+      padding-right: 8px;
+      padding-right: 8px;
+    }
+    .select-date-range {
+      width: 160px !important;
+      margin-left: 10px;
+    }
+    .right-side-button-panel {
+      position: absolute;
+      right: 0;
+      width: auto;
+      .btn-filter-apply {
+        margin-left: 10px;
+        width: 161px;
+        height: 36px;
+        background: #86c255;
+        border: 1px solid #86c255;
+        box-sizing: border-box;
+        border-radius: 3px;
+        color: white;
+        &:hover {
+          background: darken(#86c255, 10%);
+        }
+      }
+      .filter-delete-button {
+        width: fit-content;
+        margin-left: 10px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .reports-content-wrapper {
+    // height: 800px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    margin-bottom: 50px;
+    .content-header {
+      height: 56px;
+      background: #f5f5f5;
+      border-radius: 4px 4px 0px 0px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-family: LATO-Bold;
+      font-size: 20px;
+      line-height: 22px;
+      color: #4d556a;
+    }
+    .content-body {
+      .content-left {
+        border-right: 1px solid #e5e5e5;
+        padding-right: 0px;
+        .card-wrapper {
+          padding: 15px;
+          border-bottom: 1px solid #e5e5e5;
+          .card {
+            display: flex;
+            flex-direction: row;
+            padding: 25px;
+            .icon {
+              margin-right: 20px;
+              margin-top: 5px;
+            }
+            .content {
+              .big-text {
+                font-family: LATO-Bold;
+                font-size: 36px;
+                line-height: 43px;
+                letter-spacing: 0.01em;
+                color: #4d556a;
+                .smaller {
+                  font-family: LATO-Regular;
+                  font-size: 16px;
+                  line-height: 19px;
+                  letter-spacing: 0.01em;
+                  color: #5d6276;
+                }
+              }
+              .red {
+                color: #ff6464;
+              }
+              .small-text {
+                font-family: LATO-Regular;
+                font-size: 16px;
+                line-height: 19px;
+                letter-spacing: 0.01em;
+                color: #5d6276;
+              }
+            }
+          }
+        }
+        .request-chart-wrappper {
+          padding: 15px;
+          .chart-title {
+            font-family: LATO-Bold;
+            font-size: 24px;
+            line-height: 27px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.496657px;
+            color: #4d556a;
+          }
+        }
+      }
+      .content-right {
+        padding-top: 15px;
+        padding-right: 25px;
+        .card {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          padding: 20px;
+          margin-bottom: 20px;
+          .left-section {
+            width: 50%;
+            align-self: center;
+            .chart-big-title {
+              font-family: LATO-Bold;
+              font-size: 20px;
+              line-height: 28px;
+              color: #4d556a;
+            }
+            .chart-value {
+              font-family: LATO-Bold;
+              font-size: 26px;
+              line-height: 28px;
+              color: #ff6464;
+            }
+            .small-title {
+              font-family: LATO-Regular;
+              font-size: 16px;
+              line-height: 28px;
+              color: #4d556a;
+            }
+          }
+          .right-section {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
 }
 
-.is-donut-chart-text {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 28px;
-    color: #4D556A;
+button {
+  border: none;
+  background: none;
+  padding: none;
 }
 
-.is-donut-chart-percentage {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 26px;
-    line-height: 28px;
-    color: #FF6464;
+.single-select-view {
+  padding-top: 5px;
+  padding-left: 8px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: #f6f6f6;
+  outline: none;
+  color: #9d9ea8 !important;
+  height: 56px;
+  width: 122px;
+  height: 36px;
+  font-family: LATO-Regular;
+  font-size: 12px;
+  padding-right: 8px;
 }
 
-.is-donut-chart-label {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 28px;
-    color: #4D556A;
+::ng-deep .mat-form-field-infix {
+  border-top: 0 !important;
 }
 
-::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
-    height: 36px !important;
-    border: solid 1px #4D556A !important;
-    padding: 0 !important;
-    border-radius: 3px;
-    background-color: white;
+::ng-deep .mat-form-field-underline {
+  display: none;
 }
 
-.is-percentage-active-user {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 43px;
-    letter-spacing: 0.01em;
-    color: #FF6464;
+::ng-deep .selectInputClass {
+  min-width: 122px !important;
+  margin-top: 24px;
+  margin-left: 8px;
+  background: #ffffff;
+  position: fixed;
 }
-
-.is-number-active-user {
-    padding-top: 1.5rem;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 43px;
-    letter-spacing: 0.01em;
-    color: #4D556A;
+::ng-deep .mat-option {
+  border: 1px solid #e5e5e5;
 }
-
-.is-number-active-user-label {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 0.01em;
-    color: #5D6276;
-}
-
-.is-user-label {
-    padding-top: 1.5rem;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    color: #4D556A;
-}
-
-.is-report-icons {
-    margin-top: 1.5rem;
-    height: 34px !important;
-    width: 38px !important;
-}
-
-.is-third-section {
-    margin-right: 0rem;
-    margin-left: 0rem;
-    border: solid 1px #E5E5E5;
-    border-radius: 0 0 5px 5px;
-}
-
-.is-donut-chart-layout {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    height: 250px; 
-    border: solid 1px #E5E5E5;
-    border-radius: 5px;
-}
-
-.is-border-right {
-    border-right: solid 1px #E5E5E5;
-}
-
-.is-border-top {
-    border-top: solid 1px #E5E5E5;
+._mt-10 {
+  margin-top: -10px;
 }

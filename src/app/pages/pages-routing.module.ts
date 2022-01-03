@@ -24,13 +24,13 @@ const routes: Routes = [
         path: "",
         component: SideBarComponent,
         children: [
-            { path: route_prefix + "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
+            // { path: route_prefix + "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
             { path: route_prefix + "events", component: EventComponent, canActivate: [AuthGuard] },
             { path: route_prefix + "screenevents", component: ScreenEventComponent, canActivate: [AuthGuard] },
-            { path: route_prefix + "reports", component: ReportsComponent, canActivate: [AuthGuard] },
-            { path: route_prefix + "analytics", component: AnalyticsComponent, canActivate: [AuthGuard] },
-            { path: route_prefix + "profilescreen", component: ProfileScreenComponent, canActivate: [AuthGuard] },
-            { path: route_prefix + "audittrails", component: AudittrialsComponent, canActivate: [AuthGuard] },
+            // { path: route_prefix + "reports", component: ReportsComponent, canActivate: [AuthGuard] },
+            // { path: route_prefix + "analytics", component: AnalyticsComponent, canActivate: [AuthGuard] },
+            // { path: route_prefix + "profilescreen", component: ProfileScreenComponent, canActivate: [AuthGuard] },
+            // { path: route_prefix + "audittrails", component: AudittrialsComponent, canActivate: [AuthGuard] },
         ],
     },
 ];
