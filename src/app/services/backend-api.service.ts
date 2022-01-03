@@ -80,7 +80,7 @@ export class BackendApiService {
       .set('x-access-token', token)
       .set('Content-Type', 'application/json');
     return this.http
-      .post<any>(API_URL + '/api/users', data, { headers: header })
+      .post<any>(API_URL + '/api/users/get', data, { headers: header })
       .pipe(
         map((response) => {
           return response;

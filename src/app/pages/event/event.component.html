@@ -4,9 +4,9 @@
     <div class="row event-header">
       <div class="col-md-6 page-header">Events</div>
       <div class="col-md-6 user-profile">
-        <img src="../../../../assets/images/user_img.svg" />
+        <!-- <img src="../../../../assets/images/user_img.svg" />
         <span class="user-profile-name my-auto mx-2">Amanda Isti</span>
-        <img src="../../../../assets/images/user_down_arrow.svg" />
+        <img src="../../../../assets/images/user_down_arrow.svg" /> -->
       </div>
     </div>
     <!-- filter section  -->
@@ -15,7 +15,7 @@
       <mat-form-field class="single-select-view" floatLabel="never">
         <mat-label>View all filters</mat-label>
         <mat-select class="select-input" panelClass="selectInputClass" #filters
-          (selectionChange)="setSelectedFilters($event.value)" disableOptionCentering>
+          (selectionChange)="setSelectedFilters($event.value, severity, checkpoint, status, dateRangeStart, dateRangeEnd)" disableOptionCentering>
           <mat-option>None</mat-option>
           <mat-option *ngFor="let filterData of savedFilters" [value]="filterData">
             {{filterData.filter_name}}
@@ -23,7 +23,7 @@
 
         </mat-select>
       </mat-form-field>
-      <button class="btn-save-modal" (click)="openModal()">
+      <button class="btn-save-modal" (click)="openModal(dateRangeStart, dateRangeEnd, requestid, userid, deviceid, sessionid, severity, checkpoint, status)">
         Save as
       </button>
     </div>

@@ -184,10 +184,20 @@ export class EventComponent implements OnInit {
     this.rowData = row;
   }
 
-  openModal() {
+  openModal(startDate: any, endDate: any, requestid: any, userid: any, deviceid: any, sessionid: any, severity: any, checkpoint: any, status: any) {
     this.matDialgRef = this.matDialog.open(SavefilterComponent, {
       disableClose: true,
-      data: this.eventTableFilter,
+      data: {
+        "startDate": startDate,
+        "endDate": endDate,
+        "requestid": requestid,
+        "userid": userid,
+        "deviceid": deviceid,
+        "sessionid": sessionid,
+        "severity": severity,
+        "checkpoint": checkpoint,
+        "status": status
+      },
     });
   }
 
@@ -271,13 +281,19 @@ export class EventComponent implements OnInit {
   }
 
   //set selected saved filter attributes
-  setSelectedFilters(filterData: any) {
-    console.log("Selected filter data: " + filterData);
+  setSelectedFilters(filterData: any, severity: any, checkpoint: any, status: any, dateRangeStart: any, dateRangeEnd: any) {
+    console.log(filterData);
     if (filterData) {
       (<HTMLInputElement>document.getElementById("userid")).value = filterData.userid;
       (<HTMLInputElement>document.getElementById("deviceid")).value = filterData.deviceid;
       (<HTMLInputElement>document.getElementById("sessionid")).value = filterData.sessionid;
       (<HTMLInputElement>document.getElementById("requestid")).value = filterData.requestid;
+
+      severity.value = filterData.severity;
+      checkpoint.value = filterData.checkpoint;
+      status.value = filterData.status;
+      dateRangeStart.value = filterData.start_date;
+      dateRangeEnd.value = filterData.end_date;
     }
   }
 }
