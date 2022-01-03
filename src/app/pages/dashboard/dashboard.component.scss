@@ -6,8 +6,7 @@
     flex-direction: row;
     align-items: center;
     .page-header {
-      font-family: Lato;
-      font-weight: bold;
+      font-family: LATO-Bold;
       font-size: 25px;
       line-height: 22px;
       color: #4d556a;
@@ -15,8 +14,15 @@
     }
     .user-profile {
       text-align: right;
+      .user-name-text{
+        font-family: LATO-Regular;
+        font-size: 18px;
+        line-height: 22px;
+        color: #4D556A;
+      }
     }
   }
+
   .dashboard-body {
     min-height: 800px;
     .dashboard-left {
