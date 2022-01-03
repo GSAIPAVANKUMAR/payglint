@@ -3,7 +3,7 @@
     <div class="row audit-header">
       <div class="col-md-6 page-header">Audit Trails</div>
       <div class="col-md-6 user-profile">
-        <img src="../../../../assets/images/user_img.png" draggable="false" />
+        <img src="../../../../assets/images/user_img.svg" draggable="false" />
         <span class="is-user-name-text my-auto mx-2">Amanda Isti</span>
         <img src="../../../../assets/images/user_down_arrow.svg" draggable="false" />
       </div>
@@ -28,7 +28,7 @@
           <mat-label>Resource</mat-label>
           <mat-select #auditTrailResource class="select-input" panelClass="selectInputClass" disableOptionCentering>
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let option of filterResourceOptionArray | keyvalue" value="{{option.key}}">
+            <mat-option *ngFor="let option of filterResourceOptionArray | keyvalue" value="{{option.value}}">
               {{option.value}}
             </mat-option>
           </mat-select>
@@ -69,7 +69,7 @@
       <div class="right-side-button-panel">
         <button class="btn btn-filter-apply" type="button"
           (click)="applyAuditTrailFilters(auditTrailResource, auditTrailUser, auditTrailData)">
-          <img src="../../../../assets/images/right.png" />Apply
+          <img src="../../../../assets/images/currect_icon.svg" />Apply
         </button>
 
         <span class="filter-delete-button"

@@ -14,13 +14,13 @@
       <span class="filter-title">Filters</span>
       <mat-form-field class="single-select-view" floatLabel="never">
         <mat-label>View all filters</mat-label>
-        <mat-select class="select-input" panelClass="selectInputClass" #filters (selectionChange)="setSelectedFilters($event.value)"
-          disableOptionCentering>
-  		    <mat-option>None</mat-option>
-			<mat-option *ngFor="let filterData of savedFilters" [value]="filterData">
-					{{filterData.filter_name}}
-			</mat-option>
-			
+        <mat-select class="select-input" panelClass="selectInputClass" #filters
+          (selectionChange)="setSelectedFilters($event.value)" disableOptionCentering>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let filterData of savedFilters" [value]="filterData">
+            {{filterData.filter_name}}
+          </mat-option>
+
         </mat-select>
       </mat-form-field>
       <button class="btn-save-modal" (click)="openModal()">

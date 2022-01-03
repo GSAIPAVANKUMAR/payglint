@@ -112,7 +112,22 @@
       position: absolute;
       right: 0;
       width: auto;
+      .btn-filter-apply {
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 161px;
+        height: 36px;
+        background: #86c255;
+        border: 1px solid #86c255;
+        box-sizing: border-box;
+        border-radius: 3px;
+        color: white;
+        &:hover {
+          background: darken(#86c255, 10%);
+        }
+      }
       .btn-add-new {
+        margin-left: 10px;
         width: 119px;
         height: 36px;
         background: #86c255;
@@ -223,8 +238,8 @@ button {
   line-height: 14px;
   color: #4d556a;
 }
-tr.mat-row{
-  &:hover{
+tr.mat-row {
+  &:hover {
     cursor: pointer;
   }
 }
