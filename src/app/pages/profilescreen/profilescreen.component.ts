@@ -29,6 +29,9 @@ export class ProfileScreenComponent implements OnInit {
 
   noProfileTableDataFlag: boolean = false;
 
+  dateRangeStart: string | undefined = '';
+  dateRangeEnd: string | undefined = '';
+
   user = this.authenticationService.userValue;
 
   constructor(
@@ -66,6 +69,62 @@ export class ProfileScreenComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  dateRangeChange(startDate: any, endDate: any) {
+    const sd: string[] = startDate.value.split('/');
+    const ed: string[] = endDate.value.split('/');
+    if (sd.length != 3) {
+      this.dateRangeStart = '';
+    }
+    else {
+      this.dateRangeStart = ''.concat(sd[2], '-', (sd[0].length == 2) ? sd[0] : `0${sd[0]}`, '-', (sd[1].length == 2) ? sd[1] : `0${sd[1]}`, ' 00:00');
+    }
+    if (ed.length != 3) {
+      this.dateRangeEnd = '';
+    }
+    else {
+      this.dateRangeEnd = ''.concat(ed[2], '-', (ed[0].length == 2) ? ed[0] : `0${ed[0]}`, '-', (ed[1].length == 2) ? ed[1] : `0${ed[1]}`, ' 00:00');
+    }
+  }
+
+  applyProfileFilters(profilename: any, profileemail: any, profilerole: any) {
+    const pname = profilename.value;
+    const pemail = profileemail.value;
+    const prole = profilerole.value;
+
+    this.profileTableFilter = {
+      currentPage: this.profileTableCurrentPage,
+      perPage: this.profileTablePerPage,
+      filters: {
+        nameFilter: pname ? { values: [pname] } : undefined,
+        emailFilter: pemail ? { values: [pemail] } : undefined,
+        roleFilter: prole ? { values: [prole] } : undefined,
+      },
+      ranges: {
+        bigEquals: this.dateRangeEnd ? this.dateRangeEnd : undefined,
+        smallEquals: this.dateRangeStart ? this.dateRangeStart : undefined,
+      },
+      sort: undefined
+    };
+    this.getProfileTableData(this.profileTableFilter);
+  }
+
+  resetProfileFilters(profilename: any, profileemail: any, profilerole: any, dateRangeStart: any, dateRangeEnd: any) {
+    profilename.value = '';
+    profileemail.value = '';
+    profilerole.value = undefined;
+    dateRangeStart.value = '';
+    dateRangeEnd.value = '';
+
+    this.profileTableFilter = {
+      currentPage: this.profileTableCurrentPage,
+      perPage: this.profileTablePerPage,
+      filters: undefined,
+      ranges: undefined,
+      sort: undefined
+    };
+    this.getProfileTableData(this.profileTableFilter);
   }
 
   onProfileTablePageEvent = ($event: { pageIndex: any; }) => {

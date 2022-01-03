@@ -25,20 +25,23 @@
     <!-- filter options section -->
     <div class="row profile-filter-options">
       <div class="form-group">
-        <input type="text" name="text-name" id="text-name" placeholder="Name" autocomplete="off" class="form-control" />
+        <input #profilename type="text" name="text-name" id="text-name" placeholder="Name" autocomplete="off"
+          class="form-control" />
       </div>
 
       <div class="form-group">
-        <input type="text" name="text-email" id="text-email" placeholder="Email" autocomplete="off"
+        <input #profileemail type="text" name="text-email" id="text-email" placeholder="Email" autocomplete="off"
           class="form-control" />
       </div>
 
       <div class="mat-input-tag">
         <mat-form-field class="single-select" floatLabel="never">
-          <mat-label>Checkpoint (0)</mat-label>
-          <mat-select class="select-input" panelClass="selectInputClass" disableOptionCentering>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
+          <mat-label>Role</mat-label>
+          <mat-select #profilerole class="select-input" panelClass="selectInputClass" disableOptionCentering>
+            <mat-option value="developer">Developer</mat-option>
+            <mat-option value="admin">Admin</mat-option>
+            <mat-option value="superAdmin">Super Admin</mat-option>
+            <mat-option value="analyst">Analyst</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -46,8 +49,12 @@
         <mat-form-field class="is-form-date-range-picker" floatLabel="never">
           <mat-label class="is-datepicker-label">Start Date to End Date</mat-label>
           <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate #dateRangeStart placeholder="Start date" />
-            <input matEndDate #dateRangeEnd placeholder="End date" />
+            <input matStartDate #dateRangeStart placeholder="Start date"
+              (blur)="dateRangeChange(dateRangeStart, dateRangeEnd)"
+              (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)" />
+            <input matEndDate #dateRangeEnd placeholder="End date"
+              (blur)="dateRangeChange(dateRangeStart, dateRangeEnd)"
+              (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)" />
           </mat-date-range-input>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
@@ -58,12 +65,15 @@
         <button class="btn btn-add-new" (click)="openaddModal()">
           + Add New
         </button>
-        <button class="btn btn-filter-apply" type="submit">
+        <button class="btn btn-filter-apply" type="submit"
+          (click)="applyProfileFilters(profilename,profileemail,profilerole)">
           <img src="../../../../assets/images/currect_icon.svg" />Apply
         </button>
 
-        <span class="filter-delete-button"><img src="../../../../assets/images/delete_icon_button.svg" /></span>
-        
+        <span class="filter-delete-button"
+          (click)="resetProfileFilters(profilename,profileemail,profilerole,dateRangeStart,dateRangeEnd)"><img
+            src="../../../../assets/images/delete_icon_button.svg" /></span>
+
       </div>
     </div>
     <!-- EOF filter options section -->
@@ -101,7 +111,7 @@
     <!-- EOF table content section -->
 
     <!-- No table data section -->
-    <div class="no-table-data" *ngIf="false">
+    <div class="no-table-data" *ngIf="noProfileTableDataFlag">
       <div class="content">No available data to display</div>
     </div>
 

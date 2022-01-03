@@ -126,6 +126,9 @@
           background: darken(#86c255, 10%);
         }
       }
+      .filter-delete-button {
+        cursor: pointer;
+      }
       .btn-add-new {
         margin-left: 10px;
         width: 119px;
